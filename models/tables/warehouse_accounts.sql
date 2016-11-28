@@ -1,18 +1,11 @@
 select 
 
 a.name,
-a.account_id,
-a.address_id,
 a.created_at,
 a.division,
-a.email,
-a.externalaccountno,
-a.phone,
-a.parent_id,
 a.sales_rep_id,
 a.regional_manager_id,
 a.divisional_manager_id,
-a.shipping_id,
 a.customer_code,
 a.company_code,
 a.primary_account_manager_id,
@@ -33,4 +26,4 @@ aa.total_extension,
 aa.total_weight
 
 from {{ref('warehouse_base_accounts')}} a
-left join {{ref('warehouse_account_aggregates')}} aa on a.customer_code = a.customer_code
+left join {{ref('warehouse_account_aggregates')}} aa on aa.customer_code = a.customer_code

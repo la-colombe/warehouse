@@ -1,4 +1,4 @@
-select 
+select distinct
 actualid as item_code, 
 createdate as created_at,
 name, 

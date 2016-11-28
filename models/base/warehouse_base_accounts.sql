@@ -1,18 +1,12 @@
 select 
 
 a.name,
-a.account_id,
-a.address_id,
 a.created_at,
 a.division,
-a.email,
-a.externalaccountno,
-a.phone,
-a.parent_id,
+a.account_id,
 a.sales_rep_id,
 a.regional_manager_id,
 a.divisional_manager_id,
-a.shipping_id,
 
 ar.customer_code,
 ar.company_code,
@@ -38,3 +32,4 @@ left join {{ref('slx_c_account')}} ca on ca.account_id = a.account_id
 left join {{ref('slx_users')}} sr on sr.user_id = a.sales_rep_id
 left join {{ref('slx_users')}} am1 on am1.user_id = ca.primary_account_manager_id
 left join {{ref('slx_users')}} am2 on am2.user_id = ca.secondary_account_manager_id
+where ar.customer_code is not null

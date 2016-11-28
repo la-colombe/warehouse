@@ -1,4 +1,4 @@
-select 
+select distinct
 
 accountid as account_id,
 accountmanagerid2 as primary_account_manager_id,

@@ -1,4 +1,4 @@
-select 
+select distinct
 
 	userid as user_id,
     firstname as first_name,

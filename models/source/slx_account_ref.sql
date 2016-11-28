@@ -1,10 +1,9 @@
-select 
+select distinct
 
-accountid as account_id,
-acct_division as division,
 acct_id as customer_code,
-acct_type as type,
-comp_code as company_code,
-createdate as created_at
+max(accountid) as account_id,
+max(acct_division) as division,
+max(comp_code) as company_code
 
 from saleslogix.dl_acct_ref dl
+group by 1
