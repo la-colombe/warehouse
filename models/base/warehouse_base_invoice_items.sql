@@ -41,7 +41,7 @@ SELECT
 */
   i.account_invoice_number,
 
-  il.quantity * p.ship_weight as total_weight
+ il.quantity * p.ship_weight as total_weight
 
 from {{ref('invoice_history_detail')}} il
 join {{ref('warehouse_base_invoices')}} i on i.header_number = il.header_number and i.invoice_number = il.invoice_number

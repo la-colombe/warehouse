@@ -1,6 +1,6 @@
 SELECT
 
-  invoicedate as transaction_date, 
+  transactiondate as transaction_date, 
   customerno as customer_code,
   billtoname as bill_to_name,
   invoiceno as invoice_number,

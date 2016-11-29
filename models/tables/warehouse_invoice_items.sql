@@ -38,10 +38,12 @@ SELECT
   ii.primary_account_manager_name,
   ii.secondary_account_manager_name,
   */
+  ii.total_weight,
+  
   ii.account_invoice_number,
 
   i.account_paid_coffee_invoice_number
   --i.account_second_paid_coffee_invoice_date
 
   from {{ref('warehouse_base_invoice_items')}} ii
-  left join {{ref('warehouse_invoices')}} i on i.invoice_number = ii.invoice_number and i.header_number = ii.header_number
+  join {{ref('warehouse_invoices')}} i on i.invoice_number = ii.invoice_number and i.header_number = ii.header_number
