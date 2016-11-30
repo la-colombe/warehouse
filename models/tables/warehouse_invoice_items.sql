@@ -1,6 +1,7 @@
 SELECT 
  
   md5(ii.invoice_number || ii.header_number || ii.line_number) as unique_id,
+  i.unique_id as invoice_unique_id,
   ii.invoice_number,
   ii.sku,
   ii.item_name,
