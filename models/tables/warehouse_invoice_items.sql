@@ -1,5 +1,6 @@
 SELECT 
-
+ 
+  md5(ii.invoice_number || ii.header_number || ii.line_number) as unique_id,
   ii.invoice_number,
   ii.sku,
   ii.item_name,
@@ -28,7 +29,7 @@ SELECT
   ii.invoice_sales_tax,
   ii.invoice_freight,
   ii.comment,
-  /*
+  
   ii.account_name,
   ii.account_division,
   ii.company_code,
@@ -37,7 +38,7 @@ SELECT
   ii.sales_rep_name,
   ii.primary_account_manager_name,
   ii.secondary_account_manager_name,
-  */
+  
   ii.total_weight,
   
   ii.account_invoice_number,

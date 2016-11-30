@@ -1,6 +1,7 @@
 select 
 
 a.name,
+a.account_id,
 a.created_at,
 a.division,
 a.sales_rep_id,
@@ -27,3 +28,4 @@ aa.total_weight
 
 from {{ref('warehouse_base_accounts')}} a
 left join {{ref('warehouse_account_aggregates')}} aa on aa.customer_code = a.customer_code
+where a.customer_code is not null

@@ -22,14 +22,23 @@ am1.full_name as primary_account_manager_name,
 am2.full_name as secondary_account_manager_name,
 
 case
-	when customer_code like '70%' then 'CPG'
+	when ar.customer_code like '70%' then 'CPG'
 	else 'Hospitality'
 end as customer_type
 
 from {{ref('slx_account')}} a
-left join {{ref('slx_account_ref')}} ar on ar.account_id = a.account_id
+left join 
+	(
+		{{ref('slx_account_ref')}} oar
+		join 
+			(
+				select iar.customer_code as i_customer_code, max(iar.account_id) as max_account_id
+				from {{ref('slx_account_ref')}} iar
+				group by 1
+			) uar on uar.i_customer_code = oar.customer_code and uar.max_account_id = oar.account_id 
+
+	) ar on ar.account_id = a.account_id
 left join {{ref('slx_c_account')}} ca on ca.account_id = a.account_id
 left join {{ref('slx_users')}} sr on sr.user_id = a.sales_rep_id
 left join {{ref('slx_users')}} am1 on am1.user_id = ca.primary_account_manager_id
 left join {{ref('slx_users')}} am2 on am2.user_id = ca.secondary_account_manager_id
-where ar.customer_code is not null

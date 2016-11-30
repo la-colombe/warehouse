@@ -1,0 +1,28 @@
+warehouse_accounts:
+  constraints:
+    not_null:
+      - account_id
+    unique:
+      - account_id
+      - customer_code
+
+warehouse_invoices:
+  constraints:
+    not_null:
+      - invoice_number
+      - header_number
+      - transaction_date
+      - customer_code
+    unique:
+      - unique_id
+
+warehouse_invoice_items:
+  constraints:
+    not_null:
+      - invoice_number
+      - header_number
+      - line_number
+      - transaction_date
+      - customer_code
+    unique:
+      - unique_id

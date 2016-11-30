@@ -29,7 +29,7 @@ SELECT
   i.sales_tax as invoice_sales_tax,
   i.freight as invoice_freight,
   i.comment,
-/*
+
   i.account_name,
   i.account_division,
   i.company_code,
@@ -38,7 +38,7 @@ SELECT
   i.sales_rep_name,
   i.primary_account_manager_name,
   i.secondary_account_manager_name,
-*/
+
   i.account_invoice_number,
 
  il.quantity * p.ship_weight as total_weight
