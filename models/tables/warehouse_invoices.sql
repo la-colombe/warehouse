@@ -32,6 +32,7 @@ SELECT
   i.account_invoice_number,
 
   a.region,
+  a.customer_type,
   a.total_invoices as account_total_invoices,
   a.total_paid_coffee_invoices as account_total_paid_coffee_invoices,
   a.second_paid_coffee_invoice_date as account_second_paid_coffee_invoice_date,

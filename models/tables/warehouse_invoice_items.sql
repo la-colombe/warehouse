@@ -45,6 +45,7 @@ SELECT
   ii.account_invoice_number,
 
   i.region,
+  i.customer_type,
   i.account_paid_coffee_invoice_number,
   i.account_second_paid_coffee_invoice_date
 
