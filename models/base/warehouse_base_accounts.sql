@@ -11,13 +11,13 @@ a.divisional_manager_id,
 ar.customer_code,
 ar.company_code,
 case
-	when left(ar.company_code,2)  = '01' then 'Philly'
-	when left(ar.company_code,2)  = '20' then 'NYC'
-	when left(ar.company_code,2)  = '30' then 'DC'
-	when left(ar.company_code,2)  = '40' then 'Chicago'
-	when left(ar.company_code,2)  = '50' then 'Midwest'
-	when left(ar.company_code,2)  = '60' then 'West Coast'
-	when left(ar.company_code,2)  = '70' or left(ar.company_code,2)  = '62' then 'Nationals'
+	when left(ar.customer_code,2)  = '01' then 'Philly'
+	when left(ar.customer_code,2)  = '20' then 'NYC'
+	when left(ar.customer_code,2)  = '30' then 'DC'
+	when left(ar.customer_code,2)  = '40' then 'Chicago'
+	when left(ar.customer_code,2)  = '50' then 'Midwest'
+	when left(ar.customer_code,2)  = '60' then 'West Coast'
+	when left(ar.customer_code,2)  = '70' or left(ar.customer_code,2)  = '62' then 'Nationals'
 	else 'Cafe'
 end as region,
 
