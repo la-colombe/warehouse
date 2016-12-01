@@ -32,7 +32,7 @@ am1.full_name as primary_account_manager_name,
 am2.full_name as secondary_account_manager_name,
 
 case
-	when ar.customer_code like '70%' or ar.customer_code like '15%' then 'CPG'
+	when ar.customer_code like '70%' then 'CPG' --or ar.customer_code like '15%' then 'CPG'
 	else 'Hospitality'
 end as customer_type
 
