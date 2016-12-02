@@ -17,7 +17,6 @@ a.new_tier,
 a.sales_rep_name,
 a.primary_account_manager_name,
 a.secondary_account_manager_name,
-a.customer_type,
 
 aa.total_invoices,
 aa.total_paid_coffee_invoices,
