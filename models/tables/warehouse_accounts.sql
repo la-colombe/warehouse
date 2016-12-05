@@ -29,9 +29,9 @@ aa.total_coffee_extension,
 aa.total_coffee_weight,
 
 datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date) as weeks_active,
-aa.total_coffee_extension / nullif(datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date), 0) as average_weekly_coffee_revenue,
-aa.total_coffee_weight/ nullif(datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date), 0) as average_weekly_coffee_volume,
-aa.total_coffee_extension / nullif(aa.total_coffee_weight, 0) as average_coffee_price
+round((aa.total_coffee_extension / nullif(datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date), 0))::decimal(16,2),2) as average_weekly_coffee_revenue,
+round((aa.total_coffee_weight/ nullif(datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date), 0))::decimal(16,2),2) as average_weekly_coffee_volume,
+round((aa.total_coffee_extension / nullif(aa.total_coffee_weight, 0))::decimal(16,2),2) as average_coffee_price
 
 
 from {{ref('warehouse_base_accounts')}} a
