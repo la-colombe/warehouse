@@ -1,6 +1,6 @@
 select
 	A.account_id,
-	A.item_number, 
+	A.sku, 
 	A.description,
 	A.date_purchased, 
 	A.serial_number,

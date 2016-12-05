@@ -1,6 +1,6 @@
 select 
 	A.accountid as account_id,
-	A.ActualID as item_number, 
+	A.ActualID as sku, 
 	A.PRDDescription as description,
 	A.UserField1 as date_purchased, 
 	A.SerialNumber as serial_number,
