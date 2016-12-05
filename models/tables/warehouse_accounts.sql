@@ -18,6 +18,13 @@ a.sales_rep_name,
 a.primary_account_manager_name,
 a.secondary_account_manager_name,
 
+a.overdue_balance_30_day,
+a.overdue_balance_60_day,
+a.overdue_balance_90_day,
+a.overdue_balance_120_day,
+a.average_days_overdue,
+a.current_balance,
+
 aa.total_invoices,
 aa.total_paid_coffee_invoices,
 aa.second_paid_coffee_invoice_date,
