@@ -31,9 +31,14 @@ aa.total_coffee_weight,
 datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date) as weeks_active,
 round((aa.total_coffee_extension / nullif(datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date), 0))::decimal(16,2),2) as average_weekly_coffee_revenue,
 round((aa.total_coffee_weight/ nullif(datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date), 0))::decimal(16,2),2) as average_weekly_coffee_volume,
-round((aa.total_coffee_extension / nullif(aa.total_coffee_weight, 0))::decimal(16,2),2) as average_coffee_price
+round((aa.total_coffee_extension / nullif(aa.total_coffee_weight, 0))::decimal(16,2),2) as average_coffee_price,
+
+aaa.total_value as total_asset_value,
+aaa.total_invested_value as total_invested_asset_value,
+aaa.total_customer_owned_value as total_customer_owned_asset_value
 
 
 from {{ref('warehouse_base_accounts')}} a
 left join {{ref('warehouse_account_aggregates')}} aa on aa.customer_code = a.customer_code
+left join {{ref('warehouse_account_asset_aggregates')}} aaa on aaa.customer_code = a.customer_code
 where a.customer_code is not null
