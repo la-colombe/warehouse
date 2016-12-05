@@ -6,4 +6,4 @@ select 	i.invoice_number,
 
 from {{ref('warehouse_base_invoices')}} i
 join {{ref('warehouse_invoice_aggregates')}} ia on ia.invoice_number = i.invoice_number and ia.header_number = i.header_number
-where ia.total_coffee_quantity > 0 and ia.total_extension > 0
+where ia.total_coffee_weight > 0 and ia.total_extension > 0

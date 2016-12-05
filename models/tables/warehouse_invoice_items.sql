@@ -39,9 +39,7 @@ SELECT
   ii.sales_rep_name,
   ii.primary_account_manager_name,
   ii.secondary_account_manager_name,
-  
-  ii.total_weight,
-  
+    
   ii.account_invoice_number,
 
   i.account_paid_coffee_invoice_number,

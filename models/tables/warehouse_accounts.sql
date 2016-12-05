@@ -23,7 +23,14 @@ aa.total_paid_coffee_invoices,
 aa.second_paid_coffee_invoice_date,
 aa.total_quantity,
 aa.total_extension,
-aa.total_weight
+aa.total_weight,
+aa.most_recent_invoice_date,
+
+datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date) as weeks_active,
+aa.total_coffee_extension / nullif(datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date), 0) as average_weekly_coffee_revenue,
+aa.total_coffee_weight/ nullif(datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date), 0) as average_weekly_coffee_volume,
+aa.total_coffee_extension / nullif(aa.total_coffee_weight, 0) as average_coffee_price
+
 
 from {{ref('warehouse_base_accounts')}} a
 left join {{ref('warehouse_account_aggregates')}} aa on aa.customer_code = a.customer_code
