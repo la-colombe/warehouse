@@ -1,4 +1,5 @@
 select
+	A.unique_id,
 	A.account_id,
 	A.sku, 
 	A.description,

@@ -1,4 +1,5 @@
 select 
+	row_number() OVER() AS unique_id,
 	A.accountid as account_id,
 	A.ActualID as sku, 
 	A.PRDDescription as description,
