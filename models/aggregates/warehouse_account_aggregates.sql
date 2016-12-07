@@ -12,7 +12,7 @@ select
 	sum(ia.total_coffee_weight) as total_coffee_weight
 
 from {{ref('warehouse_base_invoices')}} i
-left join {{ref('warehouse_invoice_aggregates')}} ia on ia.invoice_number = i.invoice_number and ia.header_number = i.header_number
+left join {{ref('warehouse_invoice_aggregates')}} ia on ia.unique_invoice_id = i.unique_invoice_id
 left join {{ref('warehouse_paid_coffee_invoice_ranking')}} pci on pci.customer_code = i.customer_code and pci.account_paid_coffee_invoice_number = 2
 
 group by 1
