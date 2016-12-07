@@ -1,7 +1,7 @@
 SELECT 
  
-  md5(ii.invoice_number || ii.header_number || ii.line_number) as unique_id,
-  i.unique_id as invoice_unique_id,
+  ii.unique_invoice_item_id,
+  ii.unique_invoice_id,
   ii.invoice_number,
   ii.sku,
   ii.item_name,
@@ -48,4 +48,4 @@ SELECT
   i.account_second_paid_coffee_invoice_date
 
   from {{ref('warehouse_base_invoice_items')}} ii
-  join {{ref('warehouse_invoices')}} i on i.invoice_number = ii.invoice_number and i.header_number = ii.header_number
+  join {{ref('warehouse_invoices')}} i on i.unique_invoice_id = ii.unique_invoice_id

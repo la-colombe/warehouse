@@ -1,5 +1,6 @@
 SELECT 
-
+  il.unique_invoice_id,
+  il.unique_invoice_item_id,
   il.invoice_number,
   il.sku,
   il.item_name,
@@ -44,5 +45,5 @@ SELECT
  il.quantity * p.ship_weight as total_weight
 
 from {{ref('invoice_history_detail')}} il
-join {{ref('warehouse_base_invoices')}} i on i.header_number = il.header_number and i.invoice_number = il.invoice_number
+join {{ref('warehouse_base_invoices')}} i on i.unique_invoice_id = il.unique_invoice_id
 left join {{ref('slx_product')}} p on p.item_code = il.sku

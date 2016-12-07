@@ -1,6 +1,6 @@
 SELECT 
   
-  md5(i.invoice_number || i.header_number) as unique_id,
+  i.unique_invoice_id,
   i.transaction_date, 
   i.customer_code,
   i.bill_to_name,

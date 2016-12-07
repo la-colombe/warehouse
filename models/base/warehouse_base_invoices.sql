@@ -1,5 +1,6 @@
 SELECT
 
+i.unique_invoice_id,
 i.transaction_date, 
 i.customer_code,
 i.bill_to_name,
