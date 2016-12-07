@@ -15,3 +15,4 @@ unit_cost,
 vendor
 
 from {{ref('slx_product')}}
+where sku != ''
