@@ -1,5 +1,5 @@
 select distinct
-actualid as item_code, 
+actualid as sku, 
 createdate as created_at,
 name, 
 family as product_line, 
