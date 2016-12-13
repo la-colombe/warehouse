@@ -17,7 +17,7 @@ e.comment as entry_comment,
 d.source_journal,
 d.source_module,
 
-a.number as account_number,
+a.number as full_account_number,
 a.name as account_name,
 a.type as account_type,
 a.group as account_group,
