@@ -17,7 +17,7 @@ entry_comment,
 source_journal,
 source_module,
 
-account_number,
+full_account_number,
 account_name,
 account_type,
 account_group,
