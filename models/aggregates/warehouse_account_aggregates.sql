@@ -9,7 +9,8 @@ select
 	sum(ia.total_weight) as total_weight,
 	max(i.transaction_date) as most_recent_invoice_date,
 	sum(ia.total_coffee_extension) as total_coffee_extension,
-	sum(ia.total_coffee_weight) as total_coffee_weight
+	sum(ia.total_coffee_weight) as total_coffee_weight,
+	min(i.transaction_date) as first_invoice_date
 
 from {{ref('warehouse_base_invoices')}} i
 left join {{ref('warehouse_invoice_aggregates')}} ia on ia.unique_invoice_id = i.unique_invoice_id
