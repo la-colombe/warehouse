@@ -1,7 +1,7 @@
 select
 
 id,
-number,
+full_account_number,
 
 create_date,
 

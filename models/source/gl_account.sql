@@ -1,7 +1,7 @@
 select
 
 accountkey as id,
-account as number,
+account as full_account_number,
 
 
 datecreated as create_date,
