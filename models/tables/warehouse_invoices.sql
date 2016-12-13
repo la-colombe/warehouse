@@ -44,7 +44,6 @@ SELECT
   ia.total_quantity_backordered,
   ia.total_extension,
   ia.total_weight,
-
   pci.account_paid_coffee_invoice_number
 
   from {{ref('warehouse_base_invoices')}} i
