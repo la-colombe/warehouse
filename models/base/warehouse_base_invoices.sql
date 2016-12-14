@@ -2,7 +2,7 @@ SELECT
 
 i.unique_invoice_id,
 i.transaction_date, 
-i.customer_code,
+coalesce(cm.customer_code, i.customer_code) as customer_code,
 i.bill_to_name,
 i.invoice_number,
 i.header_number,
@@ -34,3 +34,4 @@ rank() over (partition by i.customer_code order by i.transaction_date, i.invoice
 
 from {{ref('invoice_history_header')}} i
 left join {{ref('warehouse_base_accounts')}} a on a.customer_code = i.customer_code
+left join google_sheets.lcg_customer_mapping cm on cm.old_customer_code = i.customer_code
