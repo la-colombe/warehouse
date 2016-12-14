@@ -8,3 +8,10 @@ target-path: "target"      # path for compiled code
 clean-targets: ["target"]  # directories removed by the clean task
 test-paths: ["test"]       # where to store test results
 data-paths: ["data"]       # load CSVs from this directory with `dbt seed`
+
+models:
+  warehouse:
+    base:
+      materialized: table
+    tables: 
+      materialized: table

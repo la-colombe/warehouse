@@ -33,5 +33,5 @@ rank() over (partition by i.customer_code order by i.transaction_date, i.invoice
 
 
 from {{ref('invoice_history_header')}} i
-left join {{ref('warehouse_base_accounts')}} a on a.customer_code = i.customer_code
 left join google_sheets.lcg_customer_mapping cm on cm.old_customer_code = i.customer_code
+left join {{ref('warehouse_base_accounts')}} a on a.customer_code = coalesce(cm.customer_code, i.customer_code)
