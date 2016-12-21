@@ -36,6 +36,17 @@ aa.most_recent_invoice_date,
 aa.total_coffee_extension,
 aa.total_coffee_weight,
 aa.average_time_since_previous_paid_coffee_invoice,
+case
+	when aa.total_paid_coffee_invoices <= 5 and dateadd(day, 28, most_recent_invoice_date) < current_date then 'Churned'
+	when dateadd(second, average_time_since_previous_paid_coffee_invoice * 2, most_recent_invoice_date) < current_date then 'Churned'
+	else 'Active'
+end as churn_status,
+
+case
+	when aa.total_paid_coffee_invoices <= 5 and dateadd(day, 28, most_recent_invoice_date) < current_date then most_recent_invoice_date
+	when dateadd(second, average_time_since_previous_paid_coffee_invoice * 2, most_recent_invoice_date) < current_date then most_recent_invoice_date
+	else NULL
+end as churn_date,
 
 datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date) + 1 as weeks_active,
 round((aa.total_coffee_extension / nullif(datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date) + 1, 0))::decimal(16,2),2) as average_weekly_coffee_revenue,
