@@ -38,17 +38,19 @@ SELECT
   a.total_extension as account_total_extension,
   a.total_weight as account_total_weight,
 
-
   ia.total_quantity,
   ia.total_quantity_ordered,
   ia.total_quantity_backordered,
   ia.total_extension,
   ia.total_weight,
-  pci.account_paid_coffee_invoice_number
+  pci.account_paid_coffee_invoice_number,
+
+  datediff(second, ppci.transaction_date, i.transaction_date) as time_since_previous_paid_coffee_invoice
 
   from {{ref('warehouse_base_invoices')}} i
   left join {{ref('warehouse_accounts')}} a on a.customer_code = i.customer_code
   left join {{ref('warehouse_invoice_aggregates')}} ia on ia.unique_invoice_id = i.unique_invoice_id
   left join {{ref('warehouse_paid_coffee_invoice_ranking')}} pci on pci.unique_invoice_id = i.unique_invoice_id
+  left join {{ref('warehouse_paid_coffee_invoice_ranking')}} ppci on ppci.customer_code = i.customer_code and ppci.account_paid_coffee_invoice_number = pci.account_paid_coffee_invoice_number - 1
 
 
