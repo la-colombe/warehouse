@@ -27,7 +27,17 @@ arc.overdue_balance_60_day,
 arc.overdue_balance_90_day,
 arc.overdue_balance_120_day,
 arc.average_days_overdue,
-arc.current_balance
+arc.current_balance,
+
+arc.address_line_1,
+arc.address_line_2,
+arc.city,
+arc.state,
+arc.country,
+arc.zip,
+arc.email,
+arc.phone,
+arc.tax
 
 from {{ref('slx_account')}} a
 left join 
