@@ -1,7 +1,7 @@
 select distinct
 
 accountid as account_id,
-accountmanagerid2 as primary_account_manager_id,
+accountmanagerid2 as sales_rep_id,
 accountmanagerid3 as secondary_account_manager_id,
 call_frequency,
 customertype as customer_type,
