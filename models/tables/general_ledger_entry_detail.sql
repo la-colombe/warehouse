@@ -6,26 +6,22 @@ account_id,
 
 detail_create_date,
 detail_posting_date,
---entry_posting_date,
-
 
 credit,
 debit,
 
 detail_comment,
---entry_comment,
 source_journal,
 source_module,
 
 full_account_number,
-account_name,
+full_account_name,
 account_type,
 account_group,
 account_category,
 
-main_account_code,
-group_code,
-category_code,
-type_code
+split_part(full_account_number, '-', 1) as account_code, 
+split_part(full_account_number, '-', 2) as cost_center_code, 
+split_part(full_account_number, '-', 3) as division_code
 
 from {{ref('general_ledger_base_entry_detail')}}

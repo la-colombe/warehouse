@@ -18,7 +18,7 @@ d.source_journal,
 d.source_module,
 
 a.full_account_number,
-a.name as account_name,
+a.name as full_account_name,
 a.type as account_type,
 a.group as account_group,
 a.category as account_category,
