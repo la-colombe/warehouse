@@ -24,6 +24,8 @@ a.overdue_balance_90_day,
 a.overdue_balance_120_day,
 a.average_days_overdue,
 a.current_balance,
+a.average_days_to_payment,
+a.payment_terms,
 
 a.address_line_1,
 a.address_line_2,

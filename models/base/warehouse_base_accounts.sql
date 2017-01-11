@@ -28,6 +28,8 @@ arc.overdue_balance_90_day,
 arc.overdue_balance_120_day,
 arc.average_days_overdue,
 arc.current_balance,
+arc.average_days_to_payment,
+arc.payment_terms,
 
 arc.address_line_1,
 arc.address_line_2,

@@ -11,6 +11,7 @@ t.accounttypedesc as type,
 g.accountgroupdesc as group,
 c.accountcategorydesc as category,
 
+
 mainaccountcode as main_account_code,
 a.accountgroup as group_code,
 a.accountcategory as category_code,
