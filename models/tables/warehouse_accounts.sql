@@ -26,6 +26,7 @@ a.average_days_overdue,
 a.current_balance,
 a.average_days_to_payment,
 a.payment_terms,
+a.sent_to_collections,
 
 a.address_line_1,
 a.address_line_2,

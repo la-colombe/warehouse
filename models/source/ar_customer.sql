@@ -9,6 +9,7 @@ avgdaysoverdue as average_days_overdue,
 currentbalance as current_balance,
 termscodedesc as payment_terms,
 avgdayspaymentinvoice as average_days_to_payment,
+udf_sent_to_collections as sent_to_collections,
 addressline1 as address_line_1,
 case
 	when addressline3 is not null then addressline2 || ' ' || addressline3
