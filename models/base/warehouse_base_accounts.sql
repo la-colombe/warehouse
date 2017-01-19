@@ -16,6 +16,7 @@ ca.secondary_account_manager_id,
 ca.call_frequency,
 ca.min_vol,
 ca.new_tier,
+ca.group_code,
 
 
 sr.full_name as sales_rep_name,
