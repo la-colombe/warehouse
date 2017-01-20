@@ -8,4 +8,4 @@ coalesce(accountmanagerid, '') as primary_account_manager_id,
 coalesce(regionalmanagerid, '') as regional_manager_id,
 coalesce(divisionalmanagerid, '') as divisional_manager_id
 
-from saleslogix.account
+from sysdba.account

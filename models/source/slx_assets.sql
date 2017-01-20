@@ -12,4 +12,4 @@ select
 	A.UserField5 as vendor,
  	A.UserField6 as class,  
  	A.UserField8 as invested_value
-from saleslogix.accountproduct A
+from sysdba.accountproduct A

@@ -23,5 +23,5 @@ coalesce(countrycode, 'USA') as country,
 zipcode as zip,
 taxschedule as tax
 
-from saleslogix.ar_customer c
-left join saleslogix.ap_termscode t on c.termscode = t.termscode
+from dbo.ar_customer c
+left join dbo.ap_termscode t on c.termscode = t.termscode

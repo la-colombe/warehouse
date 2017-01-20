@@ -14,4 +14,4 @@ status,
 fixedcost as unit_cost, 
 vendor
 
-from saleslogix.product
+from sysdba.product

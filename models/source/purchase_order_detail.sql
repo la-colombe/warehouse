@@ -7,5 +7,5 @@ d.quantityordered as quantity_ordered,
 d.quantityinvoiced as quantity_invoiced,
 d.itemcode as sku,
 h.vendorno as vendor_id
-from saleslogix.po_purchaseorderheader h
-join saleslogix.po_purchaseorderdetail d on d.purchaseorderno = h.purchaseorderno
+from dbo.po_purchaseorderheader h
+join dbo.po_purchaseorderdetail d on d.purchaseorderno = h.purchaseorderno

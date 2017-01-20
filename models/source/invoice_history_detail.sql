@@ -58,4 +58,4 @@ SELECT
   detailseqno as line_number,
   warehousecode as warehouse_code
   
-from saleslogix.ar_invoicehistorydetail 
+from dbo.ar_invoicehistorydetail 

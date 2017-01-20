@@ -78,6 +78,6 @@ select
   freightamt as freight,
   comment
 
-from saleslogix.ar_invoicehistoryheader i
+from dbo.ar_invoicehistoryheader i
 where transactiondate >= '2015-05-01'
 and comment != 'LCT AR Import'

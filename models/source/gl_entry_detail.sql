@@ -14,4 +14,4 @@ postingcomment as comment,
 sourcejournal as source_journal,
 sourcemodule as source_module
 
-from saleslogix.gl_detailposting
+from dbo.gl_detailposting

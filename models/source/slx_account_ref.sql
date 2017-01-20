@@ -5,5 +5,5 @@ max(accountid) as account_id,
 max(acct_division) as division,
 max(comp_code) as company_code
 
-from saleslogix.dl_acct_ref dl
+from sysdba.dl_acct_ref dl
 group by 1

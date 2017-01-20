@@ -6,4 +6,4 @@ select distinct
     username as full_name,
     title
 
-from saleslogix.userinfo 
+from sysdba.userinfo 

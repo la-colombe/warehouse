@@ -7,4 +7,4 @@ postingdate as posting_date,
 journalcomment as comment,
 sourcejournal as source_journal
 
-from saleslogix.gl_generaljournalhistory h
+from dbo.gl_generaljournalhistory h

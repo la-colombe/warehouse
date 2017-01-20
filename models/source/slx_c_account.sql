@@ -8,4 +8,4 @@ customertype as group_code,
 newminvol as min_vol,
 newtier as new_tier
 
-from saleslogix.c_account 
+from sysdba.c_account 
