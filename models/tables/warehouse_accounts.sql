@@ -38,6 +38,7 @@ a.zip,
 a.email,
 a.phone,
 a.tax,
+a.price_tier,
 
 aa.total_invoices,
 aa.total_paid_coffee_invoices,
