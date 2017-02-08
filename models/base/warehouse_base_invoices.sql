@@ -1,10 +1,12 @@
 SELECT
 
 i.unique_invoice_id,
+i.unique_sales_order_id,
 i.transaction_date, 
 coalesce(cm.customer_code, i.customer_code) as customer_code,
 i.bill_to_name,
 i.invoice_number,
+i.sales_order_number,
 i.header_number,
 i.invoice_type,
 i.invoice,

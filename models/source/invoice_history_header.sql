@@ -1,10 +1,12 @@
 select 
   md5('lct' || invoiceno || headerseqno) as unique_invoice_id,
+  md5('lct' || salesorderno) as unique_sales_order_id,
   'lct' as source_mas_instance,
   transactiondate as transaction_date, 
   coalesce(customer_code, customerno) as customer_code,
   billtoname as bill_to_name,
   invoiceno as invoice_number,
+  salesorderno as sales_order_number,
   headerseqno as header_number,
   invoicetype as invoice_type,
   invoiceno || '-' || invoicetype as invoice,
@@ -29,11 +31,13 @@ union
 
 select 
   md5('lcg' || invoiceno || headerseqno) as unique_invoice_id,
+  md5('lcg' || salesorderno) as unique_sales_order_id,
   'lcg' as source_mas_instance,
   transactiondate as transaction_date, 
   customerno as customer_code,
   billtoname as bill_to_name,
   invoiceno as invoice_number,
+  salesorderno as sales_order_number,
   headerseqno as header_number,
   invoicetype as invoice_type,
   invoiceno || '-' || invoicetype as invoice,
@@ -57,11 +61,13 @@ union
 
 select 
   md5('lch' || invoiceno || headerseqno) as unique_invoice_id,
+  md5('lch' || salesorderno) as unique_sales_order_id,
   'lch' as source_mas_instance,
   transactiondate as transaction_date, 
   customerno as customer_code,
   billtoname as bill_to_name,
   invoiceno as invoice_number,
+  salesorderno as sales_order_number,
   headerseqno as header_number,
   invoicetype as invoice_type,
   invoiceno || '-' || invoicetype as invoice,

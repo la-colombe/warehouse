@@ -2,6 +2,8 @@ SELECT
  
   ii.unique_invoice_item_id,
   ii.unique_invoice_id,
+  ii.unique_sales_order_id,
+  ii.sales_order_number,
   ii.invoice_number,
   ii.sku,
   ii.item_name,

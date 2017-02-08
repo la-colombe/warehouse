@@ -6,6 +6,8 @@ SELECT
   i.bill_to_name,
   i.header_number,
   i.invoice_number,
+  i.unique_sales_order_id,
+  i.sales_order_number,
   i.invoice_type,
   i.invoice,
   i.ship_date,
