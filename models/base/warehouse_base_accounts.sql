@@ -2,7 +2,7 @@ select
 
 a.name,
 a.created_at,
-a.division,
+--a.division,
 a.account_id,
 a.primary_account_manager_id,
 a.regional_manager_id,
@@ -10,6 +10,8 @@ a.divisional_manager_id,
 
 ar.customer_code,
 ar.company_code,
+
+ad.division,
 
 ca.sales_rep_id,
 ca.secondary_account_manager_id,
@@ -61,3 +63,4 @@ left join {{ref('slx_users')}} sr on sr.user_id = ca.sales_rep_id
 left join {{ref('slx_users')}} am1 on am1.user_id = a.primary_account_manager_id
 left join {{ref('slx_users')}} am2 on am2.user_id = ca.secondary_account_manager_id
 left join {{ref('ar_customer')}} arc on arc.customer_code = ar.customer_code
+left join {{ref('ar_division')}} ad on ad.division_code = left(ar.customer_code,2)
