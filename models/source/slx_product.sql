@@ -12,6 +12,7 @@ commissionable,
 taxable as tax_class, 
 status, 
 fixedcost as unit_cost, 
-vendor
+vendor,
+modifydate as updated_at
 
 from sysdba.product

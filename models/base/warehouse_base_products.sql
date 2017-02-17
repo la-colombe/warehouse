@@ -12,7 +12,8 @@ commissionable,
 tax_class, 
 status, 
 unit_cost, 
-vendor
+vendor,
+updated_at
 
 from {{ref('slx_product')}}
 where sku != ''

@@ -32,18 +32,9 @@ SELECT
   i.sales_tax as invoice_sales_tax,
   i.freight as invoice_freight,
   i.comment,
-
-  i.account_name,
-  i.account_division,
-  i.company_code,
-  i.account_min_vol,
-  i.account_tier,
-  i.sales_rep_name,
-  i.primary_account_manager_name,
-  i.secondary_account_manager_name,
-
+  
   i.account_invoice_number,
-
+  GREATEST(i.updated_at, p.updated_at) as updated_at,
  il.quantity * p.ship_weight as total_weight
 
 from {{ref('invoice_history_detail')}} il

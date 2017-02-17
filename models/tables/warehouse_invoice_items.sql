@@ -33,22 +33,11 @@ SELECT
   ii.invoice_sales_tax,
   ii.invoice_freight,
   ii.comment,
-  
-  ii.account_name,
-  ii.account_division,
-  ii.company_code,
-  ii.account_min_vol,
-  ii.account_tier,
-  ii.sales_rep_name,
-  ii.primary_account_manager_name,
-  ii.secondary_account_manager_name,
-  
   ii.total_weight,
-  
   ii.account_invoice_number,
+  ii.updated_at,
 
-  i.account_paid_coffee_invoice_number,
-  i.account_second_paid_coffee_invoice_date
-
+  i.account_paid_coffee_invoice_number
+  
   from {{ref('warehouse_base_invoice_items')}} ii
   join {{ref('warehouse_invoices')}} i on i.unique_invoice_id = ii.unique_invoice_id
