@@ -23,7 +23,7 @@ select
   freightamt as freight,
   comment
 
-from saleslogix.lct_ar_invoicehistoryheader i
+from lct.ar_invoicehistoryheader i
 left join google_sheets.lct_customer_mapping cm on cm.old_customer_code = i.customerno
 where transactiondate < '2014-11-01'
 
@@ -34,7 +34,7 @@ select
   md5('lcg' || salesorderno) as unique_sales_order_id,
   'lcg' as source_mas_instance,
   transactiondate as transaction_date, 
-  customerno as customer_code,
+  coalesce(customer_code, customerno) as customer_code,
   billtoname as bill_to_name,
   invoiceno as invoice_number,
   salesorderno as sales_order_number,
@@ -54,7 +54,9 @@ select
   freightamt as freight,
   comment
 
-from saleslogix.lcg_ar_invoicehistoryheader i
+from lcg.ar_invoicehistoryheader i
+left join google_sheets.lcg_customer_mapping cm on cm.old_customer_code = i.customerno
+
 where transactiondate >= '2014-11-01' and transactiondate < '2015-05-01'
 
 union

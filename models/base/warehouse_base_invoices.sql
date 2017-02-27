@@ -3,7 +3,7 @@ SELECT
 i.unique_invoice_id,
 i.unique_sales_order_id,
 i.transaction_date, 
-coalesce(cm.customer_code, i.customer_code) as customer_code,
+i.customer_code,
 i.bill_to_name,
 i.invoice_number,
 i.sales_order_number,
@@ -22,10 +22,9 @@ i.ship_to_country,
 i.sales_tax,
 i.freight,
 i.comment,
-GREATEST(i.transaction_date, cm._sdc_batched_at) as updated_at,
+i.transaction_date as updated_at,
 
 rank() over (partition by i.customer_code order by i.transaction_date, i.invoice_number ASC) AS account_invoice_number
 
 
 from {{ref('invoice_history_header')}} i
-left join google_sheets.lcg_customer_mapping cm on cm.old_customer_code = i.customer_code

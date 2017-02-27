@@ -15,7 +15,7 @@ SELECT
   detailseqno as line_number,
   warehousecode as warehouse_code
   
-from saleslogix.lct_ar_invoicehistorydetail i
+from lct.ar_invoicehistorydetail i
 left join google_sheets.lct_sku_mapping sm on sm.old_sku = i.itemcode
 
 UNION
@@ -37,7 +37,7 @@ SELECT
   detailseqno as line_number,
   warehousecode as warehouse_code
   
-from saleslogix.lcg_ar_invoicehistorydetail 
+from lcg.ar_invoicehistorydetail 
 
 UNION
 
