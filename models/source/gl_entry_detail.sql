@@ -1,4 +1,5 @@
 select
+md5('lct' || journalregisterno || sequenceno) as unique_journal_id,
 journalregisterno as journal_entry_number,
 sequenceno as line_item_id,
 accountkey as account_id,

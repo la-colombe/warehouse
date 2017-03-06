@@ -66,7 +66,7 @@ select
   md5('lch' || salesorderno) as unique_sales_order_id,
   'lch' as source_mas_instance,
   transactiondate as transaction_date, 
-  customerno as customer_code,
+  coalesce(new_customer_code, customerno) as customer_code,
   billtoname as bill_to_name,
   invoiceno as invoice_number,
   salesorderno as sales_order_number,
@@ -87,5 +87,6 @@ select
   comment
 
 from dbo.ar_invoicehistoryheader i
+left join google_sheets.lch_customer_mapping cm on cm.old_customer_code = i.customerno
 where transactiondate >= '2015-05-01'
 and comment != 'LCT AR Import'
