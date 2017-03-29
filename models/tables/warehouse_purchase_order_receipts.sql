@@ -3,7 +3,7 @@ receipt_type,
 receipt_number,
 line_number,
 purchase_order_number,
-warehouse_code,
+warehouse,
 sku,
 recieved_at, 
 quantity
