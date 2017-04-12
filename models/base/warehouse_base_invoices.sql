@@ -24,7 +24,12 @@ i.freight,
 i.comment,
 i.transaction_date as updated_at,
 
+ari.posting_date,
+ari.balance,
+
+
 rank() over (partition by i.customer_code order by i.transaction_date, i.invoice_number ASC) AS account_invoice_number
 
 
 from {{ref('invoice_history_header')}} i
+left join {{ref('ar_invoices')}} ari on ari.unique_invoice_id = i.unique_invoice_id

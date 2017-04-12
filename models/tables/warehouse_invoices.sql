@@ -23,6 +23,9 @@ SELECT
   i.freight as invoice_freight,
   i.comment,
   i.updated_at,
+
+  i.posting_date,
+  i.balance,
   
   i.account_invoice_number,
 
@@ -32,6 +35,7 @@ SELECT
   ia.total_extension,
   ia.total_weight,
   pci.account_paid_coffee_invoice_number,
+
 
   datediff(second, ppci.transaction_date, i.transaction_date) as time_since_previous_paid_coffee_invoice
 
