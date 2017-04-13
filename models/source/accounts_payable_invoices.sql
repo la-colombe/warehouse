@@ -1,4 +1,5 @@
 select 
+apdivisionno as division,
 invoiceno as invoice_number, 
 case invoicedate 
 	when '1753-01-01' then null

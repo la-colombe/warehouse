@@ -1,4 +1,5 @@
 select 
+division,
 invoice_number, 
 invoice_date, 
 vendor_number, 
