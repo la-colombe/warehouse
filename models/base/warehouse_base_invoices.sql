@@ -32,4 +32,4 @@ rank() over (partition by i.customer_code order by i.transaction_date, i.invoice
 
 
 from {{ref('invoice_history_header')}} i
-left join {{ref('ar_invoices')}} ari on ari.unique_invoice_id = i.unique_invoice_id
+left join {{ref('warehouse_ar_invoice_aggregates')}} ari on ari.invoice = i.invoice
