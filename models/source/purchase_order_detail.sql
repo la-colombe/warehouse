@@ -7,6 +7,7 @@ d.quantityordered as quantity_ordered,
 d.quantityinvoiced as quantity_invoiced,
 d.quantityreceived as quantity_received,
 d.itemcode as sku,
-h.vendorno as vendor_id
+h.vendorno as vendor_id,
+h.comment as comment
 from dbo.po_purchaseorderheader h
 join dbo.po_purchaseorderdetail d on d.purchaseorderno = h.purchaseorderno

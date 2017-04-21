@@ -7,5 +7,6 @@ quantity_ordered,
 quantity_invoiced,
 quantity_received,
 sku,
-vendor_id
+vendor_id,
+comment
 from {{ref('purchase_order_detail')}} h

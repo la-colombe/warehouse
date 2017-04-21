@@ -12,7 +12,6 @@ SELECT
   il.extension,
   il.header_number,
   il.line_number,
-  il.warehouse_code,
   i.unique_sales_order_id,
   i.sales_order_number,
   i.transaction_date, 
@@ -35,8 +34,10 @@ SELECT
   
   i.account_invoice_number,
   GREATEST(i.updated_at, p.updated_at) as updated_at,
- il.quantity * p.ship_weight as total_weight
+ il.quantity * p.ship_weight as total_weight,
+ w.warehouse_name
 
 from {{ref('invoice_history_detail')}} il
 join {{ref('warehouse_base_invoices')}} i on i.unique_invoice_id = il.unique_invoice_id
 left join {{ref('warehouse_base_products')}} p on p.sku = il.sku
+left join {{ref('im_warehouse')}} w on w.warehouse_code = il.warehouse_code

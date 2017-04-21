@@ -15,7 +15,6 @@ SELECT
   ii.extension,
   ii.header_number,
   ii.line_number,
-  ii.warehouse_code,
   ii.transaction_date, 
   ii.customer_code,
   ii.bill_to_name,
@@ -37,7 +36,8 @@ SELECT
   ii.account_invoice_number,
   ii.updated_at,
 
-  i.account_paid_coffee_invoice_number
+  i.account_paid_coffee_invoice_number,
+  ii.warehouse_name
   
   from {{ref('warehouse_base_invoice_items')}} ii
   join {{ref('warehouse_invoices')}} i on i.unique_invoice_id = ii.unique_invoice_id
