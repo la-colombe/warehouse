@@ -7,5 +7,7 @@ invoice_amount,
 check_number, 
 check_date, 
 check_type,
-balance
+balance,
+comment,
+vendor_name
 from {{ref('accounts_payable_invoices')}} 

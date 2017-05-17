@@ -7,5 +7,7 @@ invoice_amount,
 check_number, 
 check_type,
 check_date, 
-balance
+balance,
+comment,
+vendor_name
 from {{ref('warehouse_base_ap_invoices')}} 
