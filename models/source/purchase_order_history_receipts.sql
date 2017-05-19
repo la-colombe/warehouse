@@ -1,7 +1,7 @@
 select 
 d.receipttype as receipt_type,
 d.receiptno as receipt_number,
-linekey as line_number,
+linekey as purchase_order_line_number,
 d.purchaseorderno as purchase_order_number,
 itemcode as sku,
 receiptdate as recieved_at, 

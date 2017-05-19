@@ -1,6 +1,7 @@
 select 
-purchase_order_id,
+purchase_order_number,
 purchase_order_date,
+line_number,
 invoice_date,
 extension,
 quantity_ordered,

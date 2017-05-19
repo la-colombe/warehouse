@@ -1,7 +1,7 @@
 select 
 receipt_type,
 receipt_number,
-line_number,
+purchase_order_line_number,
 purchase_order_number,
 warehouse_name as warehouse,
 sku,
