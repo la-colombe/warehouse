@@ -8,4 +8,4 @@ receiptdate as recieved_at,
 quantityreceived as quantity,
 d.warehousecode as warehouse_code
 from dbo.po_receipthistorydetail d
-join dbo.po_receipthistoryheader h on h.receipttype = d.receipttype and h.receiptno = d.receiptno
+join dbo.po_receipthistoryheader h on h.purchaseorderno = d.purchaseorderno and h.headerseqno = d.headerseqno
