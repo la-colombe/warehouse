@@ -1,6 +1,7 @@
 select
 il.invoice_number,
 il.header_sequence_number,
+il.line_number,
 il.sku,
 il.quantity_ordered,
 il.quantity_received,

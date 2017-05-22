@@ -1,6 +1,7 @@
 select
 invoiceno as invoice_number,
 headerseqno as header_sequence_number,
+detailseqno as line_number,
 itemcode as sku,
 quantityordered as quantity_ordered,
 quantityreceived as quantity_received,
