@@ -1,13 +1,11 @@
 select 
-division,
-invoice_number, 
+i.division,
+invoice_number,
+header_sequence_number,
 invoice_date, 
-vendor_number, 
+i.vendor_number, 
 invoice_amount, 
-check_number, 
-check_date, 
-check_type,
-balance,
-comment,
+invoice_comment,
 vendor_name
-from {{ref('accounts_payable_invoices')}} 
+from {{ref('ap_invoice_history_header')}} i
+left join {{ref('ap_vendor')}} v on v.division = i.division and v.vendor_number = i.vendor_number
