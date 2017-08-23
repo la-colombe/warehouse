@@ -37,7 +37,7 @@ SELECT
   pci.account_paid_coffee_invoice_number,
 
 
-  datediff(second, ppci.transaction_date, i.transaction_date) as time_since_previous_paid_coffee_invoice
+  datediff(second, ppci.ship_date, i.ship_date) as time_since_previous_paid_coffee_invoice
 
   from {{ref('warehouse_base_invoices')}} i
   left join {{ref('warehouse_invoice_aggregates')}} ia on ia.unique_invoice_id = i.unique_invoice_id

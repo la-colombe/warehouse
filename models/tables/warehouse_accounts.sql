@@ -41,30 +41,32 @@ a.tax,
 a.price_tier,
 
 aa.total_invoices,
-aa.total_paid_coffee_invoices,
+aa.total_paid_core_invoices,
 aa.second_paid_coffee_invoice_date,
 aa.first_invoice_date,
 aa.total_quantity,
 aa.total_extension,
 round(aa.total_weight::decimal(16,2),2) as total_weight,
 aa.most_recent_invoice_date,
-aa.total_coffee_extension,
-aa.total_coffee_weight,
+aa.total_core_extension,
+aa.total_core_weight,
 aa.average_time_since_previous_paid_coffee_invoice,
+aa.most_recent_core_invoice_date,
+aa.first_core_invoice_date,
 case
-	when dateadd(day, 91, most_recent_invoice_date) < current_date then 'Churned'
+	when dateadd(day, 91, most_recent_core_invoice_date) < current_date then 'Churned'
 	else 'Active'
 end as churn_status,
 
 case
-	when dateadd(day, 91, most_recent_invoice_date) < current_date then most_recent_invoice_date
+	when dateadd(day, 91, most_recent_core_invoice_date) < current_date then dateadd(day, 91, most_recent_core_invoice_date)
 	else NULL
 end as churn_date,
 
 datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date) + 1 as weeks_active,
-round((aa.total_coffee_extension / nullif(datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date) + 1, 0))::decimal(16,2),2) as average_weekly_coffee_revenue,
-round((aa.total_coffee_weight/ nullif(datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date) + 1, 0))::decimal(16,2),2) as average_weekly_coffee_volume,
-round((aa.total_coffee_extension / nullif(aa.total_coffee_weight, 0))::decimal(16,2),2) as average_coffee_price,
+round((aa.total_core_extension / nullif(datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date) + 1, 0))::decimal(16,2),2) as average_weekly_core_revenue,
+round((aa.total_core_weight/ nullif(datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date) + 1, 0))::decimal(16,2),2) as average_weekly_core_volume,
+round((aa.total_core_extension / nullif(aa.total_core_weight, 0))::decimal(16,2),2) as average_coffee_price,
 
 coalesce(aaa.total_value, 0) as total_asset_value,
 coalesce(aaa.total_invested_value, 0) as total_invested_asset_value,
