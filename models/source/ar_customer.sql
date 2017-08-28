@@ -28,4 +28,4 @@ taxschedule as tax,
 pricelevel as price_tier
 
 from dbo.ar_customer c
-left join dbo.ap_termscode t on c.termscode = t.termscode
+left join dbo.ar_termscode t on c.termscode = t.termscode
