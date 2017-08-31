@@ -6,7 +6,10 @@ pl.productlinedesc as product_line,
 i.standardunitprice as unit_price,
 i.producttype as product_type,
 i.standardunitofmeasure as unit_of_measure,
-i.shipweight as weight,
+case shipweight
+  when '' THEN null
+  else shipweight::numeric
+end as weight,
 i.taxclass as tax_class,
 i.primaryvendorno as vendor,
 i.standardunitcost as unit_cost,
