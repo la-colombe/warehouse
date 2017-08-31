@@ -34,7 +34,7 @@ SELECT
   
   i.account_invoice_number,
   GREATEST(i.updated_at, p.updated_at) as updated_at,
- il.quantity * p.ship_weight as total_weight,
+ il.quantity * p.weight as total_weight,
  w.warehouse_name
 
 from {{ref('invoice_history_detail')}} il

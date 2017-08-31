@@ -5,13 +5,10 @@ name,
 product_line, 
 unit_price, 
 product_type,
-sales_unit_of_measure, 
-volume, 
-ship_weight,  
-commissionable,
+unit_of_measure, 
+weight,  
 tax_class, 
-status, 
-unit_cost, 
+unit_cost,
 vendor
 
 from {{ref('warehouse_base_products')}}

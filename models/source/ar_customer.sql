@@ -7,10 +7,8 @@ agingcategory3 as overdue_balance_90_day,
 agingcategory4 as overdue_balance_120_day,
 avgdaysoverdue as average_days_overdue,
 currentbalance as current_balance,
-case 
-	when termscodedesc is null then c.termscode
-	else termscodedesc
-end as payment_terms,
+t.payment_terms,
+t.days_until_payment_due,
 avgdayspaymentinvoice as average_days_to_payment,
 udf_sent_to_collections as sent_to_collections,
 addressline1 as address_line_1,
@@ -28,4 +26,4 @@ taxschedule as tax,
 pricelevel as price_tier
 
 from dbo.ar_customer c
-left join dbo.ar_termscode t on c.termscode = t.termscode
+left join {{ref('ar_terms')}} t on c.termscode = t.terms_code

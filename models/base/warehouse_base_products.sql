@@ -5,15 +5,11 @@ name,
 product_line, 
 unit_price, 
 product_type,
-sales_unit_of_measure, 
-volume, 
-ship_weight,  
-commissionable,
+unit_of_measure, 
+weight,  
 tax_class, 
-status, 
-unit_cost, 
 vendor,
+unit_cost,
 updated_at
 
-from {{ref('slx_product')}}
-where sku != ''
+from {{ref('ci_item')}}

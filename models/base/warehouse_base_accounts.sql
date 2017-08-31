@@ -33,6 +33,7 @@ arc.average_days_overdue,
 arc.current_balance,
 arc.average_days_to_payment,
 arc.payment_terms,
+arc.days_until_payment_due,
 arc.sent_to_collections,
 
 arc.address_line_1,
