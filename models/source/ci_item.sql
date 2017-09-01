@@ -15,4 +15,4 @@ i.primaryvendorno as vendor,
 i.standardunitcost as unit_cost,
 i.dateupdated as updated_at
 from dbo.ci_item i
-left join dbo.im_productline pl on  pl.productline = pl.productline
+left join dbo.im_productline pl on  pl.productline = i.productline
