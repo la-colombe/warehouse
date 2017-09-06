@@ -8,7 +8,7 @@ i.producttype as product_type,
 i.standardunitofmeasure as unit_of_measure,
 case shipweight
   when '' THEN null
-  else shipweight::numeric
+  else shipweight::decimal(16,10)
 end as weight,
 i.taxclass as tax_class,
 i.primaryvendorno as vendor,
