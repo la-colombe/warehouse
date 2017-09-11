@@ -8,7 +8,7 @@ from dbo.so_salesorderhistoryheader s
 where orderstatus in  ('A','C')
 and orderdate >= '2015-05-01'
 
-union
+union all
 
 select
 md5('lcg' || salesorderno) as unique_sales_order_id,
@@ -22,7 +22,7 @@ where orderstatus in  ('A','C')
 and orderdate >= '2014-11-01' and orderdate < '2015-05-01'
 
 
-union
+union all
 
 select
 md5('lct' || salesorderno) as unique_sales_order_id,

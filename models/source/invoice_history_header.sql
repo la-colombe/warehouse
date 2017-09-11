@@ -27,7 +27,7 @@ from lct.ar_invoicehistoryheader i
 left join google_sheets.lct_customer_mapping cm on cm.old_customer_code = i.customerno
 where transactiondate < '2014-11-01'
 
-union
+union all
 
 select 
   md5('lcg' || invoiceno || headerseqno) as unique_invoice_id,
@@ -59,7 +59,7 @@ left join google_sheets.lcg_customer_mapping cm on cm.old_customer_code = i.cust
 
 where transactiondate >= '2014-11-01' and transactiondate < '2015-05-01'
 
-union
+union all
 
 select 
   md5('lch' || invoiceno || headerseqno) as unique_invoice_id,

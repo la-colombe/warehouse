@@ -18,7 +18,7 @@ SELECT
 from lct.ar_invoicehistorydetail i
 left join google_sheets.lct_sku_mapping sm on sm.old_sku = i.itemcode
 
-UNION
+union all
 
 SELECT 
   md5('lcg' || invoiceno || headerseqno) as unique_invoice_id,
@@ -39,7 +39,7 @@ SELECT
   
 from lcg.ar_invoicehistorydetail 
 
-UNION
+union all
 
 SELECT 
   md5('lch' || invoiceno || headerseqno) as unique_invoice_id,
