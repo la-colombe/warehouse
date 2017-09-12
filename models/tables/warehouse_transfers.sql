@@ -5,6 +5,6 @@ sku,
 warehouse_name,
 sent_date,
 transaction_quantity
-from {{ref('item_transfers')}} t
+from {{ref('im_item_transactions')}} t
 join {{ref('im_warehouse')}} w on w.warehouse_code = t.warehouse_code
 where transaction_type = 'IT'
