@@ -2,7 +2,7 @@ select
 	A.unique_id,
 	A.account_id,
 	A.sku, 
-	A.description,
+	A.product_name,
 	A.date_purchased, 
 	A.serial_number,
 	A.value,

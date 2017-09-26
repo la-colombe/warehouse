@@ -2,7 +2,7 @@ select
 	row_number() OVER() AS unique_id,
 	A.accountid as account_id,
 	A.ActualID as sku, 
-	A.PRDDescription as description,
+	A.productname as product_name,
 	A.UserField1 as date_purchased, 
 	A.SerialNumber as serial_number,
 	A.UserField2 as value,
