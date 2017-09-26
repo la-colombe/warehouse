@@ -6,7 +6,6 @@ select
 	A.date_purchased, 
 	A.serial_number,
 	A.value,
-	A.notes, 
 	A.status,
 	A.date_moved, 
 	A.vendor,

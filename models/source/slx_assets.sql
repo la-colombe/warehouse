@@ -6,7 +6,6 @@ select
 	A.UserField1 as date_purchased, 
 	A.SerialNumber as serial_number,
 	A.UserField2 as value,
-	A.Notes, 
 	A.UserField3 as Status,
 	A.UserField4 as date_moved, 
 	A.UserField5 as vendor,
