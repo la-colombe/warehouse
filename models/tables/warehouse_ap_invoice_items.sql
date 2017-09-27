@@ -1,4 +1,6 @@
 select
+md5(invoice_number || header_sequence_number || line_number) as unique_key,
+md5(invoice_number || header_sequence_number) as invoice_unique_key,
 il.invoice_number,
 il.header_sequence_number,
 il.line_number,
