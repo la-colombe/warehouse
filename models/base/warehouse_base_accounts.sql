@@ -45,7 +45,8 @@ arc.zip,
 arc.email,
 arc.phone,
 arc.tax,
-arc.price_tier
+arc.price_tier,
+arc.ar_bucket
 
 from {{ref('slx_account')}} a
 left join 

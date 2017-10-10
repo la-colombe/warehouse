@@ -23,7 +23,8 @@ state,
 coalesce(countrycode, 'USA') as country,
 zipcode as zip,
 taxschedule as tax,
-pricelevel as price_tier
+pricelevel as price_tier,
+sortfield as ar_bucket
 
 from dbo.ar_customer c
 left join {{ref('ar_terms')}} t on c.termscode = t.terms_code
