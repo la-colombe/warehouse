@@ -14,6 +14,7 @@ SELECT
   il.line_number,
   i.unique_sales_order_id,
   i.sales_order_number,
+  i.invoice_date,
   i.transaction_date, 
   i.customer_code,
   i.bill_to_name,

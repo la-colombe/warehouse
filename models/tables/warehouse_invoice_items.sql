@@ -16,6 +16,7 @@ SELECT
   ii.header_number,
   ii.line_number,
   ii.transaction_date, 
+  ii.invoice_date,
   ii.customer_code,
   ii.bill_to_name,
   ii.invoice_type,

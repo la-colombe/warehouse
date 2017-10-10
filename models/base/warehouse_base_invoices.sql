@@ -23,7 +23,7 @@ i.sales_tax,
 i.freight,
 i.comment,
 i.transaction_date as updated_at,
-
+i.invoice_date,
 oi.posting_date,
 oi.balance,
 
