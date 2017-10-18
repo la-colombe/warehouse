@@ -57,6 +57,9 @@ aa.total_coffee_weight,
 aa.average_time_since_previous_paid_coffee_invoice,
 aa.most_recent_core_invoice_date,
 aa.first_core_invoice_date,
+
+acr.most_recent_payment_date,
+ 
 case
 	when dateadd(day, 91, most_recent_core_invoice_date) < current_date then 'Churned'
 	else 'Active'
@@ -80,4 +83,5 @@ coalesce(aaa.total_customer_owned_value, 0) as total_customer_owned_asset_value
 from {{ref('warehouse_base_accounts')}} a
 left join {{ref('warehouse_account_aggregates')}} aa on aa.customer_code = a.customer_code
 left join {{ref('warehouse_account_asset_aggregates')}} aaa on aaa.customer_code = a.customer_code
+left join {{ref('warehouse_account_cash_receipts_aggregates')}} acr on acr.customer_code = a.customer_code
 where a.customer_code is not null
