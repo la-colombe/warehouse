@@ -14,5 +14,3 @@ d.extensionamt as extension,
 lineweight * quantityordered as weight
 from dbo.so_salesorderheader h
 join dbo.so_salesorderdetail d on d.salesorderno = h.salesorderno
-where ordertype not in ('R', 'M') 
-and shipexpiredate >= current_date

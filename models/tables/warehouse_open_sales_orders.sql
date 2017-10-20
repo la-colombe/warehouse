@@ -12,4 +12,4 @@ item_name,
 quantity_ordered,
 extension,
 weight
-from {{ref('warehouse_base_upcoming_sales_orders')}} so
+from {{ref('warehouse_base_open_sales_orders')}} so
