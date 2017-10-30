@@ -5,6 +5,7 @@ case warehousedesc
 	when 'La Colombe Salmon St' then 'Salmon'
 	when 'PJP Warehouse' then 'PJP'
 	when 'Tioga Warehouse' then 'Tioga'
+	when 'Garfield Road' then 'Garfield'
 	else warehousedesc
 end as warehouse_name
 from dbo.im_warehouse w
