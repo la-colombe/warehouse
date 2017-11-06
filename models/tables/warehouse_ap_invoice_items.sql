@@ -13,5 +13,9 @@ il.invoice_comment,
 il.invoice_date,
 il.item_name,
 il.warehouse_name,
-il.full_account_number
+il.full_account_number,
+created_at,
+created_by,
+updated_at,
+updated_by
 from {{ref('warehouse_base_ap_invoice_items')}} il

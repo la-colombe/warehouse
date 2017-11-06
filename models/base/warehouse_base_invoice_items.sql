@@ -32,9 +32,11 @@ SELECT
   i.sales_tax as invoice_sales_tax,
   i.freight as invoice_freight,
   i.comment,
-  
+  i.created_at,
+i.created_by,
+i.updated_at,
+i.updated_by,
   i.account_invoice_number,
-  GREATEST(i.updated_at, p.updated_at) as updated_at,
  il.quantity * p.weight as total_weight,
  w.warehouse_name
 

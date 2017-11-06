@@ -3,16 +3,20 @@ md5('lct' || journalregisterno || sequenceno) as unique_journal_id,
 journalregisterno as journal_entry_number,
 sequenceno as line_item_id,
 accountkey as account_id,
-usercreatedkey as user_id,
-
-datecreated as create_date,
-postingdate as posting_date,
+case postingdate 
+	when '1753-01-01' then null
+	else postingdate::date
+end as posting_date, 
 
 creditamount as credit,
 debitamount as debit,
 
 postingcomment as comment,
 sourcejournal as source_journal,
-sourcemodule as source_module
+sourcemodule as source_module,
+datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as created_at,
+cu.full_name as created_by
+
 
 from dbo.gl_detailposting
+left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey

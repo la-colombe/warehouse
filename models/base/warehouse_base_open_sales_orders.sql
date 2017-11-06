@@ -11,6 +11,10 @@ sku,
 item_name,
 quantity_ordered,
 extension,
-weight
+weight,
+created_at,
+created_by,
+updated_at,
+updated_by
 from {{ref('so_sales_orders')}} so
 left join {{ref('im_warehouse')}} w on w.warehouse_code = so.warehouse_code

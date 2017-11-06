@@ -35,8 +35,10 @@ SELECT
   ii.comment,
   ii.total_weight,
   ii.account_invoice_number,
+  ii.created_at,
+  ii.created_by,
   ii.updated_at,
-
+  ii.updated_by,
   i.account_paid_coffee_invoice_number,
   ii.warehouse_name
   

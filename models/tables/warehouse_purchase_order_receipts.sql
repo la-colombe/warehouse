@@ -6,5 +6,9 @@ purchase_order_number,
 warehouse,
 sku,
 recieved_at, 
-quantity
+quantity,
+created_at,
+created_by,
+updated_at,
+updated_by
 from {{ref('warehouse_base_purchase_order_receipts')}}

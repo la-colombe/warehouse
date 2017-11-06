@@ -4,7 +4,6 @@ entry_number,
 line_item_id,
 account_id,
 
-detail_create_date,
 detail_posting_date,
 
 credit,
@@ -22,6 +21,8 @@ account_category,
 
 split_part(full_account_number, '-', 1) as account_code, 
 split_part(full_account_number, '-', 2) as cost_center_code, 
-split_part(full_account_number, '-', 3) as division_code
+split_part(full_account_number, '-', 3) as division_code,
+created_at,
+created_by
 
 from {{ref('general_ledger_base_entry_detail')}}

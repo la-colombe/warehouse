@@ -22,11 +22,13 @@ i.ship_to_country,
 i.sales_tax,
 i.freight,
 i.comment,
-i.transaction_date as updated_at,
 i.invoice_date,
 oi.posting_date,
 oi.balance,
-
+i.created_at,
+i.created_by,
+i.updated_at,
+i.updated_by,
 
 rank() over (partition by i.customer_code order by i.transaction_date, i.invoice_number ASC) AS account_invoice_number
 

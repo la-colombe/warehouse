@@ -1,6 +1,5 @@
 select
 i.itemcode as sku,
-i.datecreated as created_at,
 i.itemcodedesc as name,
 pl.productlinedesc as product_line,
 i.standardunitprice as unit_price,
@@ -13,6 +12,7 @@ end as weight,
 i.taxclass as tax_class,
 i.primaryvendorno as vendor,
 i.standardunitcost as unit_cost,
-i.dateupdated as updated_at
+i.datecreated + (nullif(i.timecreated, '')::DECIMAL(7,5) || ' hours')::interval as created_at,
+i.dateupdated + (nullif(i.timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at
 from dbo.ci_item i
 left join dbo.im_productline pl on  pl.productline = i.productline

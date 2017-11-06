@@ -9,5 +9,9 @@ select
   invoice_type,
   cash_amount_applied,
   discount_amount_applied,
-  invoice_balance
+  invoice_balance,
+  created_at,
+created_by,
+updated_at,
+updated_by
 from {{ref('ar_cash_receipts_history')}}

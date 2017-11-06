@@ -12,5 +12,9 @@ quantity_invoiced,
 quantity_received,
 sku,
 vendor_id,
-comment
+comment,
+created_at,
+created_by,
+updated_at,
+updated_by
 from {{ref('warehouse_base_purchase_order_items')}} h

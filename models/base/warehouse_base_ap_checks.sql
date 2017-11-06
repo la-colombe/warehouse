@@ -12,5 +12,9 @@ invoice_number,
 invoice_sequence_number,
 check_comment,
 amount_paid,
-row_number
+row_number,
+created_at,
+created_by,
+updated_at,
+updated_by
 from {{ref('ap_check_history')}}
