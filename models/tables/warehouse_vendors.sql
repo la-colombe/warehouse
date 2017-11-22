@@ -6,6 +6,7 @@ select
   address_line_2,
   address_line_3,
   city,
+  state,
   zip_code,
   country,
   telephone,
