@@ -6,9 +6,9 @@ invoice_date,
 i.vendor_number, 
 invoice_comment,
 vendor_name,
-created_at,
-created_by,
-updated_at,
-updated_by
+i.created_at,
+i.created_by,
+i.updated_at,
+i.updated_by
 from {{ref('ap_invoice_history_header')}} i
 left join {{ref('ap_vendor')}} v on v.division = i.division and v.vendor_number = i.vendor_number
