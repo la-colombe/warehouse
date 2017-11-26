@@ -15,6 +15,7 @@ select
 	sum(ia.total_coffee_extension) as total_coffee_extension,
 	sum(ia.total_coffee_weight) as total_coffee_weight,
 	min(i.ship_date) as first_invoice_date,
+	min(case when i.balance > 0 then i.ship_date else null end) as oldest_outstanding_invoice_date,
 	avg(datediff(second, ppci.ship_date, i.ship_date)) as average_time_since_previous_paid_coffee_invoice
 
 from {{ref('warehouse_base_invoices')}} i

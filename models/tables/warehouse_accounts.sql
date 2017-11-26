@@ -57,6 +57,7 @@ aa.total_coffee_weight,
 aa.average_time_since_previous_paid_coffee_invoice,
 aa.most_recent_core_invoice_date,
 aa.first_core_invoice_date,
+aa.oldest_outstanding_invoice_date,
 
 acr.most_recent_payment_date,
  
