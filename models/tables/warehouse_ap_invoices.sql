@@ -7,7 +7,7 @@ i.vendor_number,
 ia.extension as invoice_amount, 
 i.invoice_comment,
 i.vendor_name,
-
+i.purchase_order_number,
 nvl(ic.amount_paid, 0) as amount_paid,
 nvl(ia.extension,0) - nvl(ic.amount_paid,0) as balance,
 c.check_number, 

@@ -6,6 +6,7 @@ case invoicedate
 	when '1753-01-01' then null
 	else invoicedate::date
 end as invoice_date, 
+i.purchaseorderno as purchase_order_number,
 i.vendorno as vendor_number, 
 invoiceamt as invoice_amount, 
 i.comment as invoice_comment,
