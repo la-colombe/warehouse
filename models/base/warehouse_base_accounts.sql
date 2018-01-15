@@ -35,6 +35,7 @@ arc.average_days_to_payment,
 arc.payment_terms,
 arc.days_until_payment_due,
 arc.sent_to_collections,
+arc.sent_to_collections_date,
 
 arc.address_line_1,
 arc.address_line_2,

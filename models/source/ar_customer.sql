@@ -11,6 +11,10 @@ t.payment_terms,
 t.days_until_payment_due,
 avgdayspaymentinvoice as average_days_to_payment,
 udf_sent_to_collections as sent_to_collections,
+case udf_sent_to_collections_date 
+	when '1753-01-01' then null
+	else udf_sent_to_collections_date::date
+end as sent_to_collections_date,
 addressline1 as address_line_1,
 case
 	when addressline3 is not null then addressline2 || ' ' || addressline3

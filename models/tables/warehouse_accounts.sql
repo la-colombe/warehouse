@@ -29,6 +29,7 @@ a.average_days_to_payment,
 a.payment_terms,
 a.days_until_payment_due,
 a.sent_to_collections,
+a.sent_to_collections_date,
 
 a.address_line_1,
 a.address_line_2,
