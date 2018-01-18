@@ -51,6 +51,7 @@ salesorderno as sales_order_number,
     else orderdate::date
   end as order_date,orderstatus as order_status,
 customerno as customer_code,
+null as web_order_number,
 datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as created_at,
 cu.full_name as created_by,
 dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
