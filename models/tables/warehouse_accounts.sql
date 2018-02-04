@@ -72,9 +72,9 @@ case
 	else NULL
 end as churn_date,
 
-datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date) + 1 as weeks_active,
-round((aa.total_core_extension / nullif(datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date) + 1, 0))::decimal(16,2),2) as average_weekly_core_revenue,
-round((aa.total_core_weight/ nullif(datediff(week, aa.second_paid_coffee_invoice_date, aa.most_recent_invoice_date) + 1, 0))::decimal(16,2),2) as average_weekly_core_volume,
+datediff(week, aa.first_core_invoice_date, aa.most_recent_core_invoice_date) + 1 as weeks_active,
+round((aa.total_core_extension / nullif(datediff(week, aa.first_core_invoice_date, aa.most_recent_core_invoice_date) + 1, 0))::decimal(16,2),2) as average_weekly_core_revenue,
+round((aa.total_core_weight/ nullif(datediff(week, aa.first_core_invoice_date, aa.most_recent_core_invoice_date) + 1, 0))::decimal(16,2),2) as average_weekly_core_volume,
 round((aa.total_coffee_extension / nullif(aa.total_coffee_weight, 0))::decimal(16,2),2) as average_coffee_price,
 
 coalesce(aaa.total_value, 0) as total_asset_value,
