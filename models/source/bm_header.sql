@@ -1,0 +1,13 @@
+select 
+h.billno as produced_sku, 
+h.revision as revision,
+case
+	when h.udf_bom_effective_date is null then '2016-01-01'
+	when h.udf_bom_effective_date::date = '1753-01-01' then '2016-01-01'
+	else h.udf_bom_effective_date::date
+end as effective_date,
+h.datecreated + (nullif(h.timecreated, '')::DECIMAL(7,5) || ' hours')::interval as created_at,
+usercreatedkey as created_user_key,
+h.dateupdated + (nullif(h.timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
+userupdatedkey as updated_user_key
+from dbo.bm_billheader h

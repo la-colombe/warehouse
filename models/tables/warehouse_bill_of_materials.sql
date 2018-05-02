@@ -1,12 +1,16 @@
 select 
-unique_key,
-effective_date,
-produced_sku, 
-revision,
-component_sku,
-component_name, 
-quantity, 
-component_cost,
-uom,
-updated_at
-from {{ref('bm_bill_of_materials')}}
+h.produced_sku, 
+h.revision,
+h.effective_date,
+h.next_effective_date,
+d.component_sku,
+d.component_name, 
+d.quantity, 
+d.component_cost,
+d.uom,
+h.created_at,
+h.created_by,
+h.updated_at,
+h.updated_by
+from {{ref('warehouse_base_bill_of_materials_header')}} h
+join {{ref('warehouse_base_bill_of_materials_detail')}} d on d.produced_sku = h.produced_sku and d.revision = h.revision
