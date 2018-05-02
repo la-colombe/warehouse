@@ -1,6 +1,8 @@
 select 
 unique_key,
+effective_date,
 produced_sku, 
+revision,
 component_sku,
 component_name, 
 quantity, 
