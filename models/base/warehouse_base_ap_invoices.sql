@@ -13,4 +13,4 @@ i.created_by,
 i.updated_at,
 i.updated_by
 from {{ref('ap_invoice_history_header')}} i
-left join {{ref('ap_vendor')}} v on v.division = i.division and v.vendor_number = i.vendor_number
+left join {{ref('warehouse_base_ap_vendors')}} v on v.division = i.division and v.vendor_number = i.vendor_number

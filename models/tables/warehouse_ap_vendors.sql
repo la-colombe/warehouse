@@ -2,6 +2,7 @@ select
   division,
   vendor_number,
   vendor_name,
+  days_before_due,
   address_line_1,
   address_line_2,
   address_line_3,
@@ -14,4 +15,4 @@ select
   created_by,
   updated_at,
   updated_by
-from {{ref('ap_vendor')}}
+from {{ref('warehouse_base_ap_vendors')}} v
