@@ -138,4 +138,4 @@ left join google_sheets.lch_customer_mapping cm on cm.old_customer_code = i.cust
 left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
 left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
 where transactiondate >= '2015-05-01'
-and comment != 'LCT AR Import'
+and (comment != 'LCT AR Import' or comment is null)
