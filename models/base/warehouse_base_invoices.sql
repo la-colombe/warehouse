@@ -12,6 +12,7 @@ i.header_number,
 i.invoice_type,
 i.invoice,
 i.ship_date,
+art.days_until_payment_due,
 i.ship_to_name,
 i.ship_to_address1,
 i.ship_to_address2,
@@ -36,3 +37,4 @@ rank() over (partition by i.customer_code order by i.transaction_date, i.invoice
 
 from {{ref('invoice_history_header')}} i
 left join {{ref('ar_open_invoices')}} oi on oi.invoice_number = i.invoice_number and oi.header_number = i.header_number
+left join {{ref('ar_terms')}} art on art.terms_code = i.terms_code
