@@ -11,6 +11,7 @@ SELECT
   i.customer_po_number,
   i.invoice_type,
   i.invoice,
+  i.invoice_date,
   i.ship_date,
   i.days_until_payment_due,
   i.ship_to_name,
