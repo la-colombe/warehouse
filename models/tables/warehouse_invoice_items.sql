@@ -40,7 +40,8 @@ SELECT
   ii.updated_at,
   ii.updated_by,
   i.account_paid_coffee_invoice_number,
-  ii.warehouse_name
+  ii.warehouse_name,
+  ii.invoice_warehouse_name
   
   from {{ref('warehouse_base_invoice_items')}} ii
   join {{ref('warehouse_invoices')}} i on i.unique_invoice_id = ii.unique_invoice_id
