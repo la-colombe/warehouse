@@ -22,6 +22,7 @@ SELECT
   i.ship_to_state,
   i.ship_to_zip,
   i.ship_to_country,
+  i.warehouse_name,
   i.sales_tax as invoice_sales_tax,
   i.freight as invoice_freight,
   i.comment,
