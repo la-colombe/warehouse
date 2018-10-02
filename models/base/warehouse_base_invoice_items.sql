@@ -38,10 +38,8 @@ SELECT
   i.updated_by,
   i.account_invoice_number,
   il.quantity * p.weight as total_weight,
-  w.warehouse_name,
-  i.warehouse_name as invoice_warehouse_name
+  i.warehouse_name as warehouse_name
 
 from {{ref('invoice_history_detail')}} il
 join {{ref('warehouse_base_invoices')}} i on i.unique_invoice_id = il.unique_invoice_id
 left join {{ref('warehouse_base_products')}} p on p.sku = il.sku
-left join {{ref('im_warehouse')}} w on w.warehouse_code = il.warehouse_code
