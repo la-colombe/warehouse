@@ -21,6 +21,7 @@ end as invoice_date,
     when '1753-01-01' then null
     else shipdate::date
   end as ship_date, 
+  termscode as terms_code,
   shiptoname as ship_to_name,
   shiptoaddress1 as ship_to_address1,
   shiptoaddress2 as ship_to_address2,
@@ -70,7 +71,8 @@ end as invoice_date,
   case shipdate 
     when '1753-01-01' then null
     else shipdate::date
-  end as ship_date,   
+  end as ship_date, 
+  termscode as terms_code,
   shiptoname as ship_to_name,
   shiptoaddress1 as ship_to_address1,
   shiptoaddress2 as ship_to_address2,
@@ -121,6 +123,7 @@ end as invoice_date,
     when '1753-01-01' then null
     else shipdate::date
   end as ship_date, 
+  termscode as terms_code,
   shiptoname as ship_to_name,
   shiptoaddress1 as ship_to_address1,
   shiptoaddress2 as ship_to_address2,
