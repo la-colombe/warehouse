@@ -7,6 +7,7 @@ case invoicedate
 	else invoicedate::date
 end as invoice_date, 
 i.purchaseorderno as purchase_order_number,
+i.termscode as terms_code,
 i.vendorno as vendor_number, 
 nontaxableamt + freightamt as invoice_amount, 
 freightamt as shipping_amount,
