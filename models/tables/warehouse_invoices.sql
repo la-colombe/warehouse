@@ -13,6 +13,7 @@ SELECT
   i.invoice,
   i.invoice_date,
   i.ship_date,
+  s.delivery_charge,
   i.days_until_payment_due,
   i.ship_to_name,
   i.ship_to_address1,
@@ -51,5 +52,6 @@ SELECT
   left join {{ref('warehouse_invoice_aggregates')}} ia on ia.unique_invoice_id = i.unique_invoice_id
   left join {{ref('warehouse_paid_coffee_invoice_ranking')}} pci on pci.unique_invoice_id = i.unique_invoice_id
   left join {{ref('warehouse_paid_coffee_invoice_ranking')}} ppci on ppci.customer_code = i.customer_code and ppci.account_paid_coffee_invoice_number = pci.account_paid_coffee_invoice_number - 1
+  left join {{ref('warehouse_invoice_shipment_aggregates')}} s on i.invoice_number = s.invoice_number
 
 
