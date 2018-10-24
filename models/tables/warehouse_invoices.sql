@@ -25,6 +25,7 @@ SELECT
   i.warehouse_name,
   i.sales_tax as invoice_sales_tax,
   i.freight as invoice_freight,
+  i.shipping_method,
   i.comment,
 
   i.posting_date,
