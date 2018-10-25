@@ -18,10 +18,9 @@ select
 	min(case when i.balance > 0 and i.ship_date >= '2015-01-01' then i.ship_date else null end) as oldest_outstanding_invoice_date,
 	avg(datediff(second, ppci.ship_date, i.ship_date)) as average_time_since_previous_paid_coffee_invoice
 
-from {{ref('warehouse_base_invoices')}} i
+from {{ref('warehouse_invoices')}} i
 left join {{ref('warehouse_invoice_aggregates')}} ia on ia.unique_invoice_id = i.unique_invoice_id
 left join {{ref('warehouse_paid_coffee_invoice_ranking')}} pci on pci.unique_invoice_id = i.unique_invoice_id
 left join {{ref('warehouse_paid_coffee_invoice_ranking')}} ppci on ppci.customer_code = i.customer_code and ppci.account_paid_coffee_invoice_number = pci.account_paid_coffee_invoice_number - 1
-
 
 group by 1

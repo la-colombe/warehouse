@@ -12,5 +12,5 @@ select
 	sum((il.sku like 'C%')::integer * il.quantity) as total_coffee_quantity,
 	sum((il.sku like 'C%')::integer * il.total_weight) as total_coffee_weight,
 	sum((il.sku like 'C%')::integer * il.extension) as total_coffee_extension
-from {{ref('warehouse_base_invoice_items')}} il
+from {{ref('ar_invoice_history_detail')}} il
 group by 1

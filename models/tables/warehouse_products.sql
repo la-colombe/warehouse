@@ -12,4 +12,4 @@ unit_cost,
 vendor,
 updated_at
 
-from {{ref('warehouse_base_products')}}
+from {{ref('ci_item')}}

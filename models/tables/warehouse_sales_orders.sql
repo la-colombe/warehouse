@@ -29,5 +29,5 @@ so.created_by,
 so.updated_at,
 so.updated_by
 
-from {{ref('warehouse_base_sales_orders')}} so
-left join {{ref('warehouse_base_sales_orders')}} pso on pso.customer_code = so.customer_code and pso.account_order_number = so.account_order_number - 1
+from {{ref('so_sales_order_history_header')}} so
+left join {{ref('so_sales_order_history_header')}} pso on pso.customer_code = so.customer_code and pso.account_order_number = so.account_order_number - 1
