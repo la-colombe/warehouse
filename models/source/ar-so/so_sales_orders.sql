@@ -12,6 +12,7 @@ h.ordertype as order_type,
   end as ship_date,
 h.customerno as customer_code,
 h.warehousecode as warehouse_code,
+w.warehouse_name as warehouse,
 currentinvoiceno as invoice_number,
 d.itemcode as sku,
 d.itemcodedesc as item_name,
@@ -27,3 +28,4 @@ from dbo.so_salesorderheader h
 join dbo.so_salesorderdetail d on d.salesorderno = h.salesorderno
 left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
 left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
+left join {{ref('im_warehouse')}} w on w.warehouse_code = h.warehousecode

@@ -11,7 +11,9 @@ select
 	A.vendor,
 	A.class,  
 	a.invested_value,
-	a.customer_code,
-	a.location
 
-from {{ref('warehouse_base_assets')}} a
+	ac.customer_code,
+	ac.name as location
+
+from {{ref('slx_assets')}} a
+join {{ref('warehouse_base_accounts')}} ac on ac.account_id = a.account_id

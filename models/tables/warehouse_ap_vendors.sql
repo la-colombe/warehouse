@@ -15,4 +15,4 @@ select
   created_by,
   updated_at,
   updated_by
-from {{ref('warehouse_base_ap_vendors')}} v
+from {{ref('ap_vendor')}} v

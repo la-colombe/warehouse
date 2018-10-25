@@ -7,7 +7,9 @@ select
   last4unencryptedcreditcardnos as last_4,
   emailaddress as email_address,
   datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as created_at,
-  usercreatedkey as user_created_key,
+  cu.full_name as created_by,
   dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
-  userupdatedkey as user_updated_key
+  uu.full_name as updated_by
 from dbo.AR_CustomerCreditCard
+left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
+left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey

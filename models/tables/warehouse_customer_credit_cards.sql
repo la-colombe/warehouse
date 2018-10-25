@@ -10,4 +10,4 @@ select
   created_by,
   updated_at,
   updated_by
-from {{ref('warehouse_base_customer_credit_cards')}}
+from {{ref('ar_customer_credit_card')}}

@@ -3,8 +3,8 @@ select
   h.batchno as batch_number,
   h.transactiontype as transaction_type,
   transactiondate::date as sent_date,
-  towhsecode as to_warehouse_code,
-  defaultfromwhsecode as from_warehouse_code,
+  fw.warehouse_name as from_warehouse,
+  tw.warehouse_name as to_warehouse,
   itemcode as sku,
   transactionqty as quantity,
   datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as created_at,
@@ -13,5 +13,7 @@ select
   cu.full_name as created_by
 from dbo.im_transactionheader h
 join dbo.im_transactiondetail d on d.entryno = h.entryno
+join {{ref('im_warehouse')}} fw on fw.warehouse_code = defaultfromwhsecode
+join {{ref('im_warehouse')}} tw on tw.warehouse_code = towhsecode
 left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
 left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey

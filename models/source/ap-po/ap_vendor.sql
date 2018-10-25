@@ -2,7 +2,7 @@ select
   apdivisionno as division,
   vendorno as vendor_number,
   vendorname as vendor_name,
-  termscode as terms_code,
+  apt.days_before_due,
   addressline1 as address_line_1,
   addressline2 as address_line_2,
   addressline3 as address_line_3,
@@ -12,7 +12,10 @@ select
   countrycode as country,
   telephoneno as telephone,
   datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as created_at,
-  usercreatedkey as user_created_key,
+  cu.full_name as created_by,
   dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
-  userupdatedkey as user_updated_key
+  uu.full_name as updated_by
 from dbo.ap_vendor v
+left join {{ref('sy_user')}} cu on cu.user_key = v.usercreatedkey
+left join {{ref('sy_user')}} uu on uu.user_key = v.userupdatedkey
+left join {{ref('ap_terms')}} apt on apt.terms_code = v.termscode

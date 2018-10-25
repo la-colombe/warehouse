@@ -11,4 +11,4 @@ created_at,
 created_by,
 updated_at,
 updated_by
-from {{ref('warehouse_base_purchase_order_receipts')}}
+from {{ref('po_purchase_order_history_receipts')}}

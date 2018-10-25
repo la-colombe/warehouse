@@ -11,4 +11,4 @@ select
   updated_at,
   updated_by,
   created_by
-from {{ref('warehouse_base_open_transactions')}} iot
+from {{ref('im_open_transactions')}}

@@ -7,7 +7,9 @@ case
 	else h.udf_bom_effective_date::date
 end as effective_date,
 h.datecreated + (nullif(h.timecreated, '')::DECIMAL(7,5) || ' hours')::interval as created_at,
-usercreatedkey as created_user_key,
+cu.full_name as created_by,
 h.dateupdated + (nullif(h.timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
-userupdatedkey as updated_user_key
+uu.full_name as updated_by
 from dbo.bm_billheader h
+left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
+left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
