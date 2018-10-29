@@ -2,7 +2,7 @@ select
 h.produced_sku, 
 h.revision,
 h.effective_date,
-lead(h.effective_date,1) over (PARTITION BY h.produced_sku order by h.effective_date) as next_effective_date,
+lead(h.effective_date,1) over (PARTITION BY h.produced_sku, d.produced_sku order by h.effective_date) as next_effective_date,
 d.component_sku,
 d.component_name, 
 d.quantity, 
