@@ -60,6 +60,8 @@ aa.most_recent_core_invoice_date,
 aa.first_core_invoice_date,
 aa.oldest_outstanding_invoice_date,
 
+l.last_90d_core_lbs,
+
 acr.most_recent_payment_date,
  
 case
@@ -85,6 +87,7 @@ coalesce(aaa.total_customer_owned_value, 0) as total_customer_owned_asset_value
 
 from {{ref('warehouse_base_accounts')}} a
 left join {{ref('warehouse_account_aggregates')}} aa on aa.customer_code = a.customer_code
+left join {{ref('warehouse_last_90d_core_aggregate')}} l on a.customer_code = l.customer_code
 left join {{ref('warehouse_account_asset_aggregates')}} aaa on aaa.customer_code = a.customer_code
 left join {{ref('warehouse_account_cash_receipts_aggregates')}} acr on acr.customer_code = a.customer_code
 where a.customer_code is not null
