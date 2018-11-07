@@ -12,6 +12,7 @@ select
 	max(pci.ship_date) as most_recent_core_invoice_date,
 	sum(ia.total_core_extension) as total_core_extension,
 	sum(ia.total_core_weight) as total_core_weight,
+	sum(case when i.ship_date > date_add('day', -90,current_date) and ia.total_core_extension > 0 then ia.total_core_weight end) as last_90d_core_weight,
 	sum(ia.total_coffee_extension) as total_coffee_extension,
 	sum(ia.total_coffee_weight) as total_coffee_weight,
 	min(i.ship_date) as first_invoice_date,
