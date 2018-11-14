@@ -36,7 +36,7 @@ arc.payment_terms,
 arc.days_until_payment_due,
 arc.sent_to_collections,
 arc.sent_to_collections_date,
-
+arc.credit_hold,
 arc.address_line_1,
 arc.address_line_2,
 arc.city,
