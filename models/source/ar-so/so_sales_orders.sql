@@ -11,6 +11,7 @@ h.ordertype as order_type,
     else shipexpiredate::date
   end as ship_date,
 h.customerno as customer_code,
+h.customerpono as customer_purchase_order_number,
 h.warehousecode as warehouse_code,
 w.warehouse_name as warehouse,
 currentinvoiceno as invoice_number,
