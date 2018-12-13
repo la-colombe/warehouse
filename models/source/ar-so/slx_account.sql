@@ -1,6 +1,6 @@
 select distinct
 
-account as name,
+trim(account) as name,
 coalesce(accountid, '') as account_id,
 createdate as created_at,
 coalesce(division, '') as division,
