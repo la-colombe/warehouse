@@ -1,6 +1,8 @@
 select 
 il.*,
-il.quantity * p.weight as total_weight
+il.quantity * p.weight as total_weight,
+a.full_account_number,
+a.name as gl_account_name
 
 from (
   SELECT 
@@ -18,7 +20,8 @@ from (
     extensionamt as extension,
     headerseqno as header_number,
     detailseqno as line_number,
-    warehousecode as warehouse_code
+    warehousecode as warehouse_code,
+    salesacctkey as sales_account_key
     
   from lct.ar_invoicehistorydetail i
   left join google_sheets.lct_sku_mapping sm on sm.old_sku = i.itemcode
@@ -40,7 +43,8 @@ from (
     extensionamt as extension,
     headerseqno as header_number,
     detailseqno as line_number,
-    warehousecode as warehouse_code
+    warehousecode as warehouse_code,
+    salesacctkey as sales_account_key
     
   from lcg.ar_invoicehistorydetail 
 
@@ -61,8 +65,10 @@ from (
     extensionamt as extension,
     headerseqno as header_number,
     detailseqno as line_number,
-    warehousecode as warehouse_code
+    warehousecode as warehouse_code,
+    salesacctkey as sales_account_key
     
   from dbo.ar_invoicehistorydetail 
 ) il
 left join {{ref('ci_item')}} p on p.sku = il.sku
+left join {{ref('gl_account')}} a on a.id = il.sales_account_key
