@@ -13,6 +13,8 @@ SELECT
   il.header_number,
   il.line_number,
   il.total_weight,
+  il.full_account_number,
+  il.gl_account_name,
   i.unique_sales_order_id,
   i.sales_order_number,
   i.invoice_date,
