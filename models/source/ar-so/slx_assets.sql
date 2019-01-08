@@ -10,5 +10,8 @@ select
 	A.UserField4 as date_moved, 
 	A.UserField5 as vendor,
  	A.UserField6 as class,  
- 	A.UserField8 as invested_value
+ 	case
+ 		when A.UserField8 = '.' then NULL
+ 		else A.UserField8 
+ 	end invested_value
 from sysdba.accountproduct A
