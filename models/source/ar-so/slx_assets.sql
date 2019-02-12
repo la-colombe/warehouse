@@ -6,7 +6,7 @@ select
 	A.UserField1 as date_purchased, 
 	A.SerialNumber as serial_number,
 	case
-	  when (regexp_replace(A.UserField2,'[^0-9.]') ='.' or regexp_count(A.UserField2,'\\.') > 1) then null
+	  when (regexp_replace(A.UserField2,'[^0-9.]') in ('.','') or regexp_count(A.UserField2,'\\.') > 1) then null
 	  else regexp_replace(A.UserField2,'[^0-9.]')
 	end value,
 	A.UserField3 as Status,
@@ -14,7 +14,7 @@ select
 	A.UserField5 as vendor,
  	A.UserField6 as class,  
 	case
-	  when (regexp_replace(A.UserField8,'[^0-9.]') ='.' or regexp_count(A.UserField8,'\\.') > 1) then null
+	  when (regexp_replace(A.UserField8,'[^0-9.]') in ('.','') or regexp_count(A.UserField8,'\\.') > 1) then null
 	  else regexp_replace(A.UserField8,'[^0-9.]')
 	end invested_value
 from sysdba.accountproduct A
