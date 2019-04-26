@@ -32,6 +32,8 @@ i.created_at,
 i.created_by,
 i.updated_at,
 i.updated_by,
+i.packed_by,
+i.checked_by,
 
 rank() over (partition by i.customer_code order by i.transaction_date, i.invoice_number ASC) AS account_invoice_number,
 
