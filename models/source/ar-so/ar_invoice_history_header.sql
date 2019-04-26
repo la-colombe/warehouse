@@ -46,16 +46,14 @@ from (
     cu.full_name as created_by,
     dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
     uu.full_name as updated_by,
-    sh.employee_name as packed_by,
-    ch.employee_name as checked_by
+    null as packed_by,
+    null as checked_by
 
   from lct.ar_invoicehistoryheader i
   left join google_sheets.lct_customer_mapping cm on cm.old_customer_code = i.customerno
   left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
   left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
-  left join {{ref('so_udt_shipper_checker')}} sh on sh.shipper_checker_code = udf_shipped_by
-  left join {{ref('so_udt_shipper_checker')}} ch on ch.shipper_checker_code = udf_checked_by
-
+  
   where transactiondate < '2014-11-01'
 
   union all
@@ -101,7 +99,9 @@ from (
     datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as created_at,
     cu.full_name as created_by,
     dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
-    uu.full_name as updated_by
+    uu.full_name as updated_by,
+    null as packed_by,
+    null as checked_by
 
   from lcg.ar_invoicehistoryheader i
   left join google_sheets.lcg_customer_mapping cm on cm.old_customer_code = i.customerno
@@ -153,12 +153,16 @@ from (
     datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as created_at,
     cu.full_name as created_by,
     dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
-    uu.full_name as updated_by
+    uu.full_name as updated_by,
+    sh.employee_name as packed_by,
+    ch.employee_name as checked_by
 
   from dbo.ar_invoicehistoryheader i
   left join google_sheets.lch_customer_mapping cm on cm.old_customer_code = i.customerno
   left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
   left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
+  left join {{ref('so_udt_shipper_checker')}} sh on sh.shipper_checker_code = udf_shipped_by
+  left join {{ref('so_udt_shipper_checker')}} ch on ch.shipper_checker_code = udf_checked_by
   where transactiondate >= '2015-05-01'
   and (comment != 'LCT AR Import' or comment is null)
 ) i
