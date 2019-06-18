@@ -45,10 +45,12 @@ ia.total_quantity_backordered,
 ia.total_extension,
 ia.total_weight,
 pci.account_paid_coffee_invoice_number,
-s.delivery_charge
+s.delivery_charge,
+dateadd('day',nvl(a.days_until_payment_due,0)::int,i.ship_date) as payment_due_date
 
 from {{ref('ar_invoice_history_header')}} i
 left join {{ref('ar_open_invoices')}} oi on oi.invoice_number = i.invoice_number and oi.header_number = i.header_number
 left join {{ref('warehouse_invoice_aggregates')}} ia on ia.unique_invoice_id = i.unique_invoice_id
 left join {{ref('warehouse_paid_coffee_invoice_ranking')}} pci on pci.unique_invoice_id = i.unique_invoice_id
 left join {{ref('warehouse_invoice_shipment_aggregates')}} s on i.invoice_number = s.invoice_number
+left join {{ref('warehouse_base_accounts')}} a on i.customer_code = a.customer_code
