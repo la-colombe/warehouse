@@ -6,8 +6,8 @@ d.linekey as line_number,
     else orderdate::date
   end as order_date,
 h.ordertype as order_type,
-  case shipexpiredate 
-    when '1753-01-01' then null
+  case 
+    when shipexpiredate::date < '2011-01-01' or shipexpiredate::date >= '2999-01-01' then null
     else shipexpiredate::date
   end as ship_date,
 h.customerno as customer_code,
