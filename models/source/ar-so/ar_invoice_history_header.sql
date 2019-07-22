@@ -28,6 +28,7 @@ from (
       else shipdate::date
     end as ship_date, 
     termscode as terms_code,
+    shiptocode as ship_to_code,
     shiptoname as ship_to_name,
     shiptoaddress1 as ship_to_address1,
     shiptoaddress2 as ship_to_address2,
@@ -82,6 +83,7 @@ from (
       else shipdate::date
     end as ship_date, 
     termscode as terms_code,
+    shiptocode as ship_to_code,
     shiptoname as ship_to_name,
     shiptoaddress1 as ship_to_address1,
     shiptoaddress2 as ship_to_address2,
@@ -136,6 +138,7 @@ from (
       else shipdate::date
     end as ship_date, 
     termscode as terms_code,
+    shiptocode as ship_to_code,
     shiptoname as ship_to_name,
     shiptoaddress1 as ship_to_address1,
     shiptoaddress2 as ship_to_address2,
