@@ -23,6 +23,7 @@ from (
     billtostate as bill_to_state,
     billtozipcode as bill_to_zip,
     billtocountrycode as bill_to_country,
+    shiptocode as ship_to_code,
     shiptoname as ship_to_name,
     CASE
       when shiptoaddress1 = '' then null
@@ -71,6 +72,7 @@ from (
     billtostate as bill_to_state,
     billtozipcode as bill_to_zip,
     billtocountrycode as bill_to_country,
+    shiptocode as ship_to_code,
     shiptoname as ship_to_name,
     CASE
       when shiptoaddress1 = '' then null
@@ -121,6 +123,7 @@ from (
     billtostate as bill_to_state,
     billtozipcode as bill_to_zip,
     billtocountrycode as bill_to_country,
+    shiptocode as ship_to_code,
     shiptoname as ship_to_name,
     CASE
       when shiptoaddress1 = '' then null
