@@ -21,9 +21,9 @@ ca.new_tier,
 ca.group_code,
 
 
-sr.full_name as sales_rep_name,
-am1.full_name as primary_account_manager_name,
-sr2.full_name as secondary_sales_rep_name,
+ca.sales_rep_name,
+a.primary_account_manager_name,
+ca.secondary_sales_rep_name,
 
 arc.overdue_balance_30_day,
 arc.overdue_balance_60_day,
@@ -62,8 +62,5 @@ left join
 
 	) ar on ar.account_id = a.account_id
 left join {{ref('slx_c_account')}} ca on ca.account_id = a.account_id
-left join {{ref('slx_users')}} sr on sr.user_id = ca.sales_rep_id
-left join {{ref('slx_users')}} am1 on am1.user_id = a.primary_account_manager_id
-left join {{ref('slx_users')}} sr2 on sr2.user_id = ca.secondary_sales_rep_id
 left join {{ref('ar_customer')}} arc on arc.customer_code = ar.customer_code
 left join {{ref('ar_division')}} ad on ad.division_code = left(ar.customer_code,2)
