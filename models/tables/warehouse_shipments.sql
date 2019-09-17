@@ -8,6 +8,7 @@ select
   shipper,
   total_weight,
   processed_at,
+  tracking_id,
   tracking_link,
   number_of_packages
 from {{ref('starship_shipments')}}

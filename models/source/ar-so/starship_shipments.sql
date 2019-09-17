@@ -8,6 +8,7 @@ select
   s.starshipuser as shipper,
   s.totalweight as total_weight,
   s.processdatetime as processed_at,
+  s.mastertrackingid as tracking_id,
   s.mastertrackinglink as tracking_link,
   s.totalpackqty as number_of_packages
 from starship.shipment s
