@@ -8,7 +8,8 @@ itemcode as sku,
     when '1753-01-01' then null
     else receiptdate::date
   end as recieved_at,
-quantityreceived as quantity,
+quantityreceived * (case unitofmeasureconvfactor when 0 then 1 else unitofmeasureconvfactor end) as quantity,
+quantityreceived as quantity_in_ordered_uom,
 w.warehouse_name as warehouse,
 datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as created_at,
 cu.full_name as created_by,
