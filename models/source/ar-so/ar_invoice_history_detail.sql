@@ -24,7 +24,7 @@ from (
     salesacctkey as sales_account_key
     
   from lct.ar_invoicehistorydetail i
-  left join google_sheets.lct_sku_mapping sm on sm.old_sku = i.itemcode
+  left join lambda_uploads.historical_sku_mapping sm on sm.oldsku = i.itemcode and sm.database = 'lct'
 
   union all
 
