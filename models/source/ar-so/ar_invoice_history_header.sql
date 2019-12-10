@@ -71,7 +71,7 @@ from (
     when '1753-01-01' then null
     else invoicedate::date
   end as invoice_date, 
-    coalesce(customer_code, customerno) as customer_code,
+    coalesce(customercode, customerno) as customer_code,
     billtoname as bill_to_name,
     invoiceno as invoice_number,
     salesorderno as sales_order_number,
