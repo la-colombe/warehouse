@@ -13,6 +13,7 @@ case postingdate
   else postingdate
 end as posting_date,
 balance,
+taxableamt as amount,
 comment,
 checkno as check_number,
 datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as created_at,
