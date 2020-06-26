@@ -29,7 +29,14 @@ coalesce(countrycode, 'USA') as country,
 zipcode as zip,
 taxschedule as tax,
 pricelevel as price_tier,
-sortfield as ar_bucket
+sortfield as ar_bucket,
+case udf_customer_type
+  when 'A' then 'Temporarily Closed'
+  when 'B' then 'Permanently Closed'
+  when 'C' then 'Delivery/Grab N Go'
+  when 'D' then 'Open'
+end as closed_status
+
 
 from dbo.ar_customer c
 left join {{ref('ar_terms')}} t on c.termscode = t.terms_code
