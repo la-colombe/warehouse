@@ -9,6 +9,7 @@ SELECT
   il.quantity_ordered,
   il.quantity_backordered,
   il.unit_price,
+  il.discount_percentage,
   il.extension,
   il.header_number,
   il.line_number,

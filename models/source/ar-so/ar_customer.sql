@@ -35,7 +35,8 @@ case udf_customer_type
   when 'B' then 'Permanently Closed'
   when 'C' then 'Delivery/Grab N Go'
   when 'D' then 'Open'
-end as closed_status
+end as closed_status,
+udf_business_category as business_type
 
 
 from dbo.ar_customer c

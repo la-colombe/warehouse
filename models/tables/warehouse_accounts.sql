@@ -43,7 +43,7 @@ a.tax,
 a.price_tier,
 a.ar_bucket,
 a.closed_status,
-
+a.business_type,
 
 aa.total_invoices,
 aa.total_paid_core_invoices,

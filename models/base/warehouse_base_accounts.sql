@@ -48,7 +48,8 @@ arc.phone,
 arc.tax,
 arc.price_tier,
 arc.ar_bucket,
-arc.closed_status
+arc.closed_status,
+arc.business_type
 
 from {{ref('slx_account')}} a
 left join 
