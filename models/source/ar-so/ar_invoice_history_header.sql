@@ -28,6 +28,8 @@ from (
       else shipdate::date
     end as ship_date, 
     termscode as terms_code,
+    discountrate as discount_rate,
+    discountamt as discount_amount,
     shiptocode as ship_to_code,
     shiptoname as ship_to_name,
     shiptoaddress1 as ship_to_address1,
@@ -83,6 +85,8 @@ from (
       else shipdate::date
     end as ship_date, 
     termscode as terms_code,
+    discountrate as discount_rate,
+    discountamt as discount_amount,
     shiptocode as ship_to_code,
     shiptoname as ship_to_name,
     shiptoaddress1 as ship_to_address1,
@@ -138,6 +142,8 @@ from (
       else shipdate::date
     end as ship_date, 
     termscode as terms_code,
+    discountrate as discount_rate,
+    discountamt as discount_amount,
     shiptocode as ship_to_code,
     shiptoname as ship_to_name,
     shiptoaddress1 as ship_to_address1,
