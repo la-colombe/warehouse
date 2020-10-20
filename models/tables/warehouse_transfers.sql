@@ -10,4 +10,4 @@ updated_at,
 updated_by
 from {{ref('im_item_transactions')}} t
 join {{ref('im_warehouse')}} w on w.warehouse_code = t.warehouse_code
-where transaction_type = 'IT'
+where transaction_type = 'IT' or transaction_type = 'IA'
