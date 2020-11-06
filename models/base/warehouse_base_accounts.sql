@@ -25,6 +25,7 @@ ca.sales_rep_name,
 a.primary_account_manager_name,
 ca.secondary_sales_rep_name,
 
+arc.created_date,
 arc.overdue_balance_30_day,
 arc.overdue_balance_60_day,
 arc.overdue_balance_90_day,

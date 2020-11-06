@@ -15,6 +15,10 @@ case udf_sent_to_collections_date
 	when '1753-01-01' then null
 	else udf_sent_to_collections_date::date
 end as sent_to_collections_date,
+case datecreated
+	when '1753-01-01' then null
+	else datecreated::date
+end as created_date,
 DECODE(credithold, 'N', '0','Y', '1')::integer::boolean as credit_hold,
 addressline1 as address_line_1,
 case

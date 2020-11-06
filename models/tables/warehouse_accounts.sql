@@ -19,6 +19,7 @@ a.sales_rep_name,
 a.primary_account_manager_name,
 a.secondary_sales_rep_name,
 
+a.created_date,
 a.overdue_balance_30_day,
 a.overdue_balance_60_day,
 a.overdue_balance_90_day,
