@@ -50,7 +50,13 @@ arc.tax,
 arc.price_tier,
 arc.ar_bucket,
 arc.closed_status,
-arc.business_type
+arc.business_type,
+
+arc.diversity_bipoc_owned,
+arc.diversity_woman_owned,
+arc.diversity_lgbtq_owned,
+arc.diversity_veteran_owned,
+arc.diversity_disability_owned
 
 from {{ref('slx_account')}} a
 left join 
