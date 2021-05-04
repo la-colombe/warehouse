@@ -42,21 +42,21 @@ case udf_customer_type
 end as closed_status,
 udf_business_category as business_type,
 
-DECODE(udf_ownership_01,
-             'Y', '0',
-             'N', '1' )::integer::boolean as diversity_bipoc_owned,
-DECODE(udf_ownership_02,
-             'Y', '0',
-             'N', '1' )::integer::boolean as diversity_woman_owned,
-DECODE(udf_ownership_03,
-             'Y', '0',
-             'N', '1' )::integer::boolean as diversity_lgbtq_owned,
-DECODE(udf_ownership_04,
-             'Y', '0',
-             'N', '1' )::integer::boolean as diversity_veteran_owned,
-DECODE(udf_ownership_05,
-             'Y', '0',
-             'N', '1' )::integer::boolean as diversity_disability_owned
+nvl(DECODE(udf_ownership_01,
+             'Y', '1',
+             'N', '0' ),1)::integer::boolean as diversity_bipoc_owned,
+nvl(DECODE(udf_ownership_02,
+             'Y', '1',
+             'N', '0' ),1)::integer::boolean as diversity_woman_owned,
+nvl(DECODE(udf_ownership_03,
+             'Y', '1',
+             'N', '0' ),1)::integer::boolean as diversity_lgbtq_owned,
+nvl(DECODE(udf_ownership_04,
+             'Y', '1',
+             'N', '0' ),1)::integer::boolean as diversity_veteran_owned,
+nvl(DECODE(udf_ownership_05,
+             'Y', '1',
+             'N', '0' ),1)::integer::boolean as diversity_disability_owned
 
 
 from dbo.ar_customer c
