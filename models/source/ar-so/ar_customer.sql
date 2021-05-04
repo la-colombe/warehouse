@@ -44,19 +44,19 @@ udf_business_category as business_type,
 
 nvl(DECODE(udf_ownership_01,
              'Y', '1',
-             'N', '0' ),'1')::integer::boolean as diversity_bipoc_owned,
+             'N', '0' ),'0')::integer::boolean as diversity_bipoc_owned,
 nvl(DECODE(udf_ownership_02,
              'Y', '1',
-             'N', '0' ),'1')::integer::boolean as diversity_woman_owned,
+             'N', '0' ),'0')::integer::boolean as diversity_woman_owned,
 nvl(DECODE(udf_ownership_03,
              'Y', '1',
-             'N', '0' ),'1')::integer::boolean as diversity_lgbtq_owned,
+             'N', '0' ),'0')::integer::boolean as diversity_lgbtq_owned,
 nvl(DECODE(udf_ownership_04,
              'Y', '1',
-             'N', '0' ),'1')::integer::boolean as diversity_veteran_owned,
+             'N', '0' ),'0')::integer::boolean as diversity_veteran_owned,
 nvl(DECODE(udf_ownership_05,
              'Y', '1',
-             'N', '0' ),'1')::integer::boolean as diversity_disability_owned
+             'N', '0' ),'0')::integer::boolean as diversity_disability_owned
 
 
 from dbo.ar_customer c
