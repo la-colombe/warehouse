@@ -21,9 +21,9 @@ ca.new_tier,
 ca.group_code,
 
 
-ca.sales_rep_name,
-a.primary_account_manager_name,
-ca.secondary_sales_rep_name,
+nvl(arc.sales_rep, ca.sales_rep_name) as sales_rep_name,
+nvl(arc.account_manager, a.primary_account_manager_name) as primary_account_manager_name,
+nvl(arc.secondary_sales_rep, ca.secondary_sales_rep_name) as secondary_sales_rep_name,
 
 arc.created_date,
 arc.overdue_balance_30_day,

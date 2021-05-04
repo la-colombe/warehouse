@@ -42,6 +42,13 @@ case udf_customer_type
 end as closed_status,
 udf_business_category as business_type,
 
+udf_salesperson as sales_rep_mas_id,
+sr.user_name as sales_rep,
+udf_cocreator as secondary_sales_rep_mas_id,
+ssr.user_name as secondary_sales_rep,
+udf_account_manager as account_manager_mas_id,
+am.user_name as account_manager,
+
 nvl(DECODE(udf_ownership_01,
              'Y', '1',
              'N', '0' ),'0')::integer::boolean as diversity_bipoc_owned,
@@ -61,3 +68,6 @@ nvl(DECODE(udf_ownership_05,
 
 from dbo.ar_customer c
 left join {{ref('ar_terms')}} t on c.termscode = t.terms_code
+left join {{ref('ar_account_ownership')}} sr on c.udf_salesperson = sr.owner_id
+left join {{ref('ar_account_ownership')}} ssr on c.udf_cocreator = ssr.owner_id
+left join {{ref('ar_account_ownership')}} am on c.udf_account_manager = am.owner_id
