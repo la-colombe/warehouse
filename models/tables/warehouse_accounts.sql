@@ -1,14 +1,3 @@
-{{
-  config({
-    "materialized" : "table",
-    "sort" : "second_paid_coffee_invoice_date",
-    "unique_key" : "account_id",
-    "post-hook" : [
-      "grant select on table {{this}} to group non_gl_read_only"
-      ]
-    })
-}}
-
 select 
 
 a.name,
