@@ -1,3 +1,14 @@
+{{
+  config({
+    "materialized" : "table",
+    "sort" : "second_paid_coffee_invoice_date",
+    "unique_key" : "account_id",
+    "post-hook" : [
+      "grant select on table {{this}} to group non_gl_read_only"
+      ]
+    })
+}}
+
 select
 
 	i.customer_code,
@@ -13,6 +24,10 @@ select
 	sum(ia.total_core_extension) as total_core_extension,
 	sum(ia.total_core_weight) as total_core_weight,
 	sum(case when i.ship_date > date_add('day', -90,current_date) and ia.total_core_extension > 0 then ia.total_core_weight end) as last_90d_core_weight,
+	case
+		when second_paid_coffee_invoice_date is not null then sum(case when date_diff('week',i.ship_date,current_date)<=13 and date_diff('week',i.ship_date,current_date)!=0 then ia.total_core_extension end) / least(greatest(date_diff('week',second_paid_coffee_invoice_date,current_date),1),13)
+		else 0
+	end as average_weekly_core_revenue, --rolling 13 weeks revenue divided by lesser of 13 or week tenure
 	sum(ia.total_coffee_extension) as total_coffee_extension,
 	sum(ia.total_coffee_weight) as total_coffee_weight,
 	min(i.ship_date) as first_invoice_date,
