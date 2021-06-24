@@ -20,10 +20,22 @@ ca.min_vol,
 ca.new_tier,
 ca.group_code,
 
+case
+    when nvl(arc.sales_rep, ca.sales_rep_name) like '%,%' then split_part(nvl(arc.sales_rep, ca.sales_rep_name),', ',1)
+    else nvl(arc.sales_rep, ca.sales_rep_name)
+end as sales_rep_name,
+case
+    when nvl(arc.sales_rep, ca.sales_rep_name) like '%,%' then split_part(nvl(arc.sales_rep, ca.sales_rep_name),', ',2)
+end as sales_rep_email,
+case
+    when nvl(arc.account_manager, a.primary_account_manager_name) like '%,%' then split_part(nvl(arc.account_manager, a.primary_account_manager_name),', ',1)
+    else nvl(arc.account_manager, a.primary_account_manager_name)
+end as primary_account_manager_name,
+case
+    when nvl(arc.secondary_sales_rep, ca.secondary_sales_rep_name) like '%,%' then split_part(nvl(arc.secondary_sales_rep, ca.secondary_sales_rep_name),', ',1)
+    else nvl(arc.secondary_sales_rep, ca.secondary_sales_rep_name)
+end as secondary_sales_rep_name,
 
-nvl(arc.sales_rep, ca.sales_rep_name) as sales_rep_name,
-nvl(arc.account_manager, a.primary_account_manager_name) as primary_account_manager_name,
-nvl(arc.secondary_sales_rep, ca.secondary_sales_rep_name) as secondary_sales_rep_name,
 
 arc.created_date,
 arc.overdue_balance_30_day,
