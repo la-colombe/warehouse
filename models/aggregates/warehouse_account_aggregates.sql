@@ -1,7 +1,7 @@
 select
 
 	i.customer_code,
-	count(*) as total_invoices,
+	count(distinct (case when i.account_invoice_number is not null then i.unique_invoice_id else null end)) as total_invoices,
 	sum((ia.total_core_weight > 0 and ia.total_extension > 0)::integer) as total_paid_core_invoices,
 	max(case when pci.account_paid_coffee_invoice_number = 2 then pci.ship_date else NULL end) as second_paid_coffee_invoice_date,
 	max(case when pci.account_paid_coffee_invoice_number = 1 then pci.ship_date else NULL end) as first_core_invoice_date,

@@ -177,3 +177,6 @@ from (
 ) i
 left join {{ref('ar_terms')}} art on art.terms_code = i.terms_code
 left join {{ref('im_warehouse')}} w on w.warehouse_code = i.warehouse_code
+
+where i.customer_code not in ('01PAR05150001', '20NYC00720001','01PAR01440001', '01PAO00720001')
+  --Invoices for above customer_codes are duplicated by 20NYR05140001, 20NYC00990001, 01PAO01290001 and 01PAO00710001 respectively
