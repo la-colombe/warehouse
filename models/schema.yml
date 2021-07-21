@@ -1,0 +1,11 @@
+version: 2
+
+models:
+
+  - name: warehouse_invoices
+    columns:
+      - name: unique_invoice_id
+        description: Unique identifier at the invoice level. MD5 hash of the schema name (lcg, lch, or lct) || invoiceno || headerseqno from ar_invoice_history_header
+        tests: 
+          - not_null
+          - unique
