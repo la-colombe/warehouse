@@ -24,6 +24,7 @@ currentinvoiceno as invoice_number,
 d.itemcode as sku,
 d.itemcodedesc as item_name,
 d.quantityordered as quantity_ordered,
+hd.original_quantity as quantity_original,
 d.extensionamt as extension,
 d.unitprice as unit_price,
 lineweight * quantityordered as weight,
@@ -34,6 +35,7 @@ uu.full_name as updated_by
 
 from dbo.so_salesorderheader h
 join dbo.so_salesorderdetail d on d.salesorderno = h.salesorderno
+left join {{ref('so_sales_order_history_detail')}} hd on d.salesorderno = hd.sales_order_number and d.linekey = hd.line_number
 left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
 left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
 left join {{ref('im_warehouse')}} w on w.warehouse_code = h.warehousecode
