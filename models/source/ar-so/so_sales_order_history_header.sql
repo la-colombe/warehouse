@@ -9,6 +9,10 @@ from (
         when '1753-01-01' then null
         else orderdate::date
       end as order_date,
+      case udf_requested_delivery_date 
+        when '1753-01-01' then null
+        else udf_requested_delivery_date::date
+      end as requested_delivery_date,
     orderstatus as order_status,
     customerno as customer_code,
     nullif(so551elk_weborderno,'') as web_order_number,
@@ -58,7 +62,9 @@ from (
       case orderdate 
         when '1753-01-01' then null
         else orderdate::date
-      end as order_date,orderstatus as order_status,
+      end as order_date,
+    null as requested_delivery_date,
+    orderstatus as order_status,
     customerno as customer_code,
     null as web_order_number,
     billtoname as bill_to_name,
@@ -109,7 +115,9 @@ from (
       case orderdate 
         when '1753-01-01' then null
         else orderdate::date
-      end as order_date,orderstatus as order_status,
+      end as order_date,
+    null as requested_delivery_date,
+    orderstatus as order_status,
     customerno as customer_code,
     null as web_order_number,
     billtoname as bill_to_name,

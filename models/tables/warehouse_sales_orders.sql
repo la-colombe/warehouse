@@ -2,6 +2,7 @@ select
 so.unique_sales_order_id,
 so.sales_order_number,
 so.order_date,
+so.requested_delivery_date,
 so.order_status,
 so.customer_code,
 so.web_order_number,

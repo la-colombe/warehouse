@@ -10,6 +10,10 @@ h.ordertype as order_type,
     when shipexpiredate::date < '2011-01-01' or shipexpiredate::date >= '2999-01-01' then null
     else shipexpiredate::date
   end as ship_date,
+  case udf_requested_delivery_date 
+    when '1753-01-01' then null
+    else udf_requested_delivery_date::date
+  end as requested_delivery_date,
 h.customerno as customer_code,
 h.customerpono as customer_purchase_order_number,
 h.shiptocode as ship_to_code,
