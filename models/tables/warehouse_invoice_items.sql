@@ -39,6 +39,7 @@ SELECT
   i.ship_to_country,
   i.invoice_sales_tax,
   i.invoice_freight,
+  i.shipping_method,
   i.comment,
   i.created_at,
   i.created_by,
