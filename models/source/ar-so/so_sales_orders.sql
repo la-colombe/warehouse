@@ -32,7 +32,7 @@ d.quantityordered as quantity_ordered,
 hd.original_quantity as quantity_original,
 d.extensionamt as extension,
 d.unitprice as unit_price,
-lineweight * quantityordered as weight,
+i.weight * quantityordered as weight,
 datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as created_at,
 cu.full_name as created_by,
 dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
@@ -44,3 +44,4 @@ left join {{ref('so_sales_order_history_detail')}} hd on d.salesorderno = hd.sal
 left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
 left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
 left join {{ref('im_warehouse')}} w on w.warehouse_code = h.warehousecode
+left join {{ref('ci_item')}} i using(itemcode)
