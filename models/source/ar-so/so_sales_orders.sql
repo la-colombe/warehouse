@@ -44,4 +44,4 @@ left join {{ref('so_sales_order_history_detail')}} hd on d.salesorderno = hd.sal
 left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
 left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
 left join {{ref('im_warehouse')}} w on w.warehouse_code = h.warehousecode
-left join {{ref('ci_item')}} i using(itemcode)
+left join {{ref('ci_item')}} i on d.itemcode = i.sku
