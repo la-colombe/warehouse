@@ -18,7 +18,7 @@ ca.secondary_sales_rep_id,
 ca.call_frequency,
 ca.min_vol,
 ca.new_tier,
-ca.group_code,
+nvl(arc.group_code,ca.group_code) as group_code, 
 
 case
     when nvl(arc.sales_rep, ca.sales_rep_name) like '%,%' then split_part(nvl(arc.sales_rep, ca.sales_rep_name),', ',1)
