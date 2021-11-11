@@ -1,7 +1,7 @@
 select 
 
 customerno as customer_code,
-customertype as group_code,
+nullif(customertype,'') as group_code,
 agingcategory1 as overdue_balance_30_day,
 agingcategory2 as overdue_balance_60_day,
 agingcategory3 as overdue_balance_90_day,
