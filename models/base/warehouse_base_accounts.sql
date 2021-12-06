@@ -17,6 +17,7 @@ ca.sales_rep_id,
 ca.secondary_sales_rep_id,
 ca.call_frequency,
 ca.min_vol,
+arc.min_avg_weekly_core_rev,
 ca.new_tier,
 nvl(arc.group_code,ca.group_code) as group_code, 
 
