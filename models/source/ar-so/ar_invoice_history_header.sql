@@ -8,14 +8,15 @@ from (
     md5('lct' || invoiceno || headerseqno) as unique_invoice_id,
     md5('lct' || salesorderno) as unique_sales_order_id,
     'lct' as source_mas_instance,
-  case transactiondate 
-    when '1753-01-01' then null
-    else transactiondate::date
-  end as transaction_date, 
-  case invoicedate 
-    when '1753-01-01' then null
-    else invoicedate::date
-  end as invoice_date, 
+    case transactiondate 
+      when '1753-01-01' then null
+      else transactiondate::date
+    end as transaction_date, 
+    case invoicedate 
+      when '1753-01-01' then null
+      else invoicedate::date
+    end as invoice_date, 
+    null as requested_delivery_date,
     coalesce(customercode, customerno) as customer_code,
     billtoname as bill_to_name,
     invoiceno as invoice_number,
@@ -65,14 +66,15 @@ from (
     md5('lcg' || invoiceno || headerseqno) as unique_invoice_id,
     md5('lcg' || salesorderno) as unique_sales_order_id,
     'lcg' as source_mas_instance,
-  case transactiondate 
-    when '1753-01-01' then null
-    else transactiondate::date
-  end as transaction_date, 
-  case invoicedate 
-    when '1753-01-01' then null
-    else invoicedate::date
-  end as invoice_date, 
+    case transactiondate 
+      when '1753-01-01' then null
+      else transactiondate::date
+    end as transaction_date, 
+    case invoicedate 
+      when '1753-01-01' then null
+      else invoicedate::date
+    end as invoice_date, 
+    null as requested_delivery_date,
     coalesce(customercode, customerno) as customer_code,
     billtoname as bill_to_name,
     invoiceno as invoice_number,
@@ -122,14 +124,18 @@ from (
     md5('lch' || invoiceno || headerseqno) as unique_invoice_id,
     md5('lch' || salesorderno) as unique_sales_order_id,
     'lch' as source_mas_instance,
-  case transactiondate 
-    when '1753-01-01' then null
-    else transactiondate::date
-  end as transaction_date, 
-  case invoicedate 
-    when '1753-01-01' then null
-    else invoicedate::date
-  end as invoice_date, 
+    case transactiondate 
+      when '1753-01-01' then null
+      else transactiondate::date
+    end as transaction_date, 
+    case invoicedate 
+      when '1753-01-01' then null
+      else invoicedate::date
+    end as invoice_date, 
+    case udf_requested_delivery_date 
+      when '1753-01-01' then null
+      else udf_requested_delivery_date::date
+    end as requested_delivery_date,
     coalesce(customercode, customerno) as customer_code,
     billtoname as bill_to_name,
     invoiceno as invoice_number,

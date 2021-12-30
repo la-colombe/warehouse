@@ -11,6 +11,7 @@ SELECT
 	i.header_number,
 	i.invoice_type,
 	i.invoice,
+	i.requested_delivery_date,
 	i.ship_date,
 	i.days_until_payment_due,
 	i.discount_rate,
