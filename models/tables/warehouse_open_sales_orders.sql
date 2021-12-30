@@ -5,7 +5,7 @@ select
 	order_date, 
 	order_type,
 	ship_date,
-	requested_delivery_date
+	requested_delivery_date,
 	customer_code,
 	customer_purchase_order_number,
 	ship_to_code,
@@ -29,5 +29,5 @@ select
 	created_by,
 	updated_at,
 	updated_by
-	
+
 from {{ref('so_sales_orders')}} so
