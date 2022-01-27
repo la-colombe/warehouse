@@ -36,11 +36,9 @@ zipcode as zip,
 taxschedule as tax,
 pricelevel as price_tier,
 sortfield as ar_bucket,
-case udf_customer_type
-  when 'A' then 'Temporarily Closed'
-  when 'B' then 'Permanently Closed'
-  when 'C' then 'Delivery/Grab N Go'
-  when 'D' then 'Open'
+case customerstatus
+  when 'A' then 'Active'
+  when 'I' then 'Inactive'
 end as closed_status,
 udf_business_category as business_type,
 
