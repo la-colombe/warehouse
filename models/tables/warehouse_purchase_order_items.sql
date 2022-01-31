@@ -2,6 +2,7 @@ select
 purchase_order_number,
 purchase_order_date,
 line_number,
+order_status,
 invoice_date,
 completion_date,
 required_date,
