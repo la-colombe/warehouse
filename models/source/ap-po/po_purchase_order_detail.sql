@@ -2,6 +2,7 @@ select
 h.purchaseorderno as purchase_order_number,
 h.purchaseorderdate as purchase_order_date,
 d.linekey as line_number,
+h.orderstatus as order_status,
   case lastinvoicedate 
     when '1753-01-01' then null
     else lastinvoicedate::date
