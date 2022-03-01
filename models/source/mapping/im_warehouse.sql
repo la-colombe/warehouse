@@ -6,7 +6,7 @@ case warehousedesc
 	when 'PJP Warehouse' then 'PJP'
 	when 'Tioga Warehouse' then 'Tioga'
 	when 'Garfield Road' then 'Garfield'
-	when 'Liberty Cold Warehouse' then 'Liberty Cold'
+	when 'Vertical Cold Warehouse' then 'Liberty Cold'
 	when 'La Colombe Frogtown Warehouse' then 'Frogtown'
 	when 'US Cold Storage' then 'US Cold'
 	when 'Pontaluna Warehouse' then 'Pontaluna'
