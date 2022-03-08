@@ -10,6 +10,7 @@ case warehousedesc
 	when 'La Colombe Frogtown Warehouse' then 'Frogtown'
 	when 'US Cold Storage' then 'US Cold'
 	when 'Pontaluna Warehouse' then 'Pontaluna'
+	when 'Allendale Warehouse' then 'Allendale'
 	else warehousedesc
 end as warehouse_name
 from dbo.im_warehouse w
