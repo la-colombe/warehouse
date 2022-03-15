@@ -28,6 +28,7 @@ select
 	created_at,
 	created_by,
 	updated_at,
-	updated_by
+	updated_by,
+	order_comment
 
 from {{ref('so_sales_orders')}} so
