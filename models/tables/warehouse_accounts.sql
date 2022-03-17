@@ -91,6 +91,7 @@ round((aa.total_coffee_extension / nullif(aa.total_coffee_weight, 0))::decimal(1
 coalesce(aaa.invested_machines,0) as invested_machines,
 coalesce(aaa.total_value, 0) as total_asset_value,
 coalesce(aaa.total_invested_value, 0) as total_invested_asset_value,
+coalesce(aaa.invested_value_last_2_years, 0) as invested_asset_value_last_2_years,
 coalesce(aaa.total_customer_owned_value, 0) as total_customer_owned_asset_value
 
 
