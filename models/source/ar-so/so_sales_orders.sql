@@ -37,7 +37,8 @@ i.weight * quantityordered as weight,
 datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as created_at,
 cu.full_name as created_by,
 dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
-uu.full_name as updated_by
+uu.full_name as updated_by,
+h.comment as order_comment
 
 from dbo.so_salesorderheader h
 join dbo.so_salesorderdetail d on d.salesorderno = h.salesorderno

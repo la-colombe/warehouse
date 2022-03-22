@@ -36,6 +36,7 @@ zipcode as zip,
 taxschedule as tax,
 pricelevel as price_tier,
 sortfield as ar_bucket,
+udf_customer_type as ar_customer_type,
 case customerstatus
   when 'A' then 'Active'
   when 'I' then 'Inactive'
