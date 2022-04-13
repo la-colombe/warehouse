@@ -62,7 +62,7 @@ arc.phone,
 arc.tax,
 arc.price_tier,
 arc.ar_bucket,
-arc.ar_customer_type,
+arc.segment,
 arc.closed_status,
 arc.business_type,
 
