@@ -68,6 +68,7 @@ from (
         else orderdate::date
       end as order_date,
     null as requested_delivery_date,
+    null as last_invoice_date,
     orderstatus as order_status,
     customerno as customer_code,
     null as web_order_number,
@@ -121,6 +122,7 @@ from (
         else orderdate::date
       end as order_date,
     null as requested_delivery_date,
+    null as last_invoice_date,
     orderstatus as order_status,
     customerno as customer_code,
     null as web_order_number,
