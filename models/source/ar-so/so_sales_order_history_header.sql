@@ -13,6 +13,10 @@ from (
         when '1753-01-01' then null
         else udf_requested_delivery_date::date
       end as requested_delivery_date,
+      case lastinvoicedate 
+        when '1753-01-01' then null
+        else lastinvoicedate::date
+      end as last_invoice_date,
     orderstatus as order_status,
     customerno as customer_code,
     nullif(so551elk_weborderno,'') as web_order_number,
