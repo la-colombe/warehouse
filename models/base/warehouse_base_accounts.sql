@@ -86,4 +86,4 @@ left join
 	) ar on ar.account_id = a.account_id
 left join {{ref('slx_c_account')}} ca on ca.account_id = a.account_id
 left join {{ref('ar_customer')}} arc on arc.customer_code = ar.customer_code
-left join {{ref('ar_division')}} ad on ad.division_code = left(ar.customer_code,2)
+left join {{ref('ar_division')}} ad on ad.division_code = a.division
