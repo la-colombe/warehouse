@@ -40,7 +40,7 @@ case udf_customer_type
   when '1' then 'Standard Hospitality'
   when '2' then 'Foodservice'
   when '3' then 'National'
-  when '4' then 'Bulk / Large Format'
+  when '4' then 'Large Format'
   else udf_customer_type 
 end as segment,
 case customerstatus
