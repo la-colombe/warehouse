@@ -8,7 +8,7 @@ select
 	p.warehouse_code,
 	p.disassembly,
 	p.disassembly_type,
-	p.quantity,
+	case p.disassembly when 'Y' then -p.quantity else p.quantity end as quantity,
 	p.unit_cost,
 	p.total_cost,
 	p.created_at,
