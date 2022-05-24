@@ -31,8 +31,8 @@ from (
     billtostate as bill_to_state,
     billtozipcode as bill_to_zip,
     billtocountrycode as bill_to_country,
-    case shiptocode
-      when 'MOR2' then 'RICA'
+    case 
+      when shiptocode in ('MOR', 'MOR2') then 'RICA'
       else shiptocode
     end as ship_to_code,
     shiptoname as ship_to_name,
