@@ -6,6 +6,10 @@ case invoicedate
 	when '1753-01-01' then null
 	else invoicedate::date
 end as invoice_date, 
+case transactiondate 
+	when '1753-01-01' then null
+	else transactiondate::date
+end as transaction_date, 
 i.purchaseorderno as purchase_order_number,
 t.days_before_due as days_before_due,
 t.terms_code,

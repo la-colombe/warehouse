@@ -8,6 +8,10 @@ itemcode as sku,
     when '1753-01-01' then null
     else receiptdate::date
   end as recieved_at,
+  case h.transactiondate
+	when '1753-01-01' then null
+	else h.transactiondate::date
+  end as transaction_date,
 quantityreceived * (case unitofmeasureconvfactor when 0 then 1 else unitofmeasureconvfactor end) as quantity,
 quantityreceived as quantity_in_ordered_uom,
 w.warehouse_name as warehouse,
