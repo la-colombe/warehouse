@@ -70,7 +70,10 @@ nvl(DECODE(udf_ownership_04,
              'N', '0' ),'0')::integer::boolean as diversity_veteran_owned,
 nvl(DECODE(udf_ownership_05,
              'Y', '1',
-             'N', '0' ),'0')::integer::boolean as diversity_disability_owned
+             'N', '0' ),'0')::integer::boolean as diversity_disability_owned,
+
+c.comment,
+c.contactcode as contact_code
 
 
 from dbo.ar_customer c

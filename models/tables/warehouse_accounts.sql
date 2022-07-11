@@ -53,6 +53,8 @@ a.diversity_woman_owned,
 a.diversity_lgbtq_owned,
 a.diversity_veteran_owned,
 a.diversity_disability_owned,
+a.comment,
+a.contact_code,
 
 aa.total_invoices,
 aa.total_paid_core_invoices,

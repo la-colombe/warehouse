@@ -70,7 +70,10 @@ arc.diversity_bipoc_owned,
 arc.diversity_woman_owned,
 arc.diversity_lgbtq_owned,
 arc.diversity_veteran_owned,
-arc.diversity_disability_owned
+arc.diversity_disability_owned,
+
+arc.comment,
+arc.contact_code
 
 from {{ref('slx_account')}} a
 left join 
