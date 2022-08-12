@@ -29,6 +29,7 @@ select
 	created_by,
 	updated_at,
 	updated_by,
-	order_comment
+	order_comment,
+	gl_account_key
 
 from {{ref('so_sales_orders')}} so

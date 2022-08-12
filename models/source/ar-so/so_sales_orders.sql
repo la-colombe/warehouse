@@ -38,7 +38,8 @@ datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as c
 cu.full_name as created_by,
 dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
 uu.full_name as updated_by,
-h.comment as order_comment
+h.comment as order_comment,
+d.salesacctkey as gl_account_key
 
 from dbo.so_salesorderheader h
 join dbo.so_salesorderdetail d on d.salesorderno = h.salesorderno
