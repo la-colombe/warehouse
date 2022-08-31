@@ -2,10 +2,10 @@ select
   
   invoiceno as invoice_number,
   ardivisionno as ar_division_number,
-  customerno as customer_number,
+  customerno as customer_code,
   salesorderno as sales_order_number,
   shipdate as ship_date,
-  shipvia as ship_via,
+  shipvia as shipping_method,
   shipperid as shipper_id,
   freightamt  as freight_amount,
   invoicetotal as invoice_total,
