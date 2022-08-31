@@ -8,10 +8,10 @@ select
 
   sp.tracking_id,
 
-  ds.customer_number,
+  ds.customer_code,
   ds.sales_order_number,
   ds.ship_date,
-  ds.ship_via,
+  ds.shipping_method,
   ds.shipper_id,
   ds.invoice_total
 
