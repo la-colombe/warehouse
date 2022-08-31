@@ -8,4 +8,4 @@ select
   aliasitemno as alias_item_number, 
   quantity
 
-from dbo.so_packagetrackingbyitema
+from dbo.so_packagetrackingbyitem
