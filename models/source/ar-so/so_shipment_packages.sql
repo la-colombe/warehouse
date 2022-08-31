@@ -4,7 +4,7 @@ select
   packageno as package_number, 
   trackingid as tracking_id, 
   comment, 
-  shipvia as ship_via, 
+  shipvia as shipping_method, 
   freightamt as freight_amount, 
   weight
 
