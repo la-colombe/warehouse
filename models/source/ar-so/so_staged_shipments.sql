@@ -1,17 +1,26 @@
 select
 
   invoiceno as invoice_number,
-  invoicedate::date as invoice_date,
+    case invoicedate 
+      when '1753-01-01' then null
+      else invoicedate::date
+    end as invoice_date,
   invoicetype as invoice_type,
   salesorderno as sales_order_number,
   ordertype as order_type,
   orderstatus as order_status,
-  orderdate::date as order_date,
+    case orderdate 
+      when '1753-01-01' then null
+      else orderdate::date
+    end as order_date,
   customerpono as customer_po_number,
   ardivisionno as ar_division_number,
   customerno as customer_code,
   shiptocode as ship_to_code,
-  shipdate::date as ship_date,
+    case shipdate 
+      when '1753-01-01' then null
+      else shipdate::date
+    end as ship_date,
   shipvia as ship_via,
   warehousecode as warehouse_code,
   shipperid as shipper_id,

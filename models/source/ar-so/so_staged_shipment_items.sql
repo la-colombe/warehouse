@@ -6,7 +6,10 @@ select
   itemcodedesc as item_name,
   itemtype as item_type,
   warehousecode as warehouse_code,
-  promisedate::date as promise_date,
+    case promisedate
+      when '1753-01-01' then null
+      else promisedate::date
+    end as promise_date,
   quantityordered as quantity_ordered,
   quantityshipped as quantity_shipped,
   quantitybackordered as quantity_backordered
