@@ -55,10 +55,12 @@ from (
     datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as created_at,
     cu.full_name as created_by,
     dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
-    uu.full_name as updated_by
+    uu.full_name as updated_by,
+    w.warehouse_name
   from dbo.so_salesorderhistoryheader s
   left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
   left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
+  left join {{ref('im_warehouse')}} w on s.warehousecode = w.warehouse_code
   where orderstatus in  ('A','C')
   and orderdate >= '2015-05-01'
 
@@ -108,7 +110,8 @@ from (
     datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as created_at,
     cu.full_name as created_by,
     dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
-    uu.full_name as updated_by
+    uu.full_name as updated_by,
+    null as warehouse_name
   from lcg.so_salesorderhistoryheader s
   left join lambda_uploads.historical_customer_mapping cm on cm.oldcustomercode = s.customerno and cm.database = 'lcg'
   left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
@@ -163,7 +166,8 @@ from (
     datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as created_at,
     cu.full_name as created_by,
     dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
-    uu.full_name as updated_by
+    uu.full_name as updated_by,
+    null as warehouse_name
   from lct.so_salesorderhistoryheader s
   left join lambda_uploads.historical_customer_mapping cm on cm.oldcustomercode = s.customerno and cm.database = 'lct'
   left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
