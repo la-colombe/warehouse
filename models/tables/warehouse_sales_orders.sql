@@ -33,7 +33,7 @@ select
   so.created_by,
   so.updated_at,
   so.updated_by,
-  so.warehouse_name
+  so.warehouse_code
 
 from {{ref('so_sales_order_history_header')}} so
 left join {{ref('so_sales_order_history_header')}} pso on pso.customer_code = so.customer_code and pso.account_order_number = so.account_order_number - 1
