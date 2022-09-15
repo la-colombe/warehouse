@@ -60,7 +60,6 @@ from (
   from dbo.so_salesorderhistoryheader s
   left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
   left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
-  left join {{ref('im_warehouse')}} w on s.warehousecode = w.warehouse_code
   where orderstatus in  ('A','C')
   and orderdate >= '2015-05-01'
 
