@@ -3,7 +3,12 @@ select
   so.unique_sales_order_id,
   so.sales_order_number,
   so.order_date,
-  so.requested_delivery_date,
+  --Requested delivery date defaults to revised_requested_delivery date when provided. 
+  --If not, and if the shipping_method is CUST PICKUP, returns invocie_date. Otherwise returns requested_delivery_date
+  nvl(
+    rrdd.revised_requested_delivery_date, 
+    case when so.ship_via = 'CUST PICKUP' then so.last_invoice_date else so.requested_delivery_date end
+  ) as requested_delivery_date,
   so.last_invoice_date,
   so.order_status,
   so.customer_code,
@@ -37,3 +42,4 @@ select
 
 from {{ref('so_sales_order_history_header')}} so
 left join {{ref('so_sales_order_history_header')}} pso on pso.customer_code = so.customer_code and pso.account_order_number = so.account_order_number - 1
+left join {{ref('revised_requested_delivery_date')}} rrdd on so.sales_order_number = rrdd.sales_order_number

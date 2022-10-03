@@ -11,7 +11,12 @@ SELECT
 	i.header_number,
 	i.invoice_type,
 	i.invoice,
-	i.requested_delivery_date,
+	--Requested delivery date defaults to revised_requested_delivery date when provided. 
+	--If not, and if the shipping_method is CUST PICKUP, returns invocie_date. Otherwise returns requested_delivery_date
+	nvl(
+		rrdd.revised_requested_delivery_date, 
+		case when i.shipping_method = 'CUST PICKUP' then i.invoice_date else i.requested_delivery_date end
+		) as requested_delivery_date,
 	i.ship_date,
 	i.days_until_payment_due,
 	i.discount_rate,
@@ -58,5 +63,6 @@ left join {{ref('warehouse_invoice_aggregates')}} ia on ia.unique_invoice_id = i
 left join {{ref('warehouse_paid_coffee_invoice_ranking')}} pci on pci.unique_invoice_id = i.unique_invoice_id
 left join {{ref('warehouse_invoice_shipment_aggregates')}} s on i.invoice_number = s.invoice_number
 left join {{ref('warehouse_base_accounts')}} a on i.customer_code = a.customer_code
+left join {{ref('revised_requested_delivery_date')}} rrdd on i.sales_order_number = rrdd.sales_order_number
 
 where nvl(ia.total_quantity,0) != 0

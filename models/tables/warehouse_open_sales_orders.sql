@@ -1,11 +1,11 @@
 select 
 
-	sales_order_number, 
+	so.sales_order_number, 
 	line_number,
 	order_date, 
 	order_type,
 	ship_date,
-	requested_delivery_date,
+	nvl(rrdd.revised_requested_delivery_date,requested_delivery_date) as requested_delivery_date,
 	customer_code,
 	customer_purchase_order_number,
 	ship_to_code,
@@ -33,3 +33,4 @@ select
 	gl_account_key
 
 from {{ref('so_sales_orders')}} so
+left join {{ref('revised_requested_delivery_date')}} rrdd on so.sales_order_number = rrdd.sales_order_number
