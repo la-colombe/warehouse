@@ -1,5 +1,15 @@
 version: 2
 
+sources:
+  - name: lambda_uploads
+    loader: lambda
+
+    tables:
+
+    - name: wholesale_revised_rdd
+      description: Manual override for requested delivery date. In cases where Tremaine provides a revised RDD for a sales_order_number, this will automatically flow through to all reports in place of the requested_delivery_date. Google Sheet accessible here - https://docs.google.com/spreadsheets/d/1FzyFf-_hSYqSshLnSpHpz2TyuwxhbsXuWyULBbS14dg/edit#gid=0
+
+
 models:
 
   - name: warehouse_invoices
