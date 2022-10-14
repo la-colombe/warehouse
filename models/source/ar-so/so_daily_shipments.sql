@@ -13,4 +13,4 @@ select
   timeupdated as time_updated,
   userupdatedkey as user_updated_key
 
-from dbo.so_dailyshipment
+from {{source('sage','so_dailyshipment')}}

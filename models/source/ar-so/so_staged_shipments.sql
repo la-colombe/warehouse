@@ -30,4 +30,4 @@ select
   usercreatedkey as user_created_key,
   userupdatedkey as user_updated_key
 
-from dbo.so_invoiceheader    
+from {{source('sage','so_invoiceheader')}}

@@ -11,6 +11,6 @@ select
   s.mastertrackingid as tracking_id,
   s.mastertrackinglink as tracking_link,
   s.totalpackqty as number_of_packages
-from starship.shipment s
-  join starship.shipmentorder so on so.shipmentid = s.internalid and so.ordernumber != 'No Order'
+from {{source('starship','shipment')}} s
+  join {{source('starship','shipmentorder')}} so on so.shipmentid = s.internalid and so.ordernumber != 'No Order'
 where deleted = 0

@@ -14,5 +14,5 @@ select
 	p.datecreated::date as created_at,
 	p.dateupdated::date as updated_at
 
-from dbo.BM_Productionhistoryheader p
+from {{source('sage','BM_Productionhistoryheader')}} p
 

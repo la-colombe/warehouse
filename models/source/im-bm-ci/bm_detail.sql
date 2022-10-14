@@ -6,5 +6,5 @@ i.name as component_name,
 d.quantityperbill as quantity,
 i.unit_cost as component_cost,
 i.unit_of_measure as uom
-from dbo.bm_billdetail d 
+from {{source('sage','bm_billdetail')}} d
 join {{ref('ci_item')}} i on i.sku = d.componentitemcode

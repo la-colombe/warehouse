@@ -6,4 +6,4 @@ select distinct
     username as full_name,
     title
 
-from sysdba.userinfo 
+from {{source('sysdba','userinfo')}}

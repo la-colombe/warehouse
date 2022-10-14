@@ -9,4 +9,4 @@ accountmanager as primary_account_manager_name,
 coalesce(regionalmanagerid, '') as regional_manager_id,
 coalesce(divisionalmanagerid, '') as divisional_manager_id
 
-from sysdba.account
+from {{source('sysdba','account')}}

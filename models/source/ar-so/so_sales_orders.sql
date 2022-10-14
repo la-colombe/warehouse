@@ -41,8 +41,8 @@ uu.full_name as updated_by,
 h.comment as order_comment,
 d.salesacctkey as gl_account_key
 
-from dbo.so_salesorderheader h
-join dbo.so_salesorderdetail d on d.salesorderno = h.salesorderno
+from {{source('sage','so_salesorderheader')}} h
+join {{source('sage','so_salesorderdetail')}} d on d.salesorderno = h.salesorderno
 left join {{ref('so_sales_order_history_detail')}} hd on d.salesorderno = hd.sales_order_number and d.linekey = hd.line_number
 left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
 left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey

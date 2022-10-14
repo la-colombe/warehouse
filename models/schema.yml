@@ -9,13 +9,109 @@ sources:
     - name: wholesale_revised_rdd
       description: Manual override for requested delivery date. In cases where Tremaine provides a revised RDD for a sales_order_number, this will automatically flow through to all reports in place of the requested_delivery_date. Google Sheet accessible here - https://docs.google.com/spreadsheets/d/1FzyFf-_hSYqSshLnSpHpz2TyuwxhbsXuWyULBbS14dg/edit#gid=0
 
+  - name: sage
+    schema: sage
+    loader: DMS
+
+    tables:
+
+    - name: ap_checkhistorydetail
+    - name: ap_checkhistoryheader
+    - name: ap_invoicehistorydetail
+    - name: ap_invoicehistoryheader
+    - name: ap_openinvoice
+    - name: ap_termscode
+    - name: ap_vendor
+    - name: ar_cashreceiptshistory
+    - name: ar_customer
+    - name: AR_CustomerCreditCard
+    - name: ar_customerdocumentcontacts
+    - name: AR_CustomerPDFLog
+    - name: ar_division
+    - name: ar_invoicehistorydetail
+    - name: ar_invoicehistoryheader
+    - name: ar_openinvoice
+    - name: ar_termscode
+    - name: ar_udt_sls_ccr_am
+    - name: bm_billdetail
+    - name: bm_billheader
+    - name: bm_productionhistorydetail
+    - name: BM_Productionhistoryheader
+    - name: ci_item
+    - name: gl_account
+    - name: gl_accountcategory
+    - name: gl_accountgroup
+    - name: gl_accounttype
+    - name: gl_detailposting
+    - name: im_itemtransactionhistory
+    - name: im_pricecode
+    - name: im_productline
+    - name: im_transactiondetail
+    - name: im_transactionheader 
+    - name: im_warehouse
+    - name: po_purchaseorderdetail
+    - name: po_purchaseorderheader
+    - name: po_receipthistorydetail
+    - name: po_receipthistoryheader
+    - name: so_dailyshipment
+    - name: so_dailyshipmentpackage
+    - name: so_invoicedetail
+    - name: so_invoiceheader 
+    - name: so_packagetrackingbyitem
+    - name: so_salesorderdetail
+    - name: so_salesorderheader
+    - name: so_salesorderhistorydetail
+    - name: so_salesorderhistoryheader
+    - name: so_udt_shipper_checker
+    - name: sy_user
+
+  - name: lcg
+    schema: lcg
+    loader: DMS
+
+    tables:
+
+    - name: ar_invoicehistorydetail
+    - name: ar_invoicehistoryheader
+    - name: so_salesorderhistoryheader
+
+  - name: lct
+    schema: lct
+    loader: DMS
+
+    tables:
+
+    - name: ar_invoicehistorydetail 
+    - name: ar_invoicehistoryheader
+    - name: so_salesorderhistoryheader
+
+  - name: starship
+    schema: starship
+    loader: DMS
+
+    tables:
+
+    - name: shipment
+    - name: shipmentorder
+
+  - name: sysdba
+    schema: sysdba
+    loader: DMS
+
+    tables:
+
+    - name: account
+    - name: accountasset
+    - name: c_account
+    - name: dl_acct_ref
+    - name: userinfo
 
 models:
 
   - name: warehouse_invoices
     columns:
       - name: unique_invoice_id
-        description: Unique identifier at the invoice level. MD5 hash of the schema name (lcg, lch, or lct) || invoiceno || headerseqno from ar_invoice_history_header
+        description: Unique identifier at the invoice level. MD5 hash of the schema name lcg, lch, or lct || invoiceno || headerseqno from ar_invoice_history_header
         tests: 
           - not_null:
               tags: wholesale_tests

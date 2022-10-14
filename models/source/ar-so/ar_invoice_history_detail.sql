@@ -24,7 +24,7 @@ from (
     warehousecode as warehouse_code,
     salesacctkey as sales_account_key
     
-  from lct.ar_invoicehistorydetail i
+  from {{source('lct','ar_invoicehistorydetail')}} i
   left join lambda_uploads.historical_sku_mapping sm on sm.oldsku = i.itemcode and sm.database = 'lct'
 
   union all
@@ -48,7 +48,7 @@ from (
     warehousecode as warehouse_code,
     salesacctkey as sales_account_key
     
-  from lcg.ar_invoicehistorydetail 
+  from {{source('lcg','ar_invoicehistorydetail')}} 
 
   union all
 
@@ -71,7 +71,7 @@ from (
     warehousecode as warehouse_code,
     salesacctkey as sales_account_key
     
-  from dbo.ar_invoicehistorydetail 
+  from {{source('sage','ar_invoicehistorydetail')}}
 ) il
 left join {{ref('ci_item')}} p on p.sku = il.sku
 left join {{ref('gl_account')}} a on a.id = il.sales_account_key

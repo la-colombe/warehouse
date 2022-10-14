@@ -13,4 +13,4 @@ select
 	d.extendedquantity as total_quantity,
 	d.totalcost as total_cost
 
-from dbo.bm_productionhistorydetail d 
+from {{source('sage','bm_productionhistorydetail')}} d

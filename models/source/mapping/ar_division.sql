@@ -5,4 +5,4 @@ case ardivisionno
 	when '20' then 'New York'
 	else ardivisiondesc 
 end as division
-from dbo.ar_division
+from {{source('sage','ar_division')}}

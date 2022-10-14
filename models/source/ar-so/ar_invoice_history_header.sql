@@ -53,7 +53,7 @@ from (
     null as packed_by,
     null as checked_by
 
-  from lct.ar_invoicehistoryheader i
+  from {{source('lct','ar_invoicehistoryheader')}} i
   left join lambda_uploads.historical_customer_mapping cm on cm.oldcustomercode = i.customerno and cm.database = 'lct'
   left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
   left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
@@ -111,7 +111,7 @@ from (
     null as packed_by,
     null as checked_by
 
-  from lcg.ar_invoicehistoryheader i
+  from {{source('lcg','ar_invoicehistoryheader')}} i
   left join lambda_uploads.historical_customer_mapping cm on cm.oldcustomercode = i.customerno and cm.database = 'lcg'
   left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
   left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
@@ -172,7 +172,7 @@ from (
     sh.employee_name as packed_by,
     ch.employee_name as checked_by
 
-  from dbo.ar_invoicehistoryheader i
+  from {{source('sage','ar_invoicehistoryheader')}} i
   left join lambda_uploads.historical_customer_mapping cm on cm.oldcustomercode = i.customerno and cm.database = 'lch'
   left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
   left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey

@@ -23,5 +23,5 @@ pl.returnsacctkey as return_gl_id,
 pl.adjustmentacctkey as adjustment_gl_id,
 pl.purchaseacctkey as purchase_gl_id
 
-from dbo.ci_item i
-left join dbo.im_productline pl on  pl.productline = i.productline
+from {{source('sage','ci_item')}} i
+left join {{source('sage','im_productline')}} pl on  pl.productline = i.productline

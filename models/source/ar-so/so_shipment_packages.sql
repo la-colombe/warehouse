@@ -8,4 +8,4 @@ select
   freightamt as freight_amount, 
   weight
 
-from dbo.so_dailyshipmentpackage
+from {{source('sage','so_dailyshipmentpackage')}}

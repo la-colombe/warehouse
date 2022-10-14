@@ -10,4 +10,4 @@ customertype as group_code,
 newminvol as min_vol,
 newtier as new_tier
 
-from sysdba.c_account 
+from {{source('sysdba','c_account')}}

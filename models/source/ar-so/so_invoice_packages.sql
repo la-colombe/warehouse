@@ -3,4 +3,4 @@ select
   packageno as package_number,
   trackingid as tracking_id,
   shipvia as shipping_service
-from dbo.so_dailyshipmentpackage
+from {{source('sage','so_dailyshipmentpackage')}}

@@ -28,6 +28,6 @@ datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as c
 cu.full_name as created_by,
 dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
 uu.full_name as updated_by
-from dbo.ar_cashreceiptshistory
+from {{source('sage','ar_cashreceiptshistory')}}
 left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
 left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey

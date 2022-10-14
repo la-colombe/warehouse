@@ -18,5 +18,5 @@ datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as c
 cu.full_name as created_by
 
 
-from dbo.gl_detailposting
+from {{source('sage','gl_detailposting')}}
 left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey

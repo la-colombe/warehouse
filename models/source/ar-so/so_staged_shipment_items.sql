@@ -14,4 +14,4 @@ select
   quantityshipped as quantity_shipped,
   quantitybackordered as quantity_backordered
 
-from dbo.so_invoicedetail
+from {{source('sage','so_invoicedetail')}}

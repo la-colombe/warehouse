@@ -12,4 +12,4 @@ select
   vendorno as vendor_number,
   comment,
   amountpaid as amount_paid
-from dbo.ap_checkhistorydetail
+from {{source('sage','ap_checkhistorydetail')}}

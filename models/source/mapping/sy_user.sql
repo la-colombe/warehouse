@@ -6,4 +6,4 @@ select
   lastname as last_name,
   firstname || ' ' || lastname as full_name,
   active
-from dbo.sy_user
+from {{source('sage','sy_user')}}

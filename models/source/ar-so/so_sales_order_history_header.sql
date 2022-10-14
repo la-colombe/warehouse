@@ -57,7 +57,7 @@ from (
     dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
     uu.full_name as updated_by,
     s.warehousecode as warehouse_code
-  from dbo.so_salesorderhistoryheader s
+  from {{source('sage','so_salesorderhistoryheader')}} s
   left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
   left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
   where orderstatus in  ('A','C')
@@ -111,7 +111,7 @@ from (
     dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
     uu.full_name as updated_by,
     s.warehousecode as warehouse_code
-  from lcg.so_salesorderhistoryheader s
+  from {{source('lcg','so_salesorderhistoryheader')}} s
   left join lambda_uploads.historical_customer_mapping cm on cm.oldcustomercode = s.customerno and cm.database = 'lcg'
   left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
   left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
@@ -167,7 +167,7 @@ from (
     dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
     uu.full_name as updated_by,
     s.warehousecode as warehouse_code
-  from lct.so_salesorderhistoryheader s
+  from {{source('lct','so_salesorderhistoryheader')}} s
   left join lambda_uploads.historical_customer_mapping cm on cm.oldcustomercode = s.customerno and cm.database = 'lct'
   left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
   left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
