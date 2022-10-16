@@ -19,8 +19,8 @@ datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as c
 cu.full_name as created_by,
 dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
 uu.full_name as updated_by
-from dbo.po_receipthistorydetail d
-join dbo.po_receipthistoryheader h on h.purchaseorderno = d.purchaseorderno and h.headerseqno = d.headerseqno and h.receiptno = d.receiptno
+from {{source('sage','po_receipthistorydetail')}} d
+join {{source('sage','po_receipthistoryheader')}} h on h.purchaseorderno = d.purchaseorderno and h.headerseqno = d.headerseqno and h.receiptno = d.receiptno
 left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
 left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
 left join {{ref('im_warehouse')}} w on w.warehouse_code = d.warehousecode

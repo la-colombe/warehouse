@@ -11,4 +11,4 @@ select
 	A.UserField5 as vendor,
  	A.UserField6 as class,  
 	A.InvestValue as invested_value
-from sysdba.accountasset A
+from {{source('sysdba','accountasset')}} A

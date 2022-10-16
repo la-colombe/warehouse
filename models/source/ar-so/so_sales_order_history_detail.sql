@@ -12,5 +12,5 @@ d.quantityorderedoriginal as original_quantity,
 d.quantityorderedrevised as revised_quantity,
 d.quantityshipped as shipped_quantity,
 d.quantitybackordered as backordered_quantity
-from dbo.so_salesorderhistorydetail d
+from {{source('sage','so_salesorderhistorydetail')}} d
 left join {{ref('im_warehouse')}} w on w.warehouse_code = d.warehousecode

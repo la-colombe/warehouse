@@ -15,7 +15,7 @@ select
   cu.full_name as created_by,
   dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
   uu.full_name as updated_by
-from dbo.ap_vendor v
+from {{source('sage','ap_vendor')}} v
 left join {{ref('sy_user')}} cu on cu.user_key = v.usercreatedkey
 left join {{ref('sy_user')}} uu on uu.user_key = v.userupdatedkey
 left join {{ref('ap_terms')}} apt on apt.terms_code = v.termscode

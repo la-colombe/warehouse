@@ -8,4 +8,4 @@ select
 	  else datecreated::date
   end as created_date
 
-from dbo.ar_customerdocumentcontacts
+from {{source('sage','ar_customerdocumentcontacts')}}

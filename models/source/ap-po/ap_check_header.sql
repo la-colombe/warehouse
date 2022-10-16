@@ -20,6 +20,6 @@ select
   cu.full_name as created_by,
   dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
   uu.full_name as updated_by
-from dbo.ap_checkhistoryheader ch
+from {{source('sage','ap_checkhistoryheader')}} ch
 left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
 left join {{ref('sy_user')}} uu on uu.user_key =userupdatedkey

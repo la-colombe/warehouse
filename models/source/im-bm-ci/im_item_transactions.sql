@@ -15,5 +15,5 @@ transactionqty as transaction_quantity,
 transactioncode as transaction_type,
 dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
 uu.full_name as updated_by
-from dbo.im_itemtransactionhistory t
+from {{source('sage','im_itemtransactionhistory')}} t
 left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey

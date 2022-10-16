@@ -21,7 +21,7 @@ datecreated + (nullif(timecreated, '')::DECIMAL(7,5) || ' hours')::interval as c
 cu.full_name as created_by,
 dateupdated + (nullif(timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
 uu.full_name as updated_by
-from dbo.ap_invoicehistoryheader i
+from {{source('sage','ap_invoicehistoryheader')}} i
 left join {{ref('ap_terms')}} t on t.terms_code = i.termscode
 left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
 left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey

@@ -10,6 +10,6 @@ h.datecreated + (nullif(h.timecreated, '')::DECIMAL(7,5) || ' hours')::interval 
 cu.full_name as created_by,
 h.dateupdated + (nullif(h.timeupdated, '')::DECIMAL(7,5) || ' hours')::interval as updated_at,
 uu.full_name as updated_by
-from dbo.bm_billheader h
+from {{source('sage','bm_billheader')}} h
 left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
 left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey

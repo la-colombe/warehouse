@@ -14,4 +14,4 @@ select
     when '' then NULL
     else discountmarkup1
   end as contract_price
-from dbo.im_pricecode pc
+from {{source('sage','im_pricecode')}} pc

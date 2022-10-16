@@ -77,7 +77,7 @@ c.comment,
 c.contactcode as contact_code
 
 
-from dbo.ar_customer c
+from {{source('sage','ar_customer')}} c
 left join {{ref('ar_terms')}} t on c.termscode = t.terms_code
 left join {{ref('ar_account_ownership')}} sr on c.udf_salesperson = sr.owner_id
 left join {{ref('ar_account_ownership')}} ssr on c.udf_cocreator = ssr.owner_id

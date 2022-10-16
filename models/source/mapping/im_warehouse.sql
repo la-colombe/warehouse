@@ -13,4 +13,4 @@ case warehousedesc
 	when 'Allendale Warehouse' then 'Allendale'
 	else warehousedesc
 end as warehouse_name
-from dbo.im_warehouse w
+from {{source('sage','im_warehouse')}} w
