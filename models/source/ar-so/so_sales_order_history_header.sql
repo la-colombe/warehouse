@@ -1,10 +1,17 @@
+with shipped_sos as (
+  select
+    sales_order_number,
+    sum(shipped_quantity) > 0 as has_shipped_qty
+  from {{ref('so_sales_order_history_detail')}}
+  group by 1)
+
 select 
 *,
 rank() over (partition by customer_code order by order_date, sales_order_number ASC) AS account_order_number
 from (
   select
-    md5('lch' || salesorderno) as unique_sales_order_id,
-    salesorderno as sales_order_number,
+    md5('lch' || s.salesorderno) as unique_sales_order_id,
+    s.salesorderno as sales_order_number,
       case orderdate 
         when '1753-01-01' then null
         else orderdate::date
@@ -60,14 +67,16 @@ from (
   from {{source('sage','so_salesorderhistoryheader')}} s
   left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
   left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
-  where orderstatus in  ('A','C')
+  left join {{ref('so_sales_order_header')}} so on s.salesorderno = so.sales_order_number
+  left join shipped_sos ss on s.salesorderno = ss.sales_order_number
+  where ((s.orderstatus = 'X' and has_shipped_qty) or (s.orderstatus = 'A' and so.order_type = 'B') or s.orderstatus = 'C') 
   and orderdate >= '2015-05-01'
 
   union all
 
   select
-    md5('lcg' || salesorderno) as unique_sales_order_id,
-    salesorderno as sales_order_number,
+    md5('lcg' || s.salesorderno) as unique_sales_order_id,
+    s.salesorderno as sales_order_number,
       case orderdate 
         when '1753-01-01' then null
         else orderdate::date
@@ -115,15 +124,17 @@ from (
   left join lambda_uploads.historical_customer_mapping cm on cm.oldcustomercode = s.customerno and cm.database = 'lcg'
   left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
   left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
-  where orderstatus in  ('A','C')
+  left join {{ref('so_sales_orders')}} so on s.salesorderno = so.sales_order_number
+  left join shipped_sos ss on s.salesorderno = ss.sales_order_number
+  where ((s.orderstatus = 'X' and has_shipped_qty) or (s.orderstatus = 'A' and so.order_type = 'B') or s.orderstatus = 'C')
   and orderdate >= '2014-11-01' and orderdate < '2015-05-01'
 
 
   union all
 
   select
-    md5('lct' || salesorderno) as unique_sales_order_id,
-    salesorderno as sales_order_number,
+    md5('lct' || s.salesorderno) as unique_sales_order_id,
+    s.salesorderno as sales_order_number,
       case orderdate 
         when '1753-01-01' then null
         else orderdate::date
@@ -171,6 +182,8 @@ from (
   left join lambda_uploads.historical_customer_mapping cm on cm.oldcustomercode = s.customerno and cm.database = 'lct'
   left join {{ref('sy_user')}} cu on cu.user_key = usercreatedkey
   left join {{ref('sy_user')}} uu on uu.user_key = userupdatedkey
-  where orderstatus in  ('A','C')
+  left join {{ref('so_sales_orders')}} so on s.salesorderno = so.sales_order_number
+  left join shipped_sos ss on s.salesorderno = ss.sales_order_number
+  where ((s.orderstatus = 'X' and has_shipped_qty) or (s.orderstatus = 'A' and so.order_type = 'B') or s.orderstatus = 'C')
   and orderdate < '2014-11-01'
 )
