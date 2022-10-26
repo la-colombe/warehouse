@@ -38,6 +38,8 @@ sources:
     - name: bm_productionhistorydetail
     - name: BM_Productionhistoryheader
     - name: ci_item
+    - name: ec_itemcrossreference
+    - name: ec_customertradingpartner
     - name: gl_account
     - name: gl_accountcategory
     - name: gl_accountgroup
