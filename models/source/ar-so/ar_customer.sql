@@ -1,6 +1,8 @@
 select 
 
 customerno as customer_code,
+ardivisionno as division_code,
+customername as name,
 nullif(customertype,'') as group_code,
 agingcategory1 as overdue_balance_30_day,
 agingcategory2 as overdue_balance_60_day,
