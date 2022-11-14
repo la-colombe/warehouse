@@ -1,25 +1,15 @@
-select 
+select
 
-a.name,
-a.created_at,
---a.division,
-a.account_id,
-a.primary_account_manager_id,
-a.regional_manager_id,
-a.divisional_manager_id,
-
-ar.customer_code,
-ar.company_code,
+arc.customer_code,
+arc.name,
+arc.created_date as created_at,
+arc.account_manager_mas_id as primary_account_manager_id,
+arc.sales_rep_mas_id as sales_rep_id,
+arc.secondary_sales_rep_mas_id as secondary_sales_rep_id,
+arc.min_avg_weekly_core_rev,
+nvl(arc.group_code,ca.group_code) as group_code,
 
 ad.division,
-
-ca.sales_rep_id,
-ca.secondary_sales_rep_id,
-ca.call_frequency,
-ca.min_vol,
-arc.min_avg_weekly_core_rev,
-ca.new_tier,
-nvl(arc.group_code,ca.group_code) as group_code, 
 
 case
     when nvl(arc.sales_rep, ca.sales_rep_name) like '%,%' then split_part(nvl(arc.sales_rep, ca.sales_rep_name),', ',1)
@@ -36,7 +26,6 @@ case
     when nvl(arc.secondary_sales_rep, ca.secondary_sales_rep_name) like '%,%' then split_part(nvl(arc.secondary_sales_rep, ca.secondary_sales_rep_name),', ',1)
     else nvl(arc.secondary_sales_rep, ca.secondary_sales_rep_name)
 end as secondary_sales_rep_name,
-
 
 arc.created_date,
 arc.overdue_balance_30_day,
@@ -74,20 +63,22 @@ arc.diversity_veteran_owned,
 arc.diversity_disability_owned,
 
 arc.comment,
-arc.contact_code
+arc.contact_code,
 
-from {{ref('slx_account')}} a
-left join 
-	(
-		{{ref('slx_account_ref')}} oar
-		join 
-			(
-				select iar.customer_code as i_customer_code, max(iar.account_id) as max_account_id
-				from {{ref('slx_account_ref')}} iar
-				group by 1
-			) uar on uar.i_customer_code = oar.customer_code and uar.max_account_id = oar.account_id 
 
-	) ar on ar.account_id = a.account_id
-left join {{ref('slx_c_account')}} ca on ca.account_id = a.account_id
-left join {{ref('ar_customer')}} arc on arc.customer_code = ar.customer_code
-left join {{ref('ar_division')}} ad on ad.division_code = a.division
+--saleslogix fields
+a.account_id,
+a.regional_manager_id,
+a.divisional_manager_id,
+ar.company_code,
+ca.call_frequency,
+ca.min_vol,
+ca.new_tier
+
+
+
+from {{ref('ar_customer')}} arc
+left join {{ref('slx_account_ref')}} ar using(customer_code)
+left join {{ref('slx_account')}} a using(account_id)
+left join {{ref('slx_c_account')}} ca using(account_id)
+left join {{ref('ar_division')}} ad using(division_code)
