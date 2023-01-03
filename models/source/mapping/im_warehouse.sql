@@ -12,5 +12,6 @@ case warehousedesc
 	when 'Pontaluna Warehouse' then 'Pontaluna'
 	when 'Allendale Warehouse' then 'Allendale'
 	else warehousedesc
-end as warehouse_name
+end as warehouse_name,
+udf_palletspots as pallet_spots
 from {{source('sage','im_warehouse')}} w
