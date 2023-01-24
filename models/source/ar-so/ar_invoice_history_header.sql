@@ -18,6 +18,7 @@ from (
     end as invoice_date, 
     null as requested_delivery_date,
     coalesce(customercode, customerno) as customer_code,
+    journalnoglbatchno as batch_number,
     billtoname as bill_to_name,
     invoiceno as invoice_number,
     salesorderno as sales_order_number,
@@ -76,6 +77,7 @@ from (
     end as invoice_date, 
     null as requested_delivery_date,
     coalesce(customercode, customerno) as customer_code,
+    journalnoglbatchno as batch_number,
     billtoname as bill_to_name,
     invoiceno as invoice_number,
     salesorderno as sales_order_number,
@@ -137,6 +139,7 @@ from (
       else udf_requested_delivery_date::date
     end as requested_delivery_date,
     coalesce(customercode, customerno) as customer_code,
+    journalnoglbatchno as batch_number,
     billtoname as bill_to_name,
     invoiceno as invoice_number,
     salesorderno as sales_order_number,
