@@ -4,6 +4,7 @@ SELECT
 	i.unique_sales_order_id,
 	i.transaction_date, 
 	i.customer_code,
+  i.batch_number,
 	i.bill_to_name,
 	i.invoice_number,
 	i.sales_order_number,
