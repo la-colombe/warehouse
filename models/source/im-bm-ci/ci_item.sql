@@ -18,6 +18,7 @@ i.dateupdated + (nullif(i.timeupdated, '')::DECIMAL(7,5) || ' hours')::interval 
 i.defaultwarehousecode as default_warehouse_code,
 i.udf_hi as hi,
 i.udf_ti as ti,
+i.procurementtype as procurement_type,
 pl.inventoryacctkey as inventory_gl_id,
 pl.costofgoodssoldacctkey as cogs_gl_id,
 pl.salesincomeacctkey as sales_income_gl_id,
