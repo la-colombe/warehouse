@@ -1,0 +1,27 @@
+select
+
+  sku,
+  warehouse_code,
+  bin_location,
+  reorder_method,
+  quantity_on_hand,
+  quantity_on_purchase_order,
+  quantity_on_sales_order,
+  quantity_on_backorder,
+  average_cost,
+  quantity_required_for_work_order,
+  economic_order_quantity,
+  reorder_point_quantity,
+  min_order_quantity,
+  max_order_quantity,
+  quanity_on_work_order,
+  quantity_shipping,
+  total_warehouse_value,
+  cost_calc_quantity,
+  cost_calc_cost,
+  last_physical_count_date,
+  created_at,
+  created_by,
+  updated_at,
+  updated_by 
+from {{ref('im_item_warehouse')}}
