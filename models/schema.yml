@@ -48,6 +48,7 @@ sources:
     - name: gl_detailposting
     - name: gl_mainaccount
     - name: gl_subaccount
+    - name: im_itemcost
     - name: im_itemtransactionhistory
     - name: im_itemwarehouse
     - name: im_pricecode
