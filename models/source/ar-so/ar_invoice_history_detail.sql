@@ -2,7 +2,7 @@ select
 il.*,
 il.quantity * p.weight as total_weight,
 a.full_account_number,
-a.name as gl_account_name
+a.full_account_name as gl_account_name
 
 from (
   SELECT 
