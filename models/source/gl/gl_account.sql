@@ -6,16 +6,16 @@ account as full_account_number,
 
 datecreated as create_date,
 
-accountdesc as name,
-t.accounttypedesc as type,
-g.accountgroupdesc as group,
-c.accountcategorydesc as category,
+accountdesc as full_account_name,
+t.accounttypedesc as account_type_desc,
+g.accountgroupdesc as account_group_desc,
+c.accountcategorydesc as account_category_desc,
 
 
 mainaccountcode as main_account_code,
-a.accountgroup as group_code,
-a.accountcategory as category_code,
-a.accounttype as type_code
+a.accountgroup as account_group_code,
+a.accountcategory as account_category_code,
+a.accounttype as account_type_code
 
 from {{source('sage','gl_account')}} a
 left join {{source('sage','gl_accounttype')}} t on t.accountcategory = a.accountcategory and t.accounttype = a.accounttype
