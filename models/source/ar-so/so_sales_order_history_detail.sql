@@ -3,6 +3,10 @@ d.salesorderno as sales_order_number,
 d.linekey as line_number,
 d.itemcode as sku,
 d.itemcodedesc as item_name,
+  case when d.saleskitlinekey != '' and d.saleskitlinekey = d.linekey then 'Parent'
+    when d.saleskitlinekey != '' and d.saleskitlinekey != d.linekey then 'Child'
+    else 'Non Kit'
+  end as kit_type,
   case d.promisedate
     when '1753-01-01' then null
     else d.promisedate::date
