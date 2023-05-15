@@ -5,6 +5,7 @@ SELECT
   il.sku,
   il.item_name,
   il.item_type,
+  il.kit_type,
   il.quantity,
   il.quantity_ordered,
   il.quantity_backordered,

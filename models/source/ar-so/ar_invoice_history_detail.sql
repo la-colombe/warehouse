@@ -13,6 +13,7 @@ from (
     coalesce(sku, itemcode) as sku,
     itemcodedesc as item_name,
     itemtype as item_type,
+    null as kit_type,
     quantityshipped as quantity,
     quantityordered as quantity_ordered,
     quantitybackordered as quantity_backordered,
@@ -37,6 +38,7 @@ from (
     itemcode as sku,
     itemcodedesc as item_name,
     itemtype as item_type,
+    null as kit_type,
     quantityshipped as quantity,
     quantityordered as quantity_ordered,
     quantitybackordered as quantity_backordered,
@@ -60,6 +62,10 @@ from (
     itemcode as sku,
     itemcodedesc as item_name,
     itemtype as item_type,
+    case when kititem = 'Y' and unitprice > 0 then 'Parent'
+      when kititem = 'N' and unitprice = 0 then 'Child'
+      else 'Non Kit'
+    end as kit_type,
     quantityshipped as quantity,
     quantityordered as quantity_ordered,
     quantitybackordered as quantity_backordered,
