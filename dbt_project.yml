@@ -7,7 +7,6 @@ require-dbt-version: ">=1.0.0"
 
 model-paths: ["models"]   # paths with source code to compile
 analysis-paths: ["analyses"] # path with analysis files which are compiled, but not run
-target-path: "target"      # path for compiled code
 clean-targets: ["target", "dbt_packages"]  # directories removed by the clean task
 test-paths: ["tests"]       # where to store test results
 seed-paths: ["data"]       # load CSVs from this directory with `dbt seed`
