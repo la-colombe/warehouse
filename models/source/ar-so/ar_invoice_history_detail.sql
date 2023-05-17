@@ -62,8 +62,8 @@ from (
     itemcode as sku,
     itemcodedesc as item_name,
     itemtype as item_type,
-    case when kititem = 'Y' and unitprice > 0 then 'Parent'
-      when kititem = 'N' and unitprice = 0 then 'Child'
+    case when explodedkititem = 'Y' then 'Parent'
+      when explodedkititem = 'C' then 'Child'
       else 'Non Kit'
     end as kit_type,
     quantityshipped as quantity,
