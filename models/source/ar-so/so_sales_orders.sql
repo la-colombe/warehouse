@@ -28,6 +28,10 @@ w.warehouse_name as warehouse,
 currentinvoiceno as invoice_number,
 d.itemcode as sku,
 d.itemcodedesc as item_name,
+case when d.saleskitlinekey != '' and d.saleskitlinekey = d.linekey then 'Parent'
+  when d.saleskitlinekey != '' and d.saleskitlinekey != d.linekey then 'Child'
+  else 'Non Kit'
+end as kit_type,
 d.pricelevel as price_level,
 d.quantityordered as quantity_ordered,
 hd.original_quantity as quantity_original,

@@ -19,6 +19,7 @@ select
 	invoice_number,
 	sku,
 	item_name,
+  kit_type,
 	price_level,
 	quantity_ordered,
 	quantity_original,
