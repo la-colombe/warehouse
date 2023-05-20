@@ -20,4 +20,5 @@ a.accounttype as account_type_code
 from {{source('sage','gl_account')}} a
 left join {{source('sage','gl_accounttype')}} t on t.accountcategory = a.accountcategory and t.accounttype = a.accounttype
 left join {{source('sage','gl_accountgroup')}} g on g.accountcategory = a.accountcategory and g.accounttype = a.accounttype and g.accountgroup = a.accountgroup
-left join {{source('sage','gl_accountcategory')}} c on c.accountcategory = a.accountcategory
+--left join {{source('sage','gl_accountcategory')}} c on c.accountcategory = a.accountcategory
+left join dbt_chris.gl_accountcategory c on c.accountcategory = a.accountcategory
