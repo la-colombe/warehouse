@@ -33,6 +33,7 @@ sources:
     - name: ar_openinvoice
     - name: ar_termscode
     - name: ar_transactionpaymenthistory
+    - name: ar_udt_customer_type
     - name: ar_udt_sls_ccr_am
     - name: bm_billdetail
     - name: bm_billheader
