@@ -46,6 +46,14 @@ case udf_customer_type
   when '4' then 'Large Format'
   else udf_customer_type 
 end as segment,
+case 
+  when customerno = '50MID00010001' then 'Contra Expense'
+  when udf_customer_type in ('1','2','3','4','5') then 'Hospitality'
+  when udf_customer_type in ('6','7','8','9','A','B') then 'CPG'
+  when udf_customer_type = 'D' then 'DTC'
+  when udf_customer_type = 'X' then 'Internal'
+  else udf_customer_type
+end as customer_type,
 case customerstatus
   when 'A' then 'Active'
   when 'I' then 'Inactive'

@@ -53,6 +53,7 @@ arc.tax,
 arc.price_tier,
 arc.ar_bucket,
 arc.segment,
+arc.customer_type,
 arc.closed_status,
 arc.business_type,
 
