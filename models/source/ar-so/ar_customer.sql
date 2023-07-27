@@ -39,13 +39,7 @@ primaryshiptocode as primary_ship_to,
 taxschedule as tax,
 pricelevel as price_tier,
 sortfield as ar_bucket,
-case udf_customer_type
-  when '1' then 'Standard Hospitality'
-  when '2' then 'Foodservice'
-  when '3' then 'National'
-  when '4' then 'Large Format'
-  else udf_customer_type 
-end as segment,
+ct.udf_customer_type_name as segment,
 case customerstatus
   when 'A' then 'Active'
   when 'I' then 'Inactive'
@@ -84,3 +78,4 @@ left join {{ref('ar_terms')}} t on c.termscode = t.terms_code
 left join {{ref('ar_account_ownership')}} sr on c.udf_salesperson = sr.owner_id
 left join {{ref('ar_account_ownership')}} ssr on c.udf_cocreator = ssr.owner_id
 left join {{ref('ar_account_ownership')}} am on c.udf_account_manager = am.owner_id
+left join {{ref('ar_udt_customer_type')}} ct on c.udf_customer_type = ct.udf_customer_type_code
