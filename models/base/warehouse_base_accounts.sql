@@ -53,6 +53,7 @@ arc.tax,
 arc.price_tier,
 arc.ar_bucket,
 arc.segment,
+arc.customer_type,
 arc.closed_status,
 arc.business_type,
 
@@ -64,6 +65,7 @@ arc.diversity_disability_owned,
 
 arc.comment,
 arc.contact_code,
+arc.property_id,
 
 
 --saleslogix fields

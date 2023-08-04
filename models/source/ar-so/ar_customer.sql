@@ -39,7 +39,8 @@ primaryshiptocode as primary_ship_to,
 taxschedule as tax,
 pricelevel as price_tier,
 sortfield as ar_bucket,
-ct.udf_customer_type_name as segment,
+ct.segment,
+ct.customer_type,
 case customerstatus
   when 'A' then 'Active'
   when 'I' then 'Inactive'
@@ -70,7 +71,8 @@ nvl(DECODE(udf_ownership_05,
              'N', '0' ),'0')::integer::boolean as diversity_disability_owned,
 
 c.comment,
-c.contactcode as contact_code
+c.contactcode as contact_code,
+c.udf_property_id as property_id
 
 
 from {{source('sage','ar_customer')}} c
