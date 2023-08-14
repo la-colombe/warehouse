@@ -66,4 +66,4 @@ left join {{ref('warehouse_invoice_shipment_aggregates')}} s on i.invoice_number
 left join {{ref('warehouse_base_accounts')}} a on i.customer_code = a.customer_code
 left join {{ref('revised_requested_delivery_date')}} rrdd on i.sales_order_number = rrdd.sales_order_number
 
-where nvl(ia.total_quantity,0) != 0
+where nvl(ia.total_quantity,0) != 0 or nvl(ia.total_extension,0) != 0
