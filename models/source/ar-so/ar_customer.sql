@@ -46,6 +46,7 @@ case customerstatus
   when 'I' then 'Inactive'
 end as closed_status,
 udf_business_category as business_type,
+im.invoice_method,
 
 udf_salesperson as sales_rep_mas_id,
 sr.user_name as sales_rep,
@@ -81,3 +82,4 @@ left join {{ref('ar_account_ownership')}} sr on c.udf_salesperson = sr.owner_id
 left join {{ref('ar_account_ownership')}} ssr on c.udf_cocreator = ssr.owner_id
 left join {{ref('ar_account_ownership')}} am on c.udf_account_manager = am.owner_id
 left join {{ref('ar_udt_customer_type')}} ct on c.udf_customer_type = ct.udf_customer_type_code
+left join {{ref('ar_invoice_method')}} im on c.udf_invoice_method = im.invoice_method_code

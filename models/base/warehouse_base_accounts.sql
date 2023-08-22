@@ -9,6 +9,7 @@ arc.secondary_sales_rep_mas_id as secondary_sales_rep_id,
 arc.min_avg_weekly_core_rev,
 nvl(arc.group_code,ca.group_code) as group_code,
 
+arc.division_code,
 ad.division,
 
 case
@@ -56,6 +57,7 @@ arc.segment,
 arc.customer_type,
 arc.closed_status,
 arc.business_type,
+arc.invoice_method,
 
 arc.diversity_bipoc_owned,
 arc.diversity_woman_owned,
