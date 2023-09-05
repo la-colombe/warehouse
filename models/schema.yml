@@ -30,6 +30,7 @@ sources:
     - name: ar_division
     - name: ar_invoicehistorydetail
     - name: ar_invoicehistoryheader
+    - name: ar_invoicehistorylotserial
     - name: ar_openinvoice
     - name: ar_termscode
     - name: ar_transactionpaymenthistory
@@ -57,6 +58,7 @@ sources:
     - name: im_productline
     - name: im_transactiondetail
     - name: im_transactionheader 
+    - name: im_udt_item_category
     - name: im_warehouse
     - name: po_purchaseorderdetail
     - name: po_purchaseorderheader

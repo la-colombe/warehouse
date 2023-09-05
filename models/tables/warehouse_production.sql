@@ -5,6 +5,7 @@ select
 	p.productionseqno,
 	p.produced_sku,
 	p.revision,
+	p.lot_number,
 	p.warehouse_code,
 	p.disassembly,
 	p.disassembly_type,

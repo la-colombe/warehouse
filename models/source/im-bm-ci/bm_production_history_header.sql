@@ -5,6 +5,7 @@ select
 	p.productionseqno,
 	p.billno as produced_sku,
 	p.revision,
+	p.lotnoorstartingserialno as lot_number,
 	p.parentwarehousecode as warehouse_code,
 	p.disassembly,
 	p.disassemblytype as disassembly_type,
@@ -13,6 +14,7 @@ select
 	p.totalimcost as total_cost,
 	p.datecreated::date as created_at,
 	p.dateupdated::date as updated_at
+
 
 from {{source('sage','BM_Productionhistoryheader')}} p
 

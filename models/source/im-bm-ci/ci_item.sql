@@ -18,6 +18,7 @@ i.dateupdated + (nullif(i.timeupdated, '')::DECIMAL(7,5) || ' hours')::interval 
 i.defaultwarehousecode as default_warehouse_code,
 i.udf_hi as hi,
 i.udf_ti as ti,
+c.udf_category as item_category,
 i.procurementtype as procurement_type,
 pl.inventoryacctkey as inventory_gl_id,
 pl.costofgoodssoldacctkey as cogs_gl_id,
@@ -28,3 +29,4 @@ pl.purchaseacctkey as purchase_gl_id
 
 from {{source('sage','ci_item')}} i
 left join {{source('sage','im_productline')}} pl on  pl.productline = i.productline
+left join {{source('sage','im_udt_item_category')}} c on  c.udf_item_category_code = i.udf_item_category
