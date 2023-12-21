@@ -15,7 +15,7 @@ with transaction_side as (
     join {{ref('ci_item')}} i using (sku)
     join {{ref('gl_account')}} ai on i.inventory_gl_id = ai.id
     join analytics_finance.finance_calendar c on t.transaction_date = c.date
-  where c.fyear = 2023
+  where c.fyear >= 2023
   group by 1, 2, 3, 4, 5, 6, 7
   ),
 
@@ -40,7 +40,7 @@ with transaction_side as (
          join {{ref('gl_account')}} a on g.account_id = a.id
          join analytics_finance.finance_calendar c on g.posting_date = c.date
        where a.account_type_desc = 'Inventory'
-         and c.fyear = 2023
+         and c.fyear >= 2023
        group by 1, 2, 3, 4, 5, 6, 7, 8
 
        )
