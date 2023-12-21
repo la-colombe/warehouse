@@ -1,6 +1,7 @@
 select
 md5('lct' || journalregisterno || sequenceno) as unique_journal_id,
 journalregisterno as journal_entry_number,
+sourcejournal + '-' + journalregisterno as source_code,
 sequenceno as line_item_id,
 accountkey as account_id,
 case postingdate 
