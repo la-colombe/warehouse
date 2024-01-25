@@ -18,3 +18,4 @@ select
   costcalccostcommitted as cost_calc_cost_committed
 
 from {{source('sage','im_itemcost')}}
+where itemcode != ''
