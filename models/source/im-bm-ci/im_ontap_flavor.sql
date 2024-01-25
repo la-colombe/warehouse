@@ -1,3 +1,12 @@
+{{
+  config({
+    "materialized" : "table",
+    "post-hook" : [
+        "grant select on table {{this}} to group non_gl_read_only"
+        ]
+    })
+}}
+
 select
     udf_ontap_flavor_id::int as ontap_flavor_id,
     udf_flavor as flavor,

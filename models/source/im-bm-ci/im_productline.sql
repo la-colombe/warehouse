@@ -1,5 +1,13 @@
-select
+{{
+  config({
+    "materialized" : "table",
+    "post-hook" : [
+        "grant select on table {{this}} to group non_gl_read_only"
+        ]
+    })
+}}
 
+select
     productline as product_line,
     productlinedesc as product_line_desc,
     producttype as product_type,
