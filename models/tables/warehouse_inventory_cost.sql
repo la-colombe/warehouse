@@ -6,8 +6,8 @@ select
 
   create_date,
   case
-    when substring(lot_code,3,6) similar to '([2][0-5])(0[1-9]|1[0-2])(0[0-9]|[1-2][0-9]|3[0-2])'
-    then to_date(substring(lot_code,3,6), 'YYMMDD')
+    when substring(right(lot_code,10),3,6) similar to '([2][0-9])(0[1-9]|1[0-2])(0[0-9]|[1-2][0-9]|3[0-2])'
+    then to_date(substring(right(lot_code,10),3,6), 'YYMMDD')
   end as production_date,
   receipt_date,
   transaction_date,
