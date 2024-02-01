@@ -3,9 +3,11 @@ select
 	i.created_at,
 	i.name, 
 	pl.product_line_desc as product_line,
-
+	i.upc,
+	i.active,
 	i.unit_price, 
 	i.product_type,
+	i.shelf_life_days,
 	i.unit_of_measure, 
 	i.weight,  
 	i.tax_class, 
@@ -30,7 +32,7 @@ select
 	i.msrtd_flavor_id,
 	msrtd_flavor.flavor as msrtd_flavor,
 	msrtd_flavor.roast_level as msrtd_roast_level,
-	msrtd_flavor.seasonal as msrtd_flavor_seasonal,
+	--msrtd_flavor.seasonal as msrtd_flavor_seasonal,
 
 --Multi-Serve RTD Format
 	i.msrtd_format_id,
@@ -38,8 +40,8 @@ select
 	msrtd_format.sub_unit_format_id as msrtd_sub_unit_format_id,
 	msrtd_format.case_eq as msrtd_case_eq,
 	msrtd_format.hi as msrtd_hi,
-	msrtd_format.ti as mstrd_ti,
-	msrtd_format.units_per_pack as mstrd_units_per_pack,
+	msrtd_format.ti as msrtd_ti,
+	msrtd_format.units_per_pack as msrtd_units_per_pack,
 	msrtd_format.stackable as msrtd_stackable,
 	msrtd_format.pallets_per_truck as msrtd_pallets_per_truck,
 
@@ -61,14 +63,14 @@ select
 	ssrtd_flavor.flavor_desc as ssrtd_flavor_desc,
 	ssrtd_flavor.sub_category as ssrtd_sub_category,
 	ssrtd_flavor.brand as ssrtd_brand,
-	ssrtd_flavor.seasonal as ssrtd_flavor,
+	ssrtd_flavor.seasonal as ssrtd_seasonal,
 
 --Single Serve RTD Format	
 	i.ssrtd_format_id,
 	ssrtd_format.format_desc as ssrtd_format_desc,
 	ssrtd_format.case_eq as ssrtd_case_eq,
 	ssrtd_format.hi as ssrtd_hi,
-	ssrtd_format.ti as sstrd_ti,
+	ssrtd_format.ti as ssrtd_ti,
 	ssrtd_format.sub_unit_format_id as ssrtd_sub_unit_format_id,
 	ssrtd_format.units_in_pack as ssrtd_units_per_pack,
 	ssrtd_format.stackable as ssrtd_stackable,

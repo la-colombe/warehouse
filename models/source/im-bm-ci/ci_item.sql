@@ -1,10 +1,13 @@
 select
   i.itemcode as sku,
+  i.udf_upc as upc,
   i.itemcodedesc as name,
   i.productline as productline,
   i.standardunitprice as unit_price,
   i.producttype as product_type,
   i.standardunitofmeasure as unit_of_measure,
+  i.udf_shelf_life_days as shelf_life_days,
+  i.inactiveitem as active,
   case shipweight
     when '' THEN null
     else shipweight::decimal(16,10)
