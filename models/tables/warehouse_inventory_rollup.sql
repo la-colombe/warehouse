@@ -6,14 +6,14 @@ with transaction_side as (
       c.fyear as transactionyear,
       c.fperiod as transactionperiod,
       -- i.productline, removed product line grouping for aura on 10/9
-      i.inventory_gl_id as current_inventory_account_key,
+      pl.inventory_gl_id as current_inventory_account_key,
       ai.full_account_number as current_inventory_account,
       ai.full_account_name as current_inventory_account_desc,
       sum(t.extended_cost) as total_extension_cost
 
   from {{ref('im_item_transactions')}} t
-    join {{ref('ci_item')}} i using (sku)
-    join {{ref('gl_account')}} ai on i.inventory_gl_id = ai.id
+    join {{ref('warehouse_products')}} pl using (sku)
+    join {{ref('gl_account')}} ai on pl.inventory_gl_id = ai.id
     join analytics_finance.finance_calendar c on t.transaction_date = c.date
   where c.fyear >= 2023
   group by 1, 2, 3, 4, 5, 6, 7
