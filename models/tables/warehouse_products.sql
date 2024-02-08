@@ -33,7 +33,7 @@ select
 	i.msrtd_flavor_id,
 	msrtd_flavor.flavor as msrtd_flavor,
 	msrtd_flavor.roast_level as msrtd_roast_level,
-	--msrtd_flavor.seasonal as msrtd_flavor_seasonal,
+	msrtd_flavor.seasonal as msrtd_flavor_seasonal,
 
 --Multi-Serve RTD Format
 	i.msrtd_format_id,
