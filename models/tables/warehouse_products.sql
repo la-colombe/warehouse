@@ -21,6 +21,7 @@ select
 	i.procurement_type,
 
 --GL Account Numbers
+	pl.inventory_gl_id,
 	gli.full_account_number as inventory_gl_account_number,
 	glc.full_account_number as cogs_gl_account_number,
 	gls.full_account_number as sales_income_gl_account_number,
