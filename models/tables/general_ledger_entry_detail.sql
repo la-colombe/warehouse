@@ -12,6 +12,7 @@ d.debit,
 d.comment as detail_comment,
 d.source_journal,
 d.source_module,
+d.source_code,
 
 a.full_account_number,
 a.full_account_name,
