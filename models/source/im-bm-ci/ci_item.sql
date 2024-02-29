@@ -21,7 +21,6 @@ select
   i.defaultwarehousecode as default_warehouse_code,
   i.udf_hi as hi,
   i.udf_ti as ti,
-  c.udf_category as item_category,
   i.udf_item_category as item_category_code,
   i.procurementtype as procurement_type,
   nullif(i.udf_msrtd_flavor, '')::int as msrtd_flavor_id,
@@ -33,4 +32,3 @@ select
   nullif(i.udf_roasted_flavor, '')::int as roasted_flavor_id,
   nullif(i.udf_roasted_format, '')::int as roasted_format_id
 from {{source('sage','ci_item')}} i
-left join {{source('sage','im_udt_item_category')}} c on  c.udf_item_category_code = i.udf_item_category
