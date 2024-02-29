@@ -59,6 +59,7 @@ sources:
     - name: im_transactiondetail
     - name: im_transactionheader 
     - name: im_udt_item_category
+    - name: im_udt_product_type
     - name: im_udt_msrtd_flavor
     - name: im_udt_msrtd_format
     - name: im_udt_ontap_flavor

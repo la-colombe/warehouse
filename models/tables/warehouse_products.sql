@@ -18,6 +18,9 @@ select
 	i.hi,
 	i.ti,
 	i.item_category,
+	c.item_category_code,
+	pl.product_type_code,
+	im.product_type_desc,
 	i.procurement_type,
 
 --GL Account Numbers
@@ -96,6 +99,8 @@ select
 	roasted_format.units_in_pack as roasted_units_per_pack
 from {{ref('ci_item')}} i
 left join {{ref('im_productline')}} pl on  pl.product_line = i.productline
+left join {{ref('im_udt_product_type')}} im on  im.product_type_code = pl.product_type_code
+left join {{ref('im_udt_item_category')}} c on  c.item_category_code = i.item_category_code
 left join {{ref('gl_account')}} gli on pl.inventory_gl_id = gli.id
 left join {{ref('gl_account')}} glc on pl.cogs_gl_id = glc.id
 left join {{ref('gl_account')}} gls on pl.sales_income_gl_id = gls.id

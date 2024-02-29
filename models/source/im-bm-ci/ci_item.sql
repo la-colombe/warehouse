@@ -22,6 +22,7 @@ select
   i.udf_hi as hi,
   i.udf_ti as ti,
   c.udf_category as item_category,
+  i.udf_item_category as item_category_code,
   i.procurementtype as procurement_type,
   nullif(i.udf_msrtd_flavor, '')::int as msrtd_flavor_id,
   nullif(i.udf_msrtd_format, '')::int as msrtd_format_id,
