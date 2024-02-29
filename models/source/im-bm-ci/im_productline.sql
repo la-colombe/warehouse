@@ -2,6 +2,7 @@ select
     productline as product_line,
     productlinedesc as product_line_desc,
     producttype as product_type,
+    udf_product_type as product_type_code,
     inventoryacctkey as inventory_gl_id,
     costofgoodssoldacctkey as cogs_gl_id,
     salesincomeacctkey as sales_income_gl_id,
