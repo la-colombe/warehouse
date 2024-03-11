@@ -1,6 +1,7 @@
 select 
 md5(i.invoice_number || i.header_sequence_number) as unique_key,
 i.division,
+i.source_code,
 i.invoice_number,
 i.header_sequence_number,
 i.invoice_date, 

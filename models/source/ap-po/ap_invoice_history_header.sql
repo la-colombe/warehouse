@@ -1,6 +1,7 @@
 select
 i.apdivisionno as division,
 headerseqno as header_sequence_number,
+sourcejournal + '-' + sourcejournalno as source_code,
 invoiceno as invoice_number, 
 case invoicedate 
 	when '1753-01-01' then null
