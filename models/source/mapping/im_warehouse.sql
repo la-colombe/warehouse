@@ -14,5 +14,6 @@ case warehousedesc
 	else warehousedesc
 end as warehouse_name,
 warehousestate as warehouse_state,
-udf_palletspots as pallet_spots
+udf_palletspots as pallet_spots,
+udf_warehouse_type as warehouse_type
 from {{source('sage','im_warehouse')}} w

@@ -14,8 +14,9 @@ with transaction_side as (
   from {{ref('im_item_transactions')}} t
     join {{ref('warehouse_products')}} p using (sku)
     join {{ref('gl_account')}} ai on p.inventory_gl_id = ai.id
+    join {{ref('im_warehouse')}} w using (warehouse_code)
     join analytics_finance.finance_calendar c on t.transaction_date = c.date
-  where c.fyear >= 2023
+  where c.fyear >= 2023 and w.warehouse_type != 'SYSTEM'
   group by 1, 2, 3, 4, 5, 6, 7
   ),
 
