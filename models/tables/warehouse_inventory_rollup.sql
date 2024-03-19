@@ -1,3 +1,12 @@
+{{
+  config({
+    "materialized" : "table",
+    "post-hook" : [
+      "grant select on table {{this}} to group non_gl_read_only"
+      ]
+    })
+}}
+
 with transaction_side as (
 
   select
@@ -16,7 +25,7 @@ with transaction_side as (
     join {{ref('gl_account')}} ai on p.inventory_gl_id = ai.id
     join {{ref('im_warehouse')}} w using (warehouse_code)
     join analytics_finance.finance_calendar c on t.transaction_date = c.date
-  where c.fyear >= 2023 and w.warehouse_type != 'SYSTEM'
+  where c.fyear >= 2023 and (w.warehouse_type != 'SYSTEM' or w.warehouse_type is null)
   group by 1, 2, 3, 4, 5, 6, 7
   ),
 
