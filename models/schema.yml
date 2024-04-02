@@ -44,6 +44,7 @@ sources:
     - name: ci_item
     - name: ec_itemcrossreference
     - name: ec_customertradingpartner
+    - name: ec_upccode
     - name: gl_account
     - name: gl_accountcategory
     - name: gl_accountgroup

@@ -12,7 +12,7 @@ select
 	i.created_at,
 	i.name, 
 	pl.product_line_desc as product_line,
-	i.upc,
+	e.upc,
 	i.active,
 	i.unit_price, 
 	i.product_type,
@@ -105,6 +105,7 @@ select
 	roasted_format.case_eq as roasted_case_eq,
 	roasted_format.units_in_pack as roasted_units_per_pack
 from {{ref('ci_item')}} i
+left join {{ref('ec_upc')}} e on i.sku = e.sku
 left join {{ref('im_productline')}} pl on  pl.product_line = i.productline
 left join {{ref('im_product_type')}} im on  im.product_type_code = pl.product_type_code
 left join {{ref('im_item_category')}} c on  c.item_category_code = i.item_category_code
