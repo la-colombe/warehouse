@@ -23,6 +23,8 @@ select
   d.quantityordered as quantity_ordered,
   d.quantityinvoiced as quantity_invoiced,
   d.quantityreceived as quantity_received,
+  d.masteroriginalqty as master_quantity_original,
+  d.masterqtybalance as master_quantity_balance,
   d.originalunitcost as original_unit_cost,
   d.itemcodedesc as item_name,
   d.unitcost as invoiced_unit_cost,
