@@ -1,6 +1,8 @@
 select 
 h.billno as produced_sku, 
 h.revision as revision,
+h.currentbillrevision as current_revision,
+h.billtype as bill_type,
 case
 	when h.udf_bom_effective_date is null then '2016-01-01'
 	when h.udf_bom_effective_date::date = '1753-01-01' then '2016-01-01'
