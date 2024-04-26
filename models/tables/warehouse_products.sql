@@ -1,13 +1,3 @@
-{{
-  config({
-    "materialized" : "table",
-    "unique_key" : "sku",
-    "post-hook" : [
-    	"grant select on table {{this}} to group non_gl_read_only"
-    	]
-    })
-}}
-
 select
 	i.sku, 
 	i.created_at,
