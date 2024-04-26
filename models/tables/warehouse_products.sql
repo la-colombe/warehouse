@@ -1,3 +1,13 @@
+{{
+  config({
+    "materialized" : "table",
+    "unique_key" : "sku",
+    "post-hook" : [
+    	"grant select on table {{this}} to group non_gl_read_only"
+    	]
+    })
+}}
+
 select
 	i.sku, 
 	i.created_at,
@@ -70,6 +80,7 @@ select
 --Single Serve RTD Format	
 	i.ssrtd_format_id,
 	ssrtd_format.format_desc as ssrtd_format_desc,
+	ssrtd_format.liquid_ounces as ssrtd_liquid_ounces,
 	ssrtd_format.case_eq as ssrtd_case_eq,
 	ssrtd_format.hi as ssrtd_hi,
 	ssrtd_format.ti as ssrtd_ti,
