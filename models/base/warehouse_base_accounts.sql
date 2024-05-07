@@ -57,6 +57,7 @@ arc.segment,
 arc.customer_type,
 arc.closed_status,
 arc.business_type,
+arc.invoice_method_code,
 arc.invoice_method,
 
 arc.diversity_bipoc_owned,

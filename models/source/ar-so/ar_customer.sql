@@ -46,6 +46,7 @@ case customerstatus
   when 'I' then 'Inactive'
 end as closed_status,
 udf_business_category as business_type,
+c.udf_invoice_method as invoice_method_code,
 im.invoice_method,
 
 udf_salesperson as sales_rep_mas_id,
