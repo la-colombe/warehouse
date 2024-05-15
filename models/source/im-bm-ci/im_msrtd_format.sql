@@ -3,7 +3,7 @@ select
     udf_format_desc as format_desc,
     nullif(udf_sub_unit_format, '')::int as sub_unit_format_id,
     nullif(udf_case_eq, '')::float as case_eq,
-    nulliff(udf_liquid_oz, '')::float as liquid_ounces,
+    nullif(udf_liquid_oz, '')::float as liquid_ounces,
     nullif(udf_hi, '')::int as hi,
     nullif(udf_ti, '')::int as ti,
     nullif(udf_upp, '')::int as units_per_pack,
