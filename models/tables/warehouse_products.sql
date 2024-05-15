@@ -39,6 +39,7 @@ select
 --Multi-Serve RTD Format
 	i.msrtd_format_id,
 	msrtd_format.format_desc as msrtd_format_desc,
+	msrtd_format.liquid_ounces as msrtd_liquid_ounces,
 	msrtd_format.sub_unit_format_id as msrtd_sub_unit_format_id,
 	msrtd_format.case_eq as msrtd_case_eq,
 	msrtd_format.hi as msrtd_hi,
