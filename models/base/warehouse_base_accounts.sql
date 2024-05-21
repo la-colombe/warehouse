@@ -10,7 +10,9 @@ arc.min_avg_weekly_core_rev,
 nvl(arc.group_code,ca.group_code) as group_code,
 
 arc.division_code,
+arc.division_override,
 ad.division,
+arc.cost_center_override,
 
 case
     when nvl(arc.sales_rep, ca.sales_rep_name) like '%,%' then split_part(nvl(arc.sales_rep, ca.sales_rep_name),', ',1)
