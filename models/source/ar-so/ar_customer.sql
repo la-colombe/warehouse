@@ -2,6 +2,8 @@ select
 
 customerno as customer_code,
 ardivisionno as division_code,
+c.udf_division_override as division_override,
+c.udf_cost_center_override as cost_center_override,
 customername as name,
 nullif(customertype,'') as group_code,
 agingcategory1 as overdue_balance_30_day,
