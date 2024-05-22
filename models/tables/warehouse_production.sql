@@ -11,7 +11,7 @@ select
 	p.disassembly_type,
 	case p.disassembly when 'Y' then -p.quantity else p.quantity end as quantity,
 	p.unit_cost,
-	p.total_cost,
+	case p.disassembly when 'Y' then -p.total_cost else p.total_cost end as total_cost,
 	p.created_at,
 	p.updated_at
 
