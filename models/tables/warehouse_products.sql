@@ -113,7 +113,7 @@ left join {{ref('gl_account')}} glp on pl.purchase_gl_id = glp.id
 left join {{ref('im_msrtd_flavor')}} msrtd_flavor using (msrtd_flavor_id)
 left join {{ref('im_msrtd_format')}} msrtd_format using (msrtd_format_id)
 left join {{ref('im_ssrtd_flavor')}} ssrtd_flavor using (ssrtd_flavor_id)
-left join {{ref('im_ssrtd_format_base_total_units_per_pack')}} ssrtd_format using  (ssrtd_format_id)
+left join {{ref('warehouse_base_ssrtd_format')}} ssrtd_format using  (ssrtd_format_id)
 left join {{ref('im_ontap_flavor')}} ontap_flavor using  (ontap_flavor_id)
 left join {{ref('im_ontap_format')}} ontap_format using (ontap_format_id)
 left join {{ref('im_roasted_flavor')}} roasted_flavor using  (roasted_flavor_id)
