@@ -2,7 +2,9 @@ select
 	
 	d.productionno,
 	d.productionseqno,
+	p.revision,
 	d.item_type,
+	p.produced_sku,
 	d.component_sku,
 	d.component_name,
 	d.warehouse_code,
