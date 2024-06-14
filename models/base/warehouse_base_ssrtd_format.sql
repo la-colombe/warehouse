@@ -8,7 +8,7 @@ select
     f1.sub_unit_format_id,
     f1.units_in_pack,
     coalesce(f2.units_in_pack, 1) as sub_unit_units_in_pack,
-    f1.units_in_pack * f1.sub_unit_units_in_pack as total_units_in_pack,
+    f1.units_in_pack * sub_unit_units_in_pack as total_units_in_pack,
     f1.stackable,
     f1.pallets_truck
 from
